@@ -1,0 +1,12 @@
+﻿@model Dictionary<string, string>
+
+@foreach(var item in Model)
+{
+    if(item.Key != null)
+    {
+         <div class="imageitem">
+            <img src="@item.Value" alt="img" />
+            <div class="imageitem-name">@item.Key</div>
+        </div>
+    }
+ }

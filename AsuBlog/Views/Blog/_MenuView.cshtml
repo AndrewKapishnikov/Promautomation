@@ -1,0 +1,25 @@
+﻿@model List<Store.DAL.Entities.Category>
+
+<ul class="ulmenu">    @*nav navbar-nav*@
+@foreach (var item in Model.Where(p => p.ParentId == null))
+{
+    <li class="limenu">
+        <a href="/catalog/@item.UrlSlug" class="limenu_a">@item.Name</a>
+        <div class="limenu_div">@item.Name</div>
+        @{
+            var childCategorys = Model.Where(p => p.ParentId == item.Id).ToList();
+        }
+        @if (childCategorys != null)
+        {
+            <ul class="submenu">
+                @foreach (var i in childCategorys)
+                {
+                    <li class="lisubmenu">
+                        @Html.ActionLink(i.Name, "catalog", "Blog", new { topic = item.UrlSlug, subtopic = i.UrlSlug }, new { @class = "" })
+                    </li>
+                }
+            </ul>
+        }
+    </li>
+}
+</ul>

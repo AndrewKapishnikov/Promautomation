@@ -1,0 +1,57 @@
+﻿body {
+    font-family: "lucida sans", arial, sans-serif;
+    font-size: 9pt;
+    background: rgba(153, 218, 255, 0.30);
+}
+
+#login-div form
+{ width: 500px; 
+  margin: 50px auto; }
+
+#login-div form legend
+{ font-size: 12pt; }
+
+#login-div form label
+{ display: inline-block; width: 100px; }
+
+span.field-validation-error
+{ color: red; }
+
+#login-div form input[type="submit"]
+{ margin-left: 200px; }
+
+.validation-summary-errors
+{ text-align: center; color: red; }
+
+div#tab-posts {
+  overflow: scroll;
+}
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+    font-size: 1.2em;
+}
+.ui-jqdialog-content .CaptionTD {
+
+    font-size: 1.2em;
+}
+.leftcheck{
+    float:left;
+}
+.editor-field{
+    margin-bottom:12px;
+}
+input[type='submit']
+{
+    font-size:1.4em;
+}
+.imageitem{
+    display:inline-block;
+    margin:5px 10px;
+}
+.imageitem img {
+  width:150px;
+  height:auto;
+}
+.imageitem-name{
+   text-align:center;
+
+}

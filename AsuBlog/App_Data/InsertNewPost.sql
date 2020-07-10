@@ -1,0 +1,26 @@
+﻿SET IDENTITY_INSERT [dbo].[Posts] ON
+INSERT INTO [dbo].[Posts]([Id], [Title],
+						[ShortDescription],
+						[Description], 
+						[Meta],
+						[UrlSlug], 
+						[Published],
+						[PostedOn], 
+						[Modified], 
+						[Topic], 
+						[Subtopic],
+						[Theme], 
+						[Subtheme])
+VALUES (23, N'Asutp plc siemens s7-300 article7', 
+		N'<p> Asutp plc article siemens s7-300_7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam quasi laudantium maiores qui saepe nostrum voluptatibus dignissimos sit quo cupiditate facere, fugiat, distinctio doloremque explicabo quidem ab. Voluptate itaque, voluptates.</p>',
+		N'<p> Asutp plc article siemens s7-300_7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam ullam ipsam optio quos, natus consequuntur esse non ex itaque sapiente nobis asperiores odio, in, obcaecati labore magnam, animi ut sed qui quisquam assumenda neque dolorem recusandae iure. Tempora cum saepe, dignissimos eligendi distinctio amet ratione sit, similique ut illum, laboriosam quos quae rerum eius sunt quod. Quam, laudantium non incidunt, placeat totam modi odio sapiente labore pariatur. Itaque impedit unde harum eaque sit repudiandae optio eius labore provident tempore! Dolore nobis vitae quam laboriosam dolores, ipsum quis maiores ullam in quisquam facere mollitia, earum incidunt, perferendis atque officia ducimus laborum aspernatur eaque optio dolor beatae doloremque magni! Dolorum culpa maiores, molestias quibusdam porro qui non earum repellat iusto nesciunt fuga officiis! Voluptatibus, tempora et quas molestiae in dignissimos reiciendis accusantium autem molestias nostrum nihil, consequatur fuga. Voluptates velit nam earum delectus facere, natus ipsum voluptas vero provident dolores esse ipsa, iusto eos adipisci dolore ab pariatur deleniti fuga incidunt ad! Corporis cupiditate quis quo porro provident culpa ut quidem, vel alias, aut accusamus ullam labore earum quia sequi. Animi, sunt!</p>',
+		N'lorem siemens s7-300_7',
+		N'asutp_plc_article_siemens_s7-300_7',
+		1,
+		N'2020-06-27 00:00:07',
+		NULL,
+		N'АСУ ТП',
+		N'ПЛК',
+		N'Siemens',
+		N'S7-300')
+SET IDENTITY_INSERT [dbo].[Posts] OFF

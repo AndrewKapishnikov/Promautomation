@@ -1,0 +1,38 @@
+﻿<input type="checkbox" id="buttonbox">
+<label for="buttonbox" id="chatbutton" class="chatbutton"><img src="~/Images/chat2.png" alt="sometext" /></label>
+<div class="wrapperchat">
+    <div class="modalchat">
+        <label for="buttonbox" class="closechat"></label>
+        <div class="mainchat">
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <div class="mainchat-inner">
+                    <div class="mainchat-inner-name">Чат</div>
+                    <a class="btn btn-large btn-info" href="/account">Вxoд</a>
+                    <img src="~/Images/chatimage.png" alt="Alternate Text" />
+                </div>
+            }
+            else
+            {
+                <div id="loginBlock">
+                    <input id="txtUserName" value="@User.Identity.Name" type="hidden" />
+                    @*<input id="btnLogin" type="button" value="Войти" />*@
+                </div>
+                <div id="chatBody" >
+                    <div id="header"></div>
+                    <div id="chatusers">
+                        <p><b>Другие пользователи Online:</b></p>
+                    </div>
+                    <div id="chatroom" class="roomchat">
+                    </div>
+                    <div id="inputForm">
+                        <input type="text" id="message" />
+                        <input type="button" id="sendmessage" value="Отправить" />
+                    </div>
+                </div>
+                <input id="hdId" type="hidden" />
+                <input id="username" type="hidden" />
+            }
+        </div>
+    </div>
+</div>

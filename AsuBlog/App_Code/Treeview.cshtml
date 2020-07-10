@@ -1,0 +1,50 @@
+﻿@using AsuBlog
+
+
+@helper GetTreeView(List<Store.DAL.Entities.Category> siteMenu, System.Web.Mvc.HtmlHelper helpHtml, int? parentID, string url)
+{
+    foreach (var i in siteMenu.Where(a => a.ParentId.Equals(parentID) && a.BoolArticle == false))
+    {
+        <li>
+            @{
+                var submenu = siteMenu.Where(a => a.ParentId.Equals(i.Id)).Count();
+                string subUrl = string.Concat(url, i.UrlSlug);
+            }
+             @if (i.ParentId == null)
+             {
+                 <span class="expand collapsibleTree">&nbsp;</span>
+             }
+             else
+             {
+                 <span class="collapseTree collapsibleTree" >&nbsp;</span>
+             }
+             <span style="">
+                 <a href="@subUrl">@i.Name</a>
+             </span>
+            @if (submenu > 0)
+            {
+                <ul>
+                    @Treeview.GetTreeView(siteMenu, helpHtml, i.Id, string.Concat(subUrl, "/"))
+                </ul>
+            }
+        </li>
+    }
+   foreach (var i in siteMenu.Where(a => a.ParentId.Equals(parentID) && a.BoolArticle == true))
+   {
+       var post = i.Posts.FirstOrDefault();
+       <li>
+         <span class="docfile">&nbsp;</span>
+         <span style="">
+             @if (post != null && post.Published)
+             {
+               @helpHtml.PostLink(i.Posts.FirstOrDefault())
+             }
+             else
+             {
+                 <a href="#">Готовится публикация...</a>
+             }
+         </span>
+      </li>
+    }
+}
+

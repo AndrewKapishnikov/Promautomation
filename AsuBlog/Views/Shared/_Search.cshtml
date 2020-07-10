@@ -1,0 +1,6 @@
+﻿
+@using (Html.BeginForm("search", "Blog", FormMethod.Get, new { @class = "form-inline", id = "search-form" }))
+{
+    @Html.TextBox("s", null, new { @class = "form-control searchform", type = "search", placeholder = "Поиск" })
+    <button class="form-control buttonsearch" type="submit"> Поиск</button>
+}

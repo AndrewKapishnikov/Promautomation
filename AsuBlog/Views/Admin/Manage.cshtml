@@ -1,0 +1,57 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Admin Panel</title>
+    @Styles.Render("~/Content/themes/simple/jqueryuicustom/css/sunny/bundle", "~/Scripts/jqgrid/css/bundle", "~/Content/themes/simple/admin")
+    @Scripts.Render("~/jqueryB", "~/jqueryui", "~/Scripts/tiny_mce/js", "~/manage/js")
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.js")
+</head>
+<body>
+    <div style="text-align:right;font-size:15px; margin-bottom:5px;">
+        @Html.ActionLink("Выход", "Index", "Blog")
+    </div>
+    <h2>Управление таблицами Categories, Posts, Tags, Users, Chat</h2>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tab-posts">Posts</a></li>
+            <li><a href="#tab-cats">Categories</a></li>
+            <li><a href="#tab-tags">Tags</a></li>
+            <li><a href="#tab-users">Users</a></li>
+            <li><a href="#tab-chats">Chat</a></li>
+            <li><a href="#tab-images">Images for Posts</a></li>
+        </ul>
+        <div id="tab-posts" class="tab">
+            <table id="tablePosts" class="grid"></table>
+            <div id="pagerPosts" class="pager">
+            </div>
+        </div>
+        <div id="tab-cats" class="tab">
+            <table id="tableCats" class="grid"></table>
+            <div id="pagerCats" class="pager">
+            </div>
+        </div>
+        <div id="tab-tags" class="tab">
+            <table id="tableTags" class="grid"></table>
+            <div id="pagerTags" class="pager">
+            </div>
+        </div>
+        <div id="tab-users" class="tab">
+            <table id="tableUsers" class="grid"></table>
+            <div id="pagerUsers" class="pager">
+            </div>
+        </div>
+        <div id="tab-chats" class="tab">
+            <table id="tableChats" class="grid"></table>
+            <div id="pagerChats" class="pager">
+            </div>
+        </div>
+        <div id="tab-images" class="tab">
+            @Html.Action("GiveImageForPost", "Admin")
+        </div>
+    </div>
+</body>
+</html>

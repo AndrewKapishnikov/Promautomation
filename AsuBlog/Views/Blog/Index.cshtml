@@ -1,0 +1,85 @@
+﻿@model IList<Store.DAL.Entities.Post>
+@{
+    ViewBag.Title = "Промавтоматизация";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+    var postsUp = Model.Take(4).ToList();
+    var postsDown = Model.Skip(4).Take(5).ToList();
+}
+<div id="myCarousel" class="carousel slide">
+    <div class="carousel-inner">
+        <div class="active item">
+            <img src="~/Images/1.jpg" alt="">
+            <div class="container">
+                <div class="carousel-caption">
+                    <div class="textdiv">
+                        <p class="lead">
+                            Сайт содержит статьи о автоматизации техпроцессов, заметки о системах управления, автоматике,
+                            механике и электронике ...
+                        </p>
+                        <a class="btn btn-large btn-info pull-right" href="/catalog">Каталог</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/Images/2.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="~/Images/4.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="~/Images/3.jpg" alt="">
+        </div>
+    </div>
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev"><img src="~/Images/left.png" class="leftarrow" alt="Alternate Text" /></a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next"><img src="~/Images/right.png" class="rightarrow" alt="Alternate Text" /></a>
+</div>
+<div class="textdivundercatalog">
+    <p class="lead">
+        " Сайт содержит статьи о автоматизации техпроцессов, заметки о системах управления, автоматике,
+        механике и электронике... "
+    </p>
+    <a class="btn btn-large btn-info pull-right" href="/catalog">Каталог</a>
+</div>
+<div class="imagecontainer">
+    <img src="~/Images/pumps.jpg" alt="Alternate Text" />
+</div>
+<div class="containercard">
+        @for (int i = 0; i < postsUp.Count; i++)
+        {
+            <div class="upitem-@(i + 1)">
+                <div class="card">
+                    <a href="@Url.Action("Post", "Blog",new { year = postsUp[i].PostedOn.Year, month = postsUp[i].PostedOn.Month, title = postsUp[i].UrlSlug })">
+                        <div class="card-title">@postsUp[i].Title</div>
+                    </a>
+                    <a href="@Url.Action("Post", "Blog",new { year = postsUp[i].PostedOn.Year, month = postsUp[i].PostedOn.Month, title = postsUp[i].UrlSlug })">
+                        <div class="scale">
+                            <img class="card-img" src="@postsUp[i].ImagePath" alt="Picture">
+                        </div>
+                    </a>
+                    <div class="card-body">
+                        <div class="card-text">@Html.Raw(postsUp[i].ShortDescription)</div>
+                        <a href="@Url.Action("Post", "Blog",new { year = postsUp[i].PostedOn.Year, month = postsUp[i].PostedOn.Month, title = postsUp[i].UrlSlug })" class="btn btn-primary">Прочитать</a>
+                    </div>
+                </div>
+            </div>
+        }
+        @for (int i = 0; i < postsDown.Count; i++)
+        {
+            <div class="downitem-@(i + 1)">
+                <div class="card">
+                    <a href="@Url.Action("Post", "Blog",new { year = postsDown[i].PostedOn.Year, month = postsDown[i].PostedOn.Month, title = postsDown[i].UrlSlug })">
+                        <div class="scaledown">
+                            <img class="card-imgdown" src="@postsDown[i].ImagePath" alt="Picture">
+                        </div>
+                    </a>
+                    <a href="@Url.Action("Post", "Blog",new { year = postsDown[i].PostedOn.Year, month = postsDown[i].PostedOn.Month, title = postsDown[i].UrlSlug })">
+                        <div class="card-name">@postsDown[i].Title</div>
+                    </a>
+                    <div class="card-body">
+                        <div class="card-text">@Html.Raw(postsDown[i].ShortDescription)</div>
+                    </div>
+                </div>
+            </div>
+        }
+  </div>

@@ -1,0 +1,42 @@
+﻿@model AsuBlog.Models.WidgetForSidePanel
+<div class="rssfeed">
+    <div class="imagerss">
+        <img class="solialicon" src="/Images/rss.png" />
+    </div>
+    <div class="feeddiv">
+        <a href="http://feeds.feedburner.com/Promautomation" title="Подписаться на мой блог">Подписаться на блог</a>
+    </div>
+</div>
+<div class="titlepartpost">
+    Новые статьи
+</div>
+<div class="lastposts">
+    @foreach (var item in Model.LastPosts)
+    {
+        <div class="lastposts-inlineblock">
+            <div class="lastposts-item">
+                <div class="lastposts-item-image">
+                    <img src="~/Images/doc_icon2.png" alt="Alternate Text" />
+                </div>
+                <div class="lastposts-item-name">
+                    @Html.PostLink(item)
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="titleparttag">
+    Теги
+</div>
+<div class="tagsclass">
+      <canvas width="310" height="300" id="myCanvas">
+         <ul>
+             @foreach (var item in Model.Tags)
+             {
+                 <li>
+                     @Html.TagLink(item)
+                 </li>
+             }
+         </ul>
+      </canvas>
+</div>

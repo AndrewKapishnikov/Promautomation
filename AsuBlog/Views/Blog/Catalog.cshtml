@@ -1,0 +1,103 @@
+﻿@model PagedList.IPagedList<Store.DAL.Entities.Post>
+@{
+    ViewBag.Title = "Каталог";
+}
+<div class="breadcrumbshelper">
+    @MyHelpers.BreadCrumbsHelper(this, ViewBag.RouteCategory)
+</div>
+@if (ViewBag.RouteCategory.SubthemeCategory == null)
+{
+    <div class="subcatalog">
+        @Html.Action("SubCatalog", "Blog", new { topicCategory = ViewBag.RouteCategory.TopicCategory, subtopicCategory = ViewBag.RouteCategory.SubtopicCategory,
+                                        themeCategory = ViewBag.RouteCategory.ThemeCategory})
+    </div>
+}
+@if (Model.PageNumber > Model.PageCount && Model.PageNumber > 1)
+{
+    <h3>
+        В этом каталоге страницы с таким номером не существует!
+    </h3>
+}
+else
+{
+    if (Model.Count > 0)
+    {
+        <div class="catalogname">
+            @if (ViewBag.RouteCategory.SubthemeCategory != null && ViewBag.RouteCategory.ThemeCategory != null && ViewBag.RouteCategory.SubtopicCategory != null && ViewBag.RouteCategory.TopicCategory != null)
+            {
+                <h2>@ViewBag.RouteCategory.SubthemeCategory.Name</h2>
+            }
+            else if (ViewBag.RouteCategory.ThemeCategory != null && ViewBag.RouteCategory.SubtopicCategory != null && ViewBag.RouteCategory.TopicCategory != null)
+            {
+                <h2>@ViewBag.RouteCategory.ThemeCategory.Name</h2>
+            }
+            else if (ViewBag.RouteCategory.SubtopicCategory != null && ViewBag.RouteCategory.TopicCategory != null)
+            {
+                <h2>@ViewBag.RouteCategory.SubtopicCategory.Name</h2>
+            }
+            else if (ViewBag.RouteCategory.TopicCategory != null)
+            {
+                <h2>@ViewBag.RouteCategory.TopicCategory.Name</h2>
+            }
+            else
+            {
+                <h2>Каталог</h2>
+            }
+        </div>
+        foreach (var item in Model)
+        {
+            <div class="contitem">
+                <div class="contitem-image">
+                    <div class="contitem-image-inner">
+                        <a href="@Url.Action("Post", "Blog",new { year = item.PostedOn.Year, month = item.PostedOn.Month, title = item.UrlSlug })">
+                            <div class="scale">
+                                <img src="@item.ImagePath" alt="Здесь должна быть картинка" />
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="contitem-description">
+                    <div class="contitem-description-header">
+                        <div class="namepostdiv">
+                            <h3>
+                                @Html.PostLink(item)
+                            </h3>
+                        </div>
+                        <div class="numbercomments">
+                            <a href="@string.Format("https://{0}.com{1}#disqus_thread", System.Configuration.ConfigurationManager.AppSettings["Domain"], item.Href(Url))"></a>
+                        </div>
+                        <div class="numbervisits">
+                            @if (item.NumberVisits % 10 == 1)
+                            {<span>@item.NumberVisits просмотр</span> }
+                            else if ((item.NumberVisits % 10 > 1 && item.NumberVisits % 10 <= 4) && (item.NumberVisits!=11 && item.NumberVisits != 12 && item.NumberVisits != 13 && item.NumberVisits != 14))
+                            {<span>@item.NumberVisits просмотра</span>}
+                            else
+                            {<span>@item.NumberVisits просмотров</span>}
+                        </div>
+                        <div class="postedtime">
+                            @item.PostedOn.ToConfigLocalTime()
+                        </div>
+                    </div>
+                    <div style="clear:both;width:1px;"></div>
+                    <div class="contitem-description-text">
+                        @Html.Raw(item.ShortDescription)
+                    </div>
+                </div>
+            </div>
+            <hr />
+        }
+        if (Model.PageCount > 1)
+        {
+            @MyHelpers.PaginationHelperForCatalog(this, Model, ViewBag.RouteCategory)
+        }
+    }
+    else
+    {
+        <div class="errornoarticles">
+            <h3> Выбранный раздел пока не содержит ни одной статьи... </h3>
+        </div>
+    }
+}
+@section scripts {
+        <script id="dsq-count-scr" src="//promautomation-somee-com.disqus.com/count.js" async></script>
+}

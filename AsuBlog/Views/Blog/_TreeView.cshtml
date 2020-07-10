@@ -1,0 +1,9 @@
+﻿@model List<Store.DAL.Entities.Category>
+    <div class="treeview">
+        @if (Model != null && Model.Count() > 0)
+        {
+            <ul>
+                @Treeview.GetTreeView(Model, this.Html, null,"/catalog/")
+            </ul>
+        }
+    </div>

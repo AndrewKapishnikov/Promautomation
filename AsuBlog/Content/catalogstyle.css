@@ -1,0 +1,514 @@
+﻿/*/*----------------------------------------BodySite-----------------------------------------------------------------*/
+
+@import url('catalogstyle.css');
+.maindiv {
+    margin-top: 7px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-position: top;
+    background: url(/Images/marcom.jpg) no-repeat;
+    background-size: 100% auto;
+    min-height: 1000px;
+}
+
+.gridcontainer {
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 30px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-gap: 15px;
+    grid-auto-rows: minmax(100px, auto);
+    min-height: 270px;
+}
+
+.gridcontainer > * {
+    min-width: 0;
+}
+
+.contentgrid {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 40px;
+    overflow-x: hidden;
+    line-height: 1.6em;
+    font-size: 1.1em;
+    text-overflow: ellipsis;
+}
+
+.rightgrid {
+    padding-top: 40px;
+    padding-bottom: 10px;
+}
+
+/*Пример ссылок Главная » АСУ ТП » ПЛК*/
+.contentgrid p > a {
+    color: #03507d;
+    margin-bottom: 5px;
+    display: inline-block;
+    font-size: 18px;
+    text-decoration: underline;
+}
+
+.contentgrid p > a:hover {
+    color: #000053;
+    font-weight: 600;
+}
+
+/*Стиль для подменю  АСУТП   КИПИА  ... и т.д.*/
+.subCatalogActionLink {
+    margin-right: 10px;
+    /*margin-left: 10px;*/
+    background-color: #03507d;
+    color: white;
+    padding: 7px;
+    line-height: 2.5;
+}
+
+.subCatalogActionLink:hover {
+    background-color: #000053;
+    color: white;
+}
+
+.disquscomments
+{
+    margin-top:30px;
+    margin-right:20px;
+}
+
+.catalogname
+{
+    margin-left:40px;
+}
+
+.postbreadcrumbs {
+    font-size: 18px;
+  
+}
+.postbreadcrumbs span > a {
+    text-decoration: underline;
+}
+   
+.postbreadcrumbs span > a:hover {
+    font-size: 19px;
+    font-weight: 700;
+    color: #000053;
+}
+
+.postname {
+    margin-left: 40px;
+    text-align: justify;
+    margin-right: 20px;
+    margin-top:30px;
+    margin-bottom:20px;
+}
+
+.postname h2 > a {
+    color: #000053;
+}
+.postname h2 > a:hover {
+    color:black;
+}
+.posttext {
+
+    text-align: justify;
+}
+/*Красная строка для первого абзаца*/
+.posttext >p:first-child {
+    text-indent: 40px;
+ }
+
+.postaddthis
+{
+     margin-top:10px;
+}
+.errornoarticles {
+     margin-top: 40px;
+}
+.rssfeed{
+    margin-top:58px;
+    margin-bottom:10px;
+}
+
+.error404 {
+    margin-top: 50px;
+    margin-left: 100px;
+}
+
+/******************Стили для Каталога постов с главным изображением**************************/
+.contitem {
+    margin-bottom: 25px;
+    display:flex;
+    flex-direction:row;
+    max-width:1500px;
+}
+
+.contitem-image {
+    padding-top:20px;
+    width:320px;
+}
+
+.contitem-image  a  img {
+    width: 300px;
+    height: 190px;
+ }
+
+.scale {
+    overflow: hidden;
+}
+
+.scale img {
+    transition: 1s;
+}
+
+.scale img:hover {
+    transform: scale(1.1);
+}
+
+.contitem-description {
+   padding-left:30px;
+
+}
+.contitem-description-header h3 > a{
+    color: #000053;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.contitem-description-header h3 > a:hover {
+    color: black;
+}
+.contitem-description-text
+{
+    text-align:justify;
+    line-height:1.5em;
+    font-size:0.9em;
+    padding-top:7px;
+}
+.numbercomments
+{
+    float:left;
+}
+.numbervisits
+{
+    float:left;
+    padding-left:10px;
+}
+.postedtime {
+    float: right;
+}
+/*******************Стили для Каталога постов с главным изображением*************************/
+
+/*-----------------------SideBarRight Стили для постов и тегов-------------------------*/
+.imagerss {
+    float: left;
+    margin-left: 10px;
+}
+.feeddiv {
+    padding-top: 9px;
+    font-size: 17px;
+    padding-left:50px;
+    
+}
+.feeddiv > a {
+    color: #000053;
+}
+.titlepartpost {
+    font-size: 21px;
+    padding: 10px;
+    border-bottom: 2px white solid;
+}
+.lastposts-inlineblock{
+    display:inline-block;
+}
+.lastposts-item {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-top: 15px;
+}
+
+.lastposts-item-image >img{
+    width:55px;
+    position:relative;
+    left:-10px;
+    top:0;
+}
+.lastposts-item-name{
+    position:relative;
+    left:-10px;
+}
+.lastposts a {
+    padding-top: 1px;
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    margin-right: 5px;
+    color: #000053;
+}
+
+.lastposts a:hover {
+    color:black;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.tagsclass{
+    position:relative;
+}
+.tagsclass canvas{
+    position:relative;
+    left:0;
+}
+
+.titleparttag {
+    font-size: 21px;
+    padding: 10px;
+    border-bottom: 2px #c6c6c6 solid;
+    margin-top: 20px;
+}
+
+.tagsclass canvas {
+    width: 270px;
+}
+/*-----------------------SideBarRight Стили для постов и тегов-------------------------*/
+/*----------------------------------------BodySite--------------------------------------------------------*/
+@media screen and (max-width: 1000px) {
+    .gridcontainer {
+        grid-template-columns: 1fr;
+    }
+    .titlepartpost {
+        border-bottom: 2px #c6c6c6 solid;
+    }
+    .lastposts > a {
+        margin-left: 10px;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 780px) {
+
+    .gridcontainer {
+        padding: 0;
+    }
+
+    .contentgrid {
+        padding: 0;
+        padding-top: 20px;
+    }
+
+    .contentgrid > h2 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .breadcrumbshelper {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .subcatalog {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .subCatalogActionLink {
+        display: inline-block;
+        padding: 5px 10px;
+        margin-top: 10px;
+        line-height: 1.5em;
+    }
+
+    .postbreadcrumbs {
+        margin-left: 20px;
+        margin-top: 40px;
+    }
+
+   .postname h2 > a {
+       font-size:0.8em;
+    }
+    .postaddthis {
+        margin-left: 20px;
+    }
+    .errornoarticles {
+        margin-left: 20px;
+        margin-top: 40px;
+    }
+    .rssfeed {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    .error404 {
+        margin-top: 40px;
+        margin-left: 0;
+    }
+    .lastposts a {
+        font-size: 20px;
+     }
+
+/********Стили для Каталога постов с главным изображением*****/
+ .contitem {
+   flex-direction: column;
+   margin-bottom:20px;
+   
+ }
+.contitem-description {
+    padding-left: 0;
+}
+ .contitem-description-text {
+     text-align: justify;
+     line-height: 1.4em;
+     font-size: 1em;
+ }
+ .namepostdiv
+ {
+     margin-left:0;
+ }
+ .contitem-image {
+    
+     display: flex;
+     margin: auto;
+ }
+ .contitem-image-inner {
+     
+     margin: auto;
+ }
+
+ .postedtime {
+   float:none;
+    clear:both;
+ }
+    .postedtime:before {
+        content:'Дата публикации: '
+    }
+
+/********Стили для Каталога постов с главным изображением*****/
+
+ .tagsclass{
+     display:flex;
+ }
+ .tagsclass canvas{
+     margin:auto;
+ }
+ .tagsclass canvas {
+     width: 310px;
+ }
+
+}
+
+@media (min-width: 780px) and (max-width: 1000px) {
+
+    .tagsclass canvas {
+        width:320px;
+    }
+    .tagsclass {
+        display: flex;
+    }
+
+    .tagsclass canvas {
+        margin: auto;
+    }
+}
+
+
+@media (min-width: 1001px) and (max-width: 1177px) {
+
+    .tagsclass canvas {
+        width: 265px;
+    }
+}
+
+@media (min-width: 1801px) and (max-width:2100px) {
+    .contentgrid {
+        margin-right:20px;
+    }
+
+    .namepostdiv h3 {
+        font-size: 1.9em;
+    }
+
+    .contitem-description-text {
+        font-size: 1.2em;
+    }
+
+    .postname h2 {
+        font-size: 1.9em;
+    }
+
+    .posttext {
+        font-size: 1.1em;
+        line-height: 1.5em;
+    }
+}
+
+@media (min-width: 2101px) {
+
+    .catalogname {
+        margin-left: 150px;
+    }
+
+    .catalogname h2 {
+        font-size: 2.4em;
+    }
+
+    .subCatalogActionLink {
+        font-size: 1.7em;
+    }
+
+    .contitem {
+        margin-left: 50px;
+        max-width: 1700px;
+    }
+
+    .namepostdiv h3 {
+        font-size: 2.3em;
+    }
+
+    .contitem-description-text {
+        font-size: 1.7em;
+    }
+
+    .postname h2 {
+        font-size: 2.3em;
+    }
+
+    .posttext {
+        font-size: 1.4em;
+        line-height: 1.6em;
+        max-width: 1900px;
+    }
+
+    .lastposts-item-image > img {
+        top: 5px;
+        left: -17px;
+        width: 75px;
+    }
+
+    .tagsclass canvas {
+        width: 450px;
+    }
+
+    .disquscomments {
+        max-width:1850px;
+    }
+}
+
+@media(max-width: 361px) {
+
+    .postname {
+        margin:0 10px;
+        text-align:left;
+    }
+    .postname > h2 >a 
+    {
+        font-size:0.7em;
+    }
+    .lastposts a {
+        font-size: 16px;
+    }
+    .tagsclass canvas{
+        width:220px;
+    }
+}

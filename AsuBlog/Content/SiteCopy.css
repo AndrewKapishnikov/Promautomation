@@ -1,0 +1,405 @@
+﻿body {
+ 
+    font-size: 15px;
+}
+
+li {
+    list-style-type: none;
+   
+}
+ul {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-top: 0;
+    
+}
+a:hover {
+    text-decoration: none;
+}
+.navbar-header > a
+{
+    color:white;
+}
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+/*Стиль для подменю  АСУТП   КИПИА  ... и т.д.*/
+.subCatalogActionLink {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+ /*---------------------------From_HtmlPage---------------------------------------*/
+
+@font-face {
+    font-family: Pompad; /* Гарнитура шрифта */
+    src: url(/fonts/Marutya.ttf);
+}
+
+.fontBlog {
+    font-family: Pompad, 'Comic Sans MS', cursive;
+  }
+
+
+
+.navbar {
+    background-image: -webkit-linear-gradient(#54b4eb, #2fa4e7 40%, #03507d);
+    background-image: -o-linear-gradient(#54b4eb, #2fa4e7 40%, #03507d);
+    background-image: linear-gradient(#54b4eb, #2fa4e7 40%, #03507d);
+    background-repeat: no-repeat;
+    border-bottom: 1px solid #03507d;
+    filter: none;
+    -webkit-box-shadow: 0 15px 100px #2fa4e7, 0 5px 15px #000000;
+    box-shadow: 0 15px 100px #2fa4e7, 0 5px 15px #000000;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: #cfe6ff;
+}
+
+.navbar-toggle {
+    position: relative;
+    float: right;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-right: 15px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid #6fcbff;
+    border-radius: 4px;
+}
+
+
+.namesite {
+    font-size: 26px;
+    line-height: 20px;
+    color: white;
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+
+.buttonsearch {
+    background-image: -webkit-linear-gradient(#f3fafe,#56a3d2 40%,#d8eaf3);
+    color:white;
+}
+.buttonsearch:hover {
+    background-image: -webkit-linear-gradient(#d8eaf3,#03507d 40%,#d8eaf3);
+    
+}
+/*----------MenuGeneral------------*/
+ .submenu > li:nth-last-child(1) > a {
+    border-bottom: none;
+}
+
+.lisubmenu > a {
+    text-decoration: none;
+    font-weight: 700;
+    color: #000053;
+    display: block;
+    padding: 8px 15px;
+    border-bottom: 1px solid white;
+}
+
+/*---------------------------------------*/
+/*-----------------------MainMenu--------------------------*/
+/*@media screen and (max-width: 768px) {
+
+
+}
+
+@media screen and (min-width: 769px) {
+    
+   
+}*/
+
+
+@media screen and (max-width: 1100px) {
+    .navbar-header {
+        float: none;
+    }
+
+    .navbar-left, .navbar-right {
+        float: none !important;
+    }
+
+    .navbar-toggle {
+        display: block;
+        
+    }
+
+
+    .navbar-collapse.collapse {
+        display: none !important;
+    }
+
+
+    .collapse.in {
+        display: block !important;
+    }
+
+    .navbar-fixed-top .navbar-collapse {
+        max-height: none;
+    }
+
+    .lisubmenu > a {
+        font-size: 15px;
+        padding: 7px 30px;
+    }
+    /*.lisubmenu > a:hover {
+            background-color: #000053;
+            color:white;
+        }*/
+    .submenu {
+        background-image: -webkit-linear-gradient(#f3fafe,#56a3d2 40%,#d8eaf3);
+        display: none;
+        border-radius: 5px;
+    }
+
+    .limenu_a {
+        display: none;
+    }
+
+    .limenu_div {
+        display: block;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        margin: 2px auto;
+        color: white;
+        padding-left: 15px;
+    }
+    /*.limenu_div:hover {
+        background-color: #000053;
+        padding-left:15px;
+    }*/
+}
+@media screen and (min-width: 1101px) {
+
+    .limenu_div {
+        display: none;
+    }
+
+    .navbar-right {
+        margin-top: 9px;
+        margin-right: 5px;
+    }
+
+    .rightcontainer {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .menuline {
+        flex: auto;
+        margin-right: 10px;
+    }
+
+    .formline {
+        flex: auto;
+        display: flex;
+    }
+
+    .formline_inner {
+        margin: auto;
+    }
+
+    .navbar-header {
+        float: left;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 50px;
+    }
+
+    /*.navbar-nav > li > a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-decoration: none;
+    }
+
+        .navbar-nav > li > a:hover {
+            background-color: #000053;
+        }*/
+
+
+    /*-----------------------MainMenu--------------------------*/
+    .limenu {
+        display: inline-block;
+        position: relative;
+        /*border: 1px solid black;
+        border-radius: 5px;
+        margin-right: 1px;
+        background-color: #000053;*/
+        background-color: transparent;
+    }
+
+
+    /*ul для подменю*/
+    .submenu {
+        position: absolute;
+        left: -10px;
+        top: 47px;
+        padding-left: 0;
+        opacity: 0;
+        visibility: hidden;
+        background: white;
+        transition: background 1s ease;
+        transition: .8s opacity;
+        min-width: 120px;
+    }
+
+    .limenu:hover {
+        background-image: -webkit-linear-gradient(#f3fafe,#56a3d2 40%,#d8eaf3);
+        color: white;
+    }
+
+        .limenu:hover .submenu {
+            opacity: 1;
+            background-image: -webkit-linear-gradient(white,#60b9ef 40%,white);
+            z-index: 1;
+            visibility: visible;
+            border: 1px solid black;
+            border-radius: 5px;
+            border-color: #000053;
+            border-left-width: 10px;
+            border-bottom-width: 2px;
+            border-right-width: 10px;
+            border-top-width: 1px;
+        }
+
+
+    .limenu > a:hover {
+        background-color: #000053;
+    }
+
+    /*.lisubmenu {
+        padding: 8px 15px;
+        border-bottom: 1px solid white;
+    }*/
+    .limenu > a {
+        display: block;
+        padding: 10px;
+        color: white;
+        font-size: 18px;
+    }
+
+
+
+    .lisubmenu:hover {
+        background-color: #000053;
+    }
+
+    .lisubmenu > a:hover {
+        background-color: #000053;
+        color: white;
+        text-decoration: none;
+    }
+
+    /*-----------------------MainMenu--------------------------*/
+
+}
+
+@media (min-width: 1000px) and (max-width: 1160px) {
+    .navbar-header {
+        margin-left: 5px;
+    }
+}
+
+    /*Меняется имя сайта*/
+    @media screen and (max-width: 1285px) {
+        .namesiteshort {
+            display: block;
+            float: left;
+        }
+
+        .namesitelong {
+            display: none;
+        }
+    }
+
+    @media screen and (min-width: 1285px) {
+        .namesiteshort {
+            display: none;
+        }
+
+        .namesitelong {
+            display: block;
+        }
+    }
+
+    @media (max-width: 1394px) and (min-width: 1285px) {
+        .navbar-header {
+           
+            margin-left: 5px;
+        }
+    }
+    /*--------------------------------------Tree View----------------------------------------*/
+
+    /*стиль для кнопки скрыть*/
+    .collapseTree {
+        width: 40px;
+        height: 30px;
+        background-image: url('/Images/close_folder.png');
+        background-repeat: no-repeat;
+        background-position: 6px -2px;
+        display: inline-block;
+        cursor: pointer;
+        background-size: contain;
+    }
+    /*стиль для кнопки раскрыть*/
+    .expand {
+        width: 40px;
+        height: 30px;
+        background-image: url('/Images/open_folder.png');
+        background-repeat: no-repeat;
+        background-position: 6px -2px;
+        display: inline-block;
+        cursor: pointer;
+        background-size: contain;
+    }
+    /*Стиль для значка Файл*/
+    .docfile {
+        width: 40px;
+        height: 30px;
+        background-image: url('/Images/doc_icon2.png');
+        background-repeat: no-repeat;
+        background-position: 6px -2px;
+        display: inline-block;
+        background-size: contain;
+    }
+
+    .treeview ul {
+        font: 19px Arial, Sans-Serif;
+        margin: 0px;
+        padding-left: 20px;
+        list-style: none;
+    }
+
+    .treeview > li > a {
+        font-weight: bold;
+    }
+
+    .treeview li {
+    }
+
+        .treeview li a {
+            padding: 0;
+            font-size: 15px;
+            display: inline-block;
+            text-decoration: none;
+            width: auto;
+        }
+
+    /*--------------------------------------Tree View----------------------------------------*/

@@ -1,0 +1,126 @@
+﻿@using System.Configuration
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>@(ViewBag.Title ?? ConfigurationManager.AppSettings["MetaTitle"])</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="@(ViewBag.Keywords ?? ConfigurationManager.AppSettings["MetaKeywords"])" />
+    <meta name="description" content="@(ViewBag.Description ?? ConfigurationManager.AppSettings["MetaDescription"])" />
+    <meta name="author" content="@ConfigurationManager.AppSettings["Author"]" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-header">
+            <a href="/" class="fontBlog namesite namesitelong">"Блог о промышленной автоматизации...<img src="~/Images/pen.png" />"</a>
+            <a href="/" class="fontBlog namesite namesiteshort">" Промавтоматизация...<img src="~/Images/pen.png" />"</a>
+            <button type="button" id="buttontoggle" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <div class="navbar-right rightcontainer">
+                <div class="menuline">
+                    @Html.Action("ShowMenu", "Blog")
+                </div>
+                <div class="formline">
+                    <div class="formline_inner">
+                        @Html.Partial("_Search")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="generalcontainer">
+        <input type="checkbox" id="nav-toggle" hidden="hidden" />
+        <div class="navdiv">
+            <label for="nav-toggle" class="nav-toggle" id="labeltoggle"></label>
+            @Html.Action("ShowTreeView", "Blog")
+        </div>
+        <div class="containermain">
+            <div class="topdiv"></div>
+            <div class="maindiv">
+                <div class="gridcontainer">
+                    <div class="contentgrid">
+                        @RenderBody()
+                    </div>
+                    <div class="rightgrid">
+                        @Html.Action("ShowSidePanel", "Blog")
+                    </div>
+                </div>
+            </div>
+            @Html.Partial("_Chat")
+        </div>
+    </div>
+    <div id="modDialog" class="modal fade">
+        <div id="dialogContent" class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal" area-hidden="true">X</button>
+                    <h2>Login</h2>
+                </div>
+                <div class="modal-body">
+                    @Html.Partial("_Login", new AsuBlog.Models.LoginModel())
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="logincontainer">
+            <ul class="list-unstyled list-inline text-center">
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <li class="list-inline-item"><h4>@Html.ActionLink("Регистрация", "register", "Account")</h4></li>
+                    <li class="list-inline-item">@Html.ActionLink("Войти", "login", "Account", null, new { @class = "compItem btn btn-danger" })</li>
+                }
+                else
+                {
+                    <li class="list-inline-item">
+                        <a><h4> @User.Identity.Name </h4></a>
+                    </li>
+                    <li class="list-inline-item">@Html.ActionLink("Выход", "logout", "Account", null, new { @class = "btn btn-danger" })</li>
+                }
+            </ul>
+        </div>
+        <div class="solialbuttoncontainer">
+            <ul class="list-unstyled list-inline text-center solialbutton">
+                <li class="list-inline-item">
+                    <a href="#">
+                        <img class="solialicon" src="/Images/Whatsapp.png" />
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#">
+                        <img class="solialicon" src="/Images/Youtub.png" />
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#">
+                        <img class="solialicon" src="/Images/vk.png" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-copyright text-center py-3 copyright">
+            © @DateTime.Now.Year Copyright:
+            <a href="#">Somename</a>
+        </div>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/tagcanvas")
+    @Scripts.Render("~/bundles/general")
+    @if (User.Identity.IsAuthenticated)
+    {
+        @Scripts.Render("~/bundles/signalR")
+        <script src="~/signalr/hubs"></script>
+        @Scripts.Render("~/bundles/chat")
+    }
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,1424 @@
+﻿
+body {
+    font-size: 15px;
+}
+
+/*****************Load animation******************/
+
+.contpre small {
+    font-size: 20px;
+}
+
+.contpre {
+    width: 250px;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    top: 48%;
+    margin-left: -125px;
+    margin-top: -75px;
+    color: #fff;
+    font-size: 35px;
+    text-align: center;
+    line-height: 35px;
+}
+
+#animbox .svg_anm {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    background: url(/Images/tail-spin.svg) center center no-repeat;
+    background-size: 41px;
+    margin: -16px 0 0 -16px;
+}
+/*****************Load animation******************/
+
+li {
+    list-style-type: none;
+ }
+ul {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-top: 0;
+}
+a:hover {
+    text-decoration: none;
+}
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+input,
+select,
+textarea {
+    max-width: 280px;
+ }
+input[type~="text"], input[type~="password"], input[type~="select"], textarea, input[type~="search"] {
+    font-size: 15px;
+}
+
+@font-face {
+    font-family: Pompad; /* Гарнитура шрифта */
+    src: url(/fonts/Marutya.ttf);
+}
+@font-face {
+    font-family: Lobster; 
+    src: url(/fonts/Lobster.ttf);
+}
+@font-face {
+    font-family: Flow;
+    src: url(/fonts/Flow.otf);
+}
+.fontBlog {
+    font-family: Pompad, Flow, Lobster,'Times New Roman', cursive;
+}
+
+/*Форма модального окна Login*/
+.modal-dialog {
+    top: 60px;
+    max-width: 450px;
+}
+.modal-header{
+    padding-left:50px;
+}
+.modal-body .form-horizontal {
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+.modal-body .form-horizontal input{
+    max-width: 250px;
+ }
+
+@media (min-width:992px)
+{
+    .modal-body .form-horizontal {
+        max-width: 350px;
+    }
+}
+/*Форма модального окна Login*/
+
+/*Регистрация через внешние сервисы*/
+.externallogins {
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.nameaccount {
+    padding-bottom: 10px;
+}
+/*Регистрация через внешние сервисы*/
+
+/*------------------------------------------Header------------------------------------------------*/
+.navbar-header {
+    float: left;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-left: 50px;
+}
+
+.navbar-header > a {
+    color: white;
+}
+
+.navbar {
+    max-width: 3000px;
+    margin: 0 auto;
+    background-image: -webkit-linear-gradient(#54b4eb, #2fa4e7 40%, #03507d);
+    background-image: -o-linear-gradient(#54b4eb, #2fa4e7 40%, #03507d);
+    background-image: linear-gradient(#54b4eb, #2fa4e7 40%, #03507d);
+    background-repeat: no-repeat;
+    border-bottom: 1px solid #03507d;
+    filter: none;
+    -webkit-box-shadow: 0 15px 100px #2fa4e7, 0 5px 15px #000000;
+    box-shadow: 0 15px 100px #2fa4e7, 0 5px 15px #000000;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: #cfe6ff;
+}
+
+.navbar-toggle {
+    position: relative;
+    float: right;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-right: 15px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid #6fcbff;
+    border-radius: 4px;
+}
+
+.navbar-toggle:hover {
+    background-image: linear-gradient(#f3fafe,#56a3d2 40%,#d8eaf3);
+}
+
+/*Название сайта*/
+.namesite {
+    font-size: 26px;
+    color: white;
+}
+
+.searchform {
+    max-width: 160px;
+}
+
+.buttonsearch {
+    background-image: linear-gradient(#f3fafe,#56a3d2 40%,#d8eaf3);
+    color:white;
+}
+.buttonsearch:hover {
+    background-image: linear-gradient(#d8eaf3,#03507d 40%,#d8eaf3);
+}
+
+.navbar-header >a >img{
+    width:26px;
+}
+/*------------------------------------------Header------------------------------------------------*/
+
+/*---------------------------------MenuGeneral----------------------------------*/
+.submenu > li:nth-last-child(1) > a {
+    border-bottom: none;
+}
+
+.lisubmenu > a {
+    text-decoration: none;
+    font-weight: 700;
+    color: #000053;
+    display: block;
+    padding: 8px 15px;
+    border-bottom: 1px solid white;
+}
+
+.navbar-right {
+    margin-top: 6px;
+    margin-right: 7px;
+    margin-left: 7px;
+}
+/*--------------------------------------MenuGeneral--------------------------------------------*/
+
+ /*----------------------------------------BodySiteGeneral-----------------------------------------------------*/
+.generalcontainer {
+    max-width: 3000px;
+    margin:0 auto;
+}
+.topdiv
+{
+    height:50px;
+}
+
+/***************Login Register**************/
+.headname {
+    margin-left:100px;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+.buttonsubmit {
+    background-image: linear-gradient(#f3fafe,#56a3d2 40%,#d8eaf3);
+    color: white;
+}
+
+.form-horizontal .control-label {
+    padding-top: 0;
+    margin-bottom: 0;
+}
+ /***************Login Register**************/
+
+/*----------------------------------------BodySiteGeneral--------------------------------------------------------*/
+
+
+
+/*----------------------------------------Боковая панел навигации------------------------------------------------*/
+ /**
+ * Переключаемая боковая панель навигации
+ * выдвигающаяся по клику слева
+ */
+    .navdiv {
+    /*  ширна произвольная, не стесняйтесь экспериментировать */
+    display: block;
+    width: 350px;
+    min-width: 200px;
+    /* фиксируем и выставляем высоту панели на максимум */
+    height: 89%;
+    position: fixed;
+    top: 64px;
+    bottom: 0;
+    margin: 0;
+    /* сдвигаем (прячем) панель относительно левого края страницы */
+    left: -390px;
+    /* внутренние отступы */
+    padding: 15px 0;
+    padding-left: 5px;
+    /* плавный переход смещения панели */
+    -webkit-transition: left 0.9s;
+    -moz-transition: left 0.9s;
+    -o-transition: left 0.9s;
+    transition: left 0.9s;
+    /* определяем цвет фона панели */
+    background: #1878af;
+    /* поверх других элементов */
+    z-index: 2000;
+    border-bottom-right-radius: 10px;
+}
+
+/**
+ * Кнопка переключения панели
+ * тег <label>
+ */
+.nav-toggle {
+    /* цвет текста */
+    color: white;
+    /* абсолютно позиционируем */
+    position: absolute;
+    /* относительно левого края панели */
+    left: 390px;
+    /* отступ от верхнего края панели */
+    top: 1em;
+    /* внутренние отступы */
+    padding: 0.5em;
+    /* определяем цвет фона переключателя
+     * чаще вчего в соответствии с цветом фона панели
+    */
+    background: rgba(24, 120, 175, 0.3);
+    /*background: #55f3fd;*/
+    /* вид курсора */
+    cursor: pointer;
+    /* размер шрифта */
+    font-size: 1.2em;
+    line-height: 1;
+    /* всегда поверх других элементов страницы */
+    z-index: 2001;
+    /* анимируем цвет текста при наведении */
+    -webkit-transition: color .65s ease-in-out;
+    -moz-transition: color .65s ease-in-out;
+    -o-transition: color .65s ease-in-out;
+    transition: color .65s ease-in-out;
+}
+
+/* определяем текст кнопки 
+ * символ Unicode
+*/
+ .nav-toggle:after {
+     content: '\27A4';
+     text-decoration: none;
+}
+ /* цвет текста при наведении */
+.nav-toggle:hover {
+     color: #55f3fd;
+     background: #000053;
+ }
+/**
+ * Скрытый чекбокс (флажок)
+ * невидим и недоступен :)
+ * имя селектора атрибут флажка
+ */
+[id='nav-toggle'] {
+    position: absolute;
+    display: none;
+}
+[id='nav-toggle']:checked ~ .navdiv > .nav-toggle {
+    position: fixed;
+    left: 303px;
+    width: 28px;
+    /*right: 2px;*/
+    top: 65px;
+    background-color:transparent;
+    color:white;
+}
+[id='nav-toggle']:checked ~ .navdiv > .nav-toggle:hover {
+    color: #55f3fd;
+}
+/**
+ * Когда флажок установлен, открывается панель
+ * используем псевдокласс:checked
+ */
+[id='nav-toggle']:checked ~ .navdiv {
+    left: 0;
+    -moz-box-shadow: 10px 10px 25px 0 rgba(0,0,0, 0.5);
+    -webkit-box-shadow: 10px 10px 25px 0 rgba(0,0,0, 0.5);
+    box-shadow: 10px 10px 25px 0 rgba(0,0,0, 0.5);
+    overflow-y: auto;
+    -webkit-transition: left 0.4s;
+    -moz-transition: left 0.4s;
+    -o-transition: left 0.4s;
+    transition: left 0.4s;
+}
+/*
+ * изменение символа переключателя,
+ * привычный крестик (MULTIPLICATION X), 
+ * вы можете испльзовать любой другой значок
+*/
+/*content: '\003C''=';*/
+[id='nav-toggle']:checked ~ .navdiv > .nav-toggle:after {
+    /*content: '\02C2';*/
+    content: '\2717';
+    font-size: 1.3em;
+    top: 10px;
+}
+
+/**
+ * формируем непосредственно само меню
+ * используем неупорядоченный список для пунктов меню
+ * прикрутим трансфомации и плавные переходы
+ */
+.navdiv  ul > li {
+     opacity: 0;
+     -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    -webkit-transition: opacity 2.5s .1s, -webkit-transform 1.3s .1s;
+    -moz-transition: opacity 2.5s .1s, -moz-transform 1.3s .1s;
+    -ms-transition: opacity 2.5s .1s, -ms-transform 1.3s .1s;
+    -o-transition: opacity 2.5s .1s, transform 1.3s .1s;
+    transition: opacity 2.5s .1s, transform 1.3s .1s;
+}
+[id='nav-toggle']:checked ~ .navdiv ul > li {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+    padding: 0px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: white;
+   
+}
+
+ /*определяем интервалы появления пунктов меню*/
+
+/*[id='nav-toggle']:checked ~ .navdiv ul > li:nth-child(2) {
+    -webkit-transition: opacity .5s .2s, -webkit-transform .5s .9s;
+    -moz-transition: opacity .5s .2s, transform .5s .9s;
+    -o-transition: opacity .5s .2s, transform .5s .9s;
+    transition: opacity .5s .2s, transform .5s .9s;
+}
+[id='nav-toggle']:checked ~ .navdiv ul > li:nth-child(3) {
+    -webkit-transition: opacity .5s .3s, -webkit-transform .5s 1s;
+    -moz-transition: opacity .5s .3s, transform .5s 1s;
+    -o-transition: opacity .5s .3s, transform .5s 1s;
+    transition: opacity .5s .3s, transform .5s 1s;
+}
+[id='nav-toggle']:checked ~ .navdiv > ul > li:nth-child(4) {
+    -webkit-transition: opacity .5s .4s, -webkit-transform .5s 1.2s;
+    -moz-transition: opacity .5s .4s, transform .5s 1.2s;
+    -o-transition: opacity .5s .4s, transform .5s 1.2s;
+    transition: opacity .5s .4s, transform .5s 1.2s;
+}
+[id='nav-toggle']:checked ~ .navdiv ul > li:nth-child(5) {
+    -webkit-transition: opacity .5s .5s, -webkit-transform .5s 1.3s;
+    -moz-transition: opacity .5s .5s, transform .5s 1.3s;
+    -o-transition: opacity .5s .5s, transform .5s 1.3s;
+    transition: opacity .5s .5s, transform .5s 1.3s;
+}
+[id='nav-toggle']:checked ~ .navdiv ul > li:nth-child(6) {
+    -webkit-transition: opacity .5s .6s, -webkit-transform .5s 1.4s;
+    -moz-transition: opacity .5s .6s, transform .5s 1.4s;
+    -o-transition: opacity .5s .6s, transform .5s 1.4s;
+    transition: opacity .5s .6s, transform .5s 1.4s;
+}
+[id='nav-toggle']:checked ~ .navdiv ul > li:nth-child(7) {
+    -webkit-transition: opacity .5s .7s, -webkit-transform .5s 1.5s;
+    -moz-transition: opacity .5s .7s, transform .5s 1.5s;
+    -o-transition: opacity .5s .7s, transform .5s 1.5s;
+    transition: opacity .5s .7s, transform .5s 1.5s;
+}
+[id='nav-toggle']:checked ~ .navdiv ul > li:nth-child(8) {
+    -webkit-transition: opacity .5s .7s, -webkit-transform .5s 1.6s;
+    -moz-transition: opacity .5s .8s, transform .5s 1.6s;
+    -o-transition: opacity .5s .8s, transform .5s 1.6s;
+    transition: opacity .5s .8s, transform .5s 1.6s;
+}
+[id='nav-toggle']:checked ~ .navdiv ul > li:nth-child(9) {
+    -webkit-transition: opacity .5s .7s, -webkit-transform .5s 1.7s;
+    -moz-transition: opacity .5s .9s, transform .5s 1.7s;
+    -o-transition: opacity .5s .9s, transform .5s 1.7s;
+    transition: opacity .5s .9s, transform .5s 1.7s;
+}
+[id='nav-toggle']:checked ~ .navdiv ul > li:nth-child(10) {
+    -webkit-transition: opacity .5s .7s, -webkit-transform .5s 1.8s;
+    -moz-transition: opacity .5s 1s, transform .5s 1.8s;
+    -o-transition: opacity .5s 1s, transform .5s 1.8s;
+    transition: opacity .5s 1s, transform .5s 1.8s;
+}
+[id='nav-toggle']:checked ~ .navdiv ul > li:nth-child(11) {
+    -webkit-transition: opacity .5s .7s, -webkit-transform .5s 1.9s;
+    -moz-transition: opacity .5s 1.1s, transform .5s 1.9s;
+    -o-transition: opacity .5s 1.1s, transform .5s 1.9s;
+    transition: opacity .5s 1.1s, transform .5s 1.9s;
+}
+[id='nav-toggle']:checked ~ .navdiv > ul > li:nth-child(12) {
+    -webkit-transition: opacity .5s .7s, -webkit-transform .5s 2s;
+    -moz-transition: opacity .5s 1.2s, transform .5s 2s;
+    -o-transition: opacity .5s 1.2s, transform .5s 2s;
+    transition: opacity .5s 1.2s, transform .5s 2s;
+}
+[id='nav-toggle']:checked ~ .navdiv ul > li:nth-child(13) {
+    -webkit-transition: opacity .5s .7s, -webkit-transform .5s 2.1s;
+    -moz-transition: opacity .5s 1.3s, transform .5s 2.1s;
+    -o-transition: opacity .5s 1.3s, transform .5s 2.1s;
+    transition: opacity .5s 1.3s, transform .5s 2.1s;
+}
+[id='nav-toggle']:checked ~ .navdiv ul > li:nth-child(14) {
+    -webkit-transition: opacity .5s .7s, -webkit-transform .5s 2.2s;
+    -moz-transition: opacity .5s 1.4s, transform .5s 2.2s;
+    -o-transition: opacity .5s 1.4s, transform .5s 2.2s;
+    transition: opacity .5s 1.4s, transform .5s 2.2s;
+}
+[id='nav-toggle']:checked ~ .navdiv ul > li:nth-child(15) {
+    -webkit-transition: opacity .5s .7s, -webkit-transform .5s 2.3s;
+    -moz-transition: opacity .5s 1.5s, transform .5s 2.3s;
+    -o-transition: opacity .5s 1.5s, transform .5s 2.3s;
+    transition: opacity .5s 1.5s, transform .5s 2.3s;
+}
+[id='nav-toggle']:checked ~ .navdiv ul > li:nth-child(16) {
+    -webkit-transition: opacity .5s .7s, -webkit-transform .5s 2.4s;
+    -moz-transition: opacity .5s 1.6s, transform .5s 2.4s;
+    -o-transition: opacity .5s 1.6s, transform .5s 2.4s;
+    transition: opacity .5s 1.6s, transform .5s 2.4s;
+}
+[id='nav-toggle']:checked ~ .navdiv ul > li:nth-child(17) {
+    -webkit-transition: opacity .5s .7s, -webkit-transform .5s 2.5s;
+    -moz-transition: opacity .5s 1.7s, transform .5s 2.5s;
+    -o-transition: opacity .5s 1.7s, transform .5s 2.5s;
+    transition: opacity .5s 1.7s, transform .5s 2.5s;
+}*/
+
+/*--------------------------------------Боковая панел навигации-----------------------------------------*/
+
+
+/*--------------------------------------Tree View----------------------------------------*/
+/*стиль для кнопки скрыть*/
+.treeview{
+    min-width:400px; 
+}
+.collapseTree {
+    width: 47px; 
+    height: 30px;
+    background-image: url('/Images/close_folder_yellow.png');
+    background-repeat: no-repeat;
+    background-position: 6px -2px;
+    display: inline-block;
+    cursor: pointer;
+    background-size: contain;
+}
+ /*стиль для кнопки раскрыть*/
+.expand {
+    width: 47px;
+    height: 30px;
+    background-image: url('/Images/open_folder_yellow.png');
+    background-repeat: no-repeat;
+    background-position: 6px -2px;
+    display: inline-block;
+    cursor: pointer;
+    background-size: contain;
+}
+ /*Стиль для значка Файл*/
+ .docfile {
+     width: 40px;
+     height: 30px;
+     background-image: url('/Images/doc_icon2.png');
+     background-repeat: no-repeat;
+     background-position: 6px -2px;
+     display: inline-block;
+     background-size: contain;
+ }
+  .treeview ul {
+     font: 19px Arial, Sans-Serif;
+     margin: 0px;
+     padding-left: 15px;
+     list-style: none;
+ }
+.treeview > ul {
+    padding-left: 0;
+}
+.treeview > li > a {
+    font-weight: bold;
+    color:white;
+}
+.treeview li a {
+    padding-top:0;
+    padding-bottom:0;
+    font-size: 17px;
+    text-decoration: none;
+    width: auto;
+    color: white;
+}
+ 
+/*--------------------------------------Tree View----------------------------------------*/
+
+/*-----------------------------------------ScrollBar-----------------------------------------------------*/
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-button {
+    background-image: url('');
+    background-repeat: no-repeat;
+    width: 7px;
+    height: 0;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ecedee;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background-color: #55f3fd;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #0d4465
+}
+
+::-webkit-resizer {
+    background-image: url('');
+    background-repeat: no-repeat;
+    width: 2px;
+    height: 0;
+}
+/*-----------------------------------------ScrollBar-----------------------------------------------------*/
+
+/*----------------------------------Chat--------------------------------------*/
+.wrapperchat {
+    width: 380px;
+    height: 470px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 1000;
+    visibility:hidden;
+}
+#buttonbox {
+    visibility: hidden;
+    position: fixed;
+    right: 40px;
+    bottom: 20px;
+}
+.chatbutton {
+    position: fixed;
+    border: 2px solid #1878af;
+    width: 80px;
+    height: 60px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.5s all ease;
+    transform: scale(0.8);
+    bottom: 20px;
+    right: 20px;
+    background-color: #1878af;
+    animation: radial-pulse 1s 7;
+}
+.chatbutton img {
+    width: 60px;
+    position: relative;
+    left: 5px;
+    top: 5px;
+}
+.modalchat {
+    width: 0;
+    height: 0;
+    background: #1878af;
+    border-radius: 50%;
+    transition: 0.7s all ease;
+    position: relative;
+}
+.modalchat > .closechat {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    cursor: pointer;
+    opacity: 0;
+    z-index:100;
+}
+.modalchat > .closechat:before, .closechat:after {
+    position: absolute;
+    content: '';
+    width: 3px;
+    height: 25px;
+    background: #165980;
+}
+.modalchat > .closechat:before {
+    transform: rotate(45deg);
+}
+.modalchat >.closechat:after {
+    transform: rotate(-45deg);
+}
+#buttonbox:checked ~ .chatbutton {
+    background: #1878af;
+    transition: 0.5s all ease;
+    transform: scale(1);
+}
+#buttonbox:checked ~ .wrapperchat {
+    visibility:visible;
+}
+#buttonbox:checked ~ .wrapperchat >.modalchat {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    transition: 0.3s width ease, 0.3s height ease, 0.3s border-radius ease;
+}
+#buttonbox:checked ~ .wrapperchat >.modalchat .closechat {
+    opacity: 1;
+    transition: 0.5s all ease 1.4s;
+}
+#buttonbox:checked ~ .wrapperchat > .modalchat > .mainchat {
+    display: block;
+}
+.mainchat{
+    margin-top:10px;
+    display:none;
+}
+@keyframes radial-pulse {
+    0% {
+        box-shadow: 0 0 0 0px rgba(3, 80, 125, 0.51);
+    }
+    100% {
+        box-shadow: 0 0 0 40px rgba(0, 0, 0, 0);
+    }
+}
+#chatBody{
+    background-color:white;
+    margin-top:0;
+    margin-left:10px;
+    margin-right:10px;
+    margin-bottom:10px;
+}
+#chatroom {
+ 
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.roomchat {
+    height:290px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.chatnamelogin {
+    font-size: 1.3em;
+    text-align: center;
+    font-family: 'Times New Roman', cursive;
+    padding-top: 3px;
+    font-weight: 600;
+}
+.username {
+    font-size: 1.1em;
+    font-family: 'Times New Roman', cursive;
+    display:inline-block;
+    font-weight:600;
+   
+}
+#chatusers {
+    height: 85px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-image: linear-gradient(#1878af, #b8e2fa 60%, #fff);
+    border-bottom: 1px solid #1878af;
+    border-top: 1px solid #0d4465;
+    margin-top:5px;
+    margin-bottom:5px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:5px;
+}
+#chatusers p > b {
+    color:white;
+}
+#inputForm{
+    margin-top:5px;
+}
+.comment-wrapper{
+    padding:1px 7px;
+    color:black;
+    font-size:1.1em;
+}
+#message {
+    width: 264px;
+    width: 70%;
+    height: 30px;
+}
+#sendmessage {
+    /*background-image: linear-gradient(#000053, #000053 60%, #fff);*/
+    background-color: #03517e;
+    color: white;
+    height: 30px;
+    width: 28%;
+}
+.comment-wrapper-text {
+    width: 91%;
+    display: inline-block;
+}
+.comment-wrapper-time{
+    width:9%;
+    font-size:0.9em;
+    display:inline-block;
+    text-align:right;
+}
+.mainchat-inner{
+    background-color:white;
+    height:450px;
+    margin-left:10px;
+    margin-right:10px;
+    margin-top:10px;
+    position:relative;
+}
+
+.mainchat-inner-name {
+    font-family: 'Times New Roman', cursive;
+    font-size:1.9em;
+    text-align:center;
+    padding:10px;
+}
+.mainchat-inner a {
+    box-shadow: 3px 3px 7px black;
+    font-family: cursive,'Times New Roman';
+    font-weight: 800;
+    background-image: linear-gradient(#ffffff,#549ecb 40%,#ffffff);
+    height: 37px;
+    margin-left:20px;
+    position:absolute;
+    top:70px;
+    left:20px;
+    font-size:1.1em;
+}
+.mainchat-inner img{
+    width:180px;
+    left:90px;
+    position:absolute;
+    top:200px;
+    left:100px;
+}
+.mainchat-inner a:hover {
+    background-image: linear-gradient(#d8eaf3,#03507d 40%,#d8eaf3);
+}
+@media screen and (max-width: 380px){
+    .wrapperchat {
+        width: 330px;
+     }
+
+    .mainchat-inner img {
+        left: 70px;
+     }
+}
+/*----------------------------------Chat--------------------------------------*/
+
+/*----------------------------------------------Footer-----------------------------------------------------------*/
+footer {
+    background-color: #c5e6f8;
+    color: #0a131d;
+    max-width: 3000px;
+    margin: 0 auto;
+}
+
+.logincontainer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-sizing: padding-box;
+}
+.solialbuttoncontainer {
+    padding-top:20px;
+    padding-bottom:80px;
+    box-sizing: padding-box;
+    background-color: #0d4465;
+}
+
+.solialbutton {
+    background-color: #0d4465;
+    margin-bottom: 0;
+}
+
+.copyright {
+    background-color: #0d4465;
+    color: #daf1ff;
+}
+
+.solialicon {
+    width: 35px;
+}
+
+.footer-copyright a:hover{
+    color:white;
+}
+/*---------------------------------------------Footer------------------------------------------------------------*/
+
+
+/*--------------------------------------Different Media----------------------------------------------*/
+@media screen and (max-width: 1120px) {
+    /*--------------Делаем выпадающее меню меньше указанной ширины-----------------*/
+    .navbar-header {
+        float: none;
+    }
+
+    .navbar-right {
+        float: none !important;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-collapse.collapse { /*классы должны идти без пробела*/
+        display: none !important;
+    }
+
+    .collapse.in {
+        display: block !important; /*классы должны идти без пробела*/
+    }
+
+    .navbar-fixed-top .navbar-collapse {
+        max-height: 600px;
+    }
+
+    .submenu {
+        display: none;
+    }
+    /*--------------Делаем выпадающее меню меньше указанной ширины-----------------*/
+}
+
+@media screen and (max-width: 780px) {
+
+    /*-----------------Меню выпадает в вертикальный ряд------------------*/
+
+    /*Это пункт в выпадающем меню*/
+    .lisubmenu > a {
+        font-size: 18px;
+        padding: 10px 30px;
+    }
+    
+    .lisubmenu > a:hover {
+        background-color: #000053;
+        color: white;
+    }
+    
+    .submenu {
+        background-image: -webkit-linear-gradient(#f3fafe,#56a3d2 40%,#d8eaf3);
+        border-radius: 5px;
+    }
+
+    .limenu_a {
+        display: none;
+    }
+
+    .limenu_div {
+        display: block;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        margin: 2px auto;
+        color: white;
+        padding-left: 30px;
+        font-size: 19px;
+    }
+
+    .limenu_div:hover {
+        background-color: #000053;
+        padding-left: 30px;
+    }
+
+    .searchform {
+        max-width: 1600px;
+        /*width: 350px;*/
+        margin: 20px auto;
+        height: 40px;
+        border-radius: 8px;
+    }
+
+    .buttonsearch {
+        display: none;
+    }
+
+    input[type~="search"] {
+        font-size: 21px;
+    }
+
+    .contentgrid form{
+        margin-left:30px;
+    }
+ /*-----------------Меню выпадает в вертикальный ряд------------------*/
+
+/*-----------------------------Tree View------------------------------*/
+    .navdiv {
+        padding-left: 0;
+        height: 95%;
+        width:300px;
+    }
+
+    .nav-toggle {
+        font-size: 1.4em;
+    }
+
+    [id='nav-toggle']:checked ~ .navdiv ul > li {
+       padding: 4px;
+    }
+
+    [id='nav-toggle']:checked ~ .navdiv > .nav-toggle {
+         left: 250px;
+         top: 65px;
+    }
+
+    .nav-toggle:hover {
+        color: white;
+        background: rgba(24, 120, 175, 0.29);
+    }
+
+    .treeview {
+        min-width: 390px;
+    }
+
+    .collapseTree {
+        width: 53px;
+      
+    }
+    /*стиль для кнопки раскрыть*/
+    .expand {
+        width: 53px;
+    }
+       
+    [id='nav-toggle']:checked ~ .navdiv > .nav-toggle:hover {
+        color: white;
+    }
+
+    .treeview li a {
+          font-size: 18px;
+     }
+ 
+/*-----------------------------Tree View------------------------------*/
+
+    .registerhead{
+        margin-left:20px;
+    }
+}
+
+
+@media (min-width: 781px) {
+
+/*-------------------Меню выпадает в горизонтальный ряд---------------------*/
+    .limenu_div {
+        display: none;
+    }
+
+    .submenu {
+        display: none;
+    }
+
+    .rightcontainer {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 5px;
+        margin-right: 15px;
+        margin-left: 5px;
+    }
+
+    .menuline {
+        flex: auto;
+        margin-right: 10px;
+    }
+
+    .formline {
+       display: flex;
+    }
+
+    .formline_inner {
+        margin: auto;
+    }
+
+ /*-----------------------MainMenu--------------------------*/
+    .limenu {
+        display: inline-block;
+        position: relative;
+        background-color: transparent;
+    }
+
+    .limenu:hover {
+        background-image: -webkit-linear-gradient(#f3fafe,#56a3d2 40%,#d8eaf3);
+        color: white;
+    }
+    
+    .limenu > a:hover {
+        background-color: #000053;
+    }
+    
+    .limenu > a {
+        display: block;
+        padding: 10px;
+        color: white;
+        font-size: 18px;
+    }
+
+ /*-----------------------MainMenu--------------------------*/
+
+ /*-------------------Меню выпадает в горизонтальный ряд---------------------*/
+ 
+}
+
+@media screen and (min-width: 1121px) {
+
+ /*----------------------При наведении мышкой выпадают пункты меню-----------------*/
+    .submenu {
+        display: block;
+        position: absolute;
+        left: -10px;
+        top: 45px;
+        padding-left: 0;
+        opacity: 0;
+        visibility: hidden;
+        background: white;
+        transition: background 1s ease;
+        transition: .8s opacity;
+        min-width: 120px;
+    }
+
+    .limenu:hover .submenu {
+        opacity: 1;
+        background-image: -webkit-linear-gradient(white,#60b9ef 40%,white);
+        z-index: 1;
+        visibility: visible;
+        border: 1px solid black;
+        border-radius: 5px;
+        border-color: #000053;
+        border-left-width: 10px;
+        border-bottom-width: 2px;
+        border-right-width: 10px;
+        border-top-width: 1px;
+    }
+
+    .lisubmenu:hover {
+        background-color: #000053;
+        
+    }
+    .lisubmenu:hover > a {
+        color: white;
+    }
+/*----------------------При наведении мышкой выпадают пункты меню-----------------*/
+}
+
+/***************************Меняем имя сайта***************************/
+@media(max-width: 361px) {
+    .namesiteshort {
+        display: block;
+        font-size: 19px;
+        float: left;
+        padding-top:7px;
+    }
+    .navbar-header > a >img{
+        width:21px;
+    }
+
+    .namesitelong {
+        display: none;
+    }
+    .carousel-control img{
+        width:15px;
+    }
+}
+
+@media (min-width: 362px) and (max-width: 408px) {
+    .namesiteshort {
+        display: block;
+        font-size: 22px;
+        float: left;
+    }
+
+    .namesitelong {
+        display: none;
+    }
+}
+
+@media  (min-width: 409px) and (max-width: 634px) {
+    .namesiteshort {
+        display: block;
+        float: left;
+        
+    }
+    .namesitelong {
+        display: none;
+    }
+}
+
+
+@media (min-width: 635px) and (max-width: 1120px) {
+    .namesiteshort {
+        display: none;
+    }
+    .namesitelong {
+        display: block;
+        float: left;
+    }
+}
+
+@media (min-width: 1121px) and (max-width: 1285px) {
+    .namesiteshort {
+        display: block;
+        float: left;
+    }
+    .namesitelong {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1286px) {
+    .namesiteshort {
+        display: none;
+    }
+    .namesitelong {
+        display: block;
+    }
+}
+/*********************************Меняем имя сайта********************************/
+
+/********************************Отступ у названия слева*************************/
+
+@media screen and (max-width: 500px) {
+    .navbar-header {
+        margin-left: 10px;
+    }
+}
+
+@media (min-width: 1121px) and (max-width: 1160px) {
+
+    .navbar-header {
+        margin-left: 5px;
+    }
+}
+
+@media (min-width: 1286px) and (max-width: 1350px) {
+
+    .navbar-header {
+        margin-left: 5px;
+    }
+}
+
+@media screen and (min-width: 1351px) {
+    .navbar-header {
+        margin-left: 50px;
+    }
+}
+/**********************************Отступ у названия слева****************************/
+
+/*************Отступ у Login, Register*****************/
+@media screen and (max-width: 991px) {
+
+    .form-horizontal .control-label {
+        padding-top: 0;
+        margin-bottom: 0;
+        text-align: left;
+    }
+
+    .headname {
+        margin-left: 0;
+    }
+}
+/*************Отступ у Login, Register*****************/
+
+
+@media (min-width: 1801px) and (max-width:2100px) {
+    .namesite {
+        font-size: 32px;
+        padding: 5px 0;
+    }
+
+    .navbar-header > a > img {
+        width: 30px;
+    }
+
+    .navdiv {
+        top: 75px;
+        width: 500px;
+        left: -500px;
+    }
+
+    .nav-toggle {
+        left: 500px;
+    }
+
+    [id='nav-toggle']:checked ~ .navdiv > .nav-toggle {
+        top: 75px;
+        left: 450px;
+    }
+
+    .navbar-right {
+        margin-top: 11px;
+    }
+
+    .limenu {
+        font-size: 22px;
+    }
+
+    .limenu > a {
+        font-size: 23px;
+    }
+
+    .submenu {
+        top: 50px;
+    }
+
+    .form-control {
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .searchform {
+        max-width: 170px;
+    }
+
+    .rightgrid .titlepartpost {
+        font-size: 1.8em;
+    }
+
+    .rightgrid .titleparttag {
+        font-size: 1.8em;
+    }
+
+    .lastposts .lastposts-item-name > a {
+        font-size: 1.4em;
+    }
+
+    input[type~="text"], input[type~="password"], input[type~="select"], textarea, input[type~="search"] {
+        font-size: 20px;
+    }
+}
+
+
+@media screen and (min-width:2100px) {
+    .namesite {
+        font-size: 36px;
+        padding: 7px 0;
+        margin-left: 90px;
+    }
+
+    .navbar-header a img {
+        width: 35px;
+    }
+
+    .navdiv {
+        top: 90px;
+        width: 500px;
+        left: -500px;
+    }
+
+    .nav-toggle {
+        left: 500px;
+    }
+
+    [id='nav-toggle']:checked ~ .navdiv > .nav-toggle {
+        top: 90px;
+        left: 450px;
+    }
+
+    .navbar-right {
+        margin-top: 15px;
+        margin-right: 100px;
+    }
+
+    .limenu {
+        font-size: 23px;
+    }
+
+    .limenu > a {
+        font-size: 25px;
+    }
+
+    .submenu {
+        top: 53px;
+    }
+
+    .form-control {
+        height: 45px;
+        font-size: 22px;
+    }
+
+    .searchform {
+        max-width: 200px;
+    }
+
+    .rightgrid .titlepartpost {
+        font-size: 2.2em;
+    }
+
+    .rightgrid .titleparttag {
+        font-size: 2.2em;
+    }
+
+    .lastposts .lastposts-item-name > a {
+        font-size: 2em;
+    }
+
+    .feeddiv > a {
+        font-size: 1.5em;
+    }
+
+    .solialicon {
+        width: 45px;
+    }
+
+    .wrapperchat {
+        width: 570px;
+        height: 770px;
+    }
+
+    .mainchat-inner img {
+        left: 200px;
+        top:450px;
+        width:250px;
+    }
+    .mainchat-inner a {
+        top:100px;
+        font-size:1.8em;
+        height:55px;
+    }
+    .mainchat-inner-name{
+        font-size:2.6em;
+    }
+
+    .roomchat {
+        height: 575px;
+    }
+
+    .comment-wrapper {
+        font-size: 1.6em;
+    }
+
+    #sendmessage {
+        font-size: 1.5em;
+        height: 40px;
+    }
+
+    #message {
+        height: 40px;
+    }
+
+    #inputForm input {
+        max-width: 700px;
+    }
+    input[type~="text"], input[type~="password"], input[type~="select"], textarea, input[type~="search"] {
+            font-size: 25px;
+    }
+
+    #input-form {
+        margin-top: 0;
+    }
+
+    .mainchat-inner{
+        height:750px;
+    }
+}
+ /*--------------------------------------Different Media----------------------------------------------*/

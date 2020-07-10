@@ -1,0 +1,47 @@
+﻿@model AsuBlog.Models.WidgetForPost
+
+@{
+    ViewBag.Title = Model.Post.Title;
+    ViewBag.Keywords = string.Join(" ",Model.Post.Tags.Select(t => t.Name).ToArray());
+    ViewBag.Description = Model.Post.Meta;
+}
+
+<div class="postbreadcrumbs">
+    <span>
+        @Html.ActionLink("Главная", "Index", "Blog") &raquo;
+    </span>
+    @if (Model.TopicCategory != null)
+    {
+        <span>@Html.ActionLink(Model.TopicCategory.Name, "Catalog", "Blog", new { topic = Model.TopicCategory.UrlSlug }, null) &raquo; </span>
+    }
+    @if (Model.TopicCategory != null && Model.SubtopicCategory != null && Model.SubtopicCategory.BoolArticle == false)
+    {
+        <span>@Html.ActionLink(Model.SubtopicCategory.Name, "Catalog", "Blog", new { topic = Model.TopicCategory.UrlSlug, subtopic = Model.SubtopicCategory.UrlSlug }, null) &raquo; </span>
+    }
+    @if (Model.TopicCategory != null && Model.SubtopicCategory != null && Model.ThemeCategory != null && Model.ThemeCategory.BoolArticle == false)
+    {
+        <span>@Html.ActionLink(Model.ThemeCategory.Name, "Catalog", "Blog", new { topic = Model.TopicCategory.UrlSlug, subtopic = Model.SubtopicCategory.UrlSlug, theme = Model.ThemeCategory.UrlSlug }, null) &raquo; </span>
+    }
+    @if (Model.TopicCategory != null && Model.SubtopicCategory != null && Model.ThemeCategory != null && Model.SubthemeCategory != null && Model.SubthemeCategory.BoolArticle == false)
+    {
+        <span>@Html.ActionLink(Model.SubthemeCategory.Name, "Catalog", "Blog", new { topic = Model.TopicCategory.UrlSlug, subtopic = Model.SubtopicCategory.UrlSlug, theme = Model.ThemeCategory.UrlSlug, subtheme = Model.SubthemeCategory.UrlSlug }, null) &raquo; </span>
+    }
+    @Model.Post.PostedOn.ToConfigLocalTime()
+</div>
+<div class="postaddthis">
+    <div>Поделиться...</div>
+    <div class="addthis_inline_share_toolbox"></div>
+</div>
+<div class="postname">
+    <h2>@Html.PostLink(Model.Post)</h2>
+</div>
+<div class="posttext">
+    @Html.Raw(Model.Post.Description)
+</div>
+<div class="disquscomments">
+    @Html.Partial("_Disqus", Model.Post)
+</div>
+@section scripts {
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5eca850edb2b5b99"></script>
+}

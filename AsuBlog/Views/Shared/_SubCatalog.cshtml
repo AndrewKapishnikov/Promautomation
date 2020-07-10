@@ -1,0 +1,29 @@
+﻿@model AsuBlog.Models.WidgetForSubCatalog
+ @if (Model.TopicUrlSlug != null && Model.SubTopicUrlSlug != null && Model.ThemeUrlSlug != null )
+ {
+     foreach (var item in Model.Categories)
+     {
+         @Html.ActionLink(item.Name, "catalog", "Blog", new {topic = Model.TopicUrlSlug, subtopic = Model.SubTopicUrlSlug, theme = Model.ThemeUrlSlug, subtheme = item.UrlSlug }, new { @class = "subCatalogActionLink" }) 
+     }
+ }
+ else if (Model.TopicUrlSlug != null && Model.SubTopicUrlSlug != null)
+ {
+     foreach (var item in Model.Categories)
+     {
+         @Html.ActionLink(item.Name, "catalog", "Blog", new  { topic = Model.TopicUrlSlug, subtopic = Model.SubTopicUrlSlug, theme = item.UrlSlug}, new { @class = "subCatalogActionLink" }) 
+     }
+ }
+ else if (Model.TopicUrlSlug != null)
+ {
+     foreach (var item in Model.Categories)
+     {
+         @Html.ActionLink(item.Name, "catalog", "Blog", new { topic = Model.TopicUrlSlug, subtopic = item.UrlSlug }, new { @class = "subCatalogActionLink" }) 
+     }
+ }
+ else
+ {
+     foreach (var item in Model.Categories)
+     {
+         @Html.ActionLink(item.Name, "catalog", "Blog", new { topic = item.UrlSlug }, new { @class = "subCatalogActionLink" }) 
+     }
+ }

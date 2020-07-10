@@ -1,0 +1,459 @@
+﻿.containermain-inner
+{
+    min-height:800px;
+}
+
+.carousel img {
+    width: 100%;
+    max-height: 550px;
+}
+
+.textdiv {
+    background-color: none;
+    border-radius: 20px;
+    text-align: start;
+    text-shadow: 3px 3px 2px #071937,5px 5px 3px #0b1337,-1px -2px 4px #03507d;
+    font-family: Flow, Lobster,sans-serif, cursive;
+}
+
+.textdiv a {
+    background-image: linear-gradient(#ffffff,#549ecb 40%,#ffffff);
+    height: 35px;
+    position: relative;
+    left: -70px;
+    top: -40px;
+    box-shadow: 3px 3px 4px #0e1339,5px 5px 9px #162568;
+    font-family:  cursive,'Times New Roman';
+    font-weight: 800;
+}
+ .textdiv a:hover {
+     background-image: linear-gradient(#d8eaf3,#03507d 40%,#d8eaf3);
+ }
+
+.carousel-caption {
+    background: none;
+    max-width: 800px;
+    top: 80px;
+    left: 60px;
+    padding-left:40px;
+    padding-right:170px;
+}
+
+.carousel-caption p{
+    font-size:1.9em;
+    color:#ffffff;
+}
+
+.carousel-control img {
+    width: 30px;
+    top: 160px;
+    position: relative;
+}
+
+.leftarrow {
+    left: -60px;
+}
+.rightarrow {
+    left: 60px;
+}
+
+.textdivundercatalog{
+    display:none;
+}
+
+.textdivundercatalog a {
+    background-image: linear-gradient(#ffffff,#549ecb 40%,#ffffff);
+    height: 35px;
+    position: relative;
+    left: -70px;
+    top: -40px;
+    box-shadow: 3px 3px 7px black;
+    font-family: cursive,'Times New Roman';
+    font-weight: 800;
+}
+.imagecontainer  {
+    display:none;
+}
+
+/*****************************************Cards********************************************/
+.containercard {
+    margin: 55px 22px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.upitem-1, .upitem-2, .upitem-3, .upitem-4 {
+    flex-basis: calc(100% / 4);
+ 
+}
+
+.downitem-1, .downitem-2, .downitem-3, .downitem-4 {
+    flex-basis: calc(100% / 4);
+    margin-top: 50px;
+  }
+.downitem-5 {
+    display: none;
+ }
+
+.card {
+    border-radius: 15px;
+    background-image: linear-gradient( rgb(179, 226, 251) 0%, #ffffff 23%, #ffffff 50%, rgba(197, 230, 248, 1) 100%);
+    margin: 0 auto;
+    width: 260px;
+    box-shadow: 5px 5px 9px #aaabae;
+}
+.card-title {
+    font-size:22px;
+    overflow: hidden;
+    padding: 15px 5px;
+    height: 70px;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    color: #000053;
+    margin-bottom:10px;
+}
+.card-title:hover {
+    background-image: linear-gradient( rgb(112, 188, 229) 0%, rgba(227, 242, 250, 0.09) 100%);
+    border-radius:15px 15px 0 0;
+    color:black;
+ }
+.card-img {
+    width: 100%;
+    height: 160px;
+}
+.card-imgdown {
+    width: 100%;
+    height: 160px;
+    border-radius:15px 15px 0 0;
+}
+
+.scale {
+    overflow: hidden; 
+}
+
+.scale img {
+    transition: 1s; 
+ }
+
+.scale img:hover {
+    transform: scale(1.1);
+}
+
+.scaledown {
+    overflow: hidden;
+    border-radius:15px 15px 0 0;
+}
+.scaledown img {
+    transition: 1s;
+}
+
+.scaledown img:hover {
+    transform: scale(1.1);
+}
+
+.card-body {
+    padding: 0 10px;
+}
+.card-text {
+    overflow: hidden;
+    padding:7px 5px;
+    height:88px;
+    text-align: justify;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+.card-body{
+  
+    padding-bottom:10px;
+}
+.card-body a {
+    display: block;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8px;
+    font-family:cursive,'Times New Roman';
+}
+.card-name {
+    font-size: 21px;
+    overflow: hidden;
+    padding: 15px 5px;
+    height: 70px;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    color: #000053;
+}
+.card-name:hover {
+    background-image: linear-gradient( rgb(112, 188, 229) 0%, rgba(227, 242, 250, 0.01) 100%);
+    color:black;
+}
+/*****************************************Cards********************************************/
+
+/************************************Carousel Media****************************************/
+@media screen and (max-width: 780px) {
+    .carousel-control img {
+        top: 60px;
+    }
+    .leftarrow {
+        left: 20px;
+    }
+    .rightarrow {
+        left: -20px;
+    }
+    .textdiv {
+        display: none;
+    }
+    .textdivundercatalog {
+        margin-left: 35px;
+        margin-right: 10px;
+        margin-top: 20px;
+        margin-bottom: 60px;
+        display: block;
+        background-color: none;
+        border-radius: 20px;
+        text-align: start;
+        text-shadow: 4px 4px 7px rgba(17, 86, 124, 0.55);
+        font-family: Flow, Lobster,sans-serif, cursive;
+    }
+
+    .textdivundercatalog p {
+        font-size: 1.3em;
+    }
+
+    .textdivundercatalog a {
+        top: -15px;
+    }
+
+    .textdivundercatalog a:hover {
+        background-image: linear-gradient(#d8eaf3,#03507d 40%,#d8eaf3);
+    }
+
+    .imagecontainer {
+        display: block;
+    }
+
+    .imagecontainer img {
+        width: 100%;
+    }
+ 
+}
+
+@media (min-width: 781px) and (max-width: 984px) {
+    .carousel-caption {
+        top: 50px;
+        left: 40px;
+     }
+
+    .carousel-caption p {
+        font-size: 1.4em;
+    }
+
+    .textdiv a {
+        height: 32px;
+        top:-20px;
+    }
+    .carousel-control img {
+         top: 110px;
+    }
+
+    .leftarrow {
+        left: -40px;
+    }
+
+    .rightarrow {
+        left: 40px;
+    }
+}
+/************************************Carousel Media****************************************/
+
+/**************************************Cards Media******************************************/
+@media screen and (max-width: 609px) {
+    .upitem-1, .upitem-2, .upitem-3, .upitem-4 {
+        flex-basis: calc(100%);
+        margin-bottom: 50px;
+    }
+    .downitem-1, .downitem-2, .downitem-3, .downitem-4 {
+        flex-basis: calc(100% );
+        margin-top: 50px;
+    }
+    .downitem-1 {
+        margin-top: 0;
+    }
+    .card-imgdown {
+           height: 185px;
+    }
+}
+
+@media (min-width: 610px) and (max-width: 889px) {
+
+    .upitem-1, .upitem-2, .upitem-3, .upitem-4 {
+        flex-basis: calc(100% / 2);
+        margin-bottom: 50px;
+    }
+    .downitem-1, .downitem-2, .downitem-3, .downitem-4 {
+        flex-basis: calc(100% / 2);
+         margin-top: 50px;
+    }
+    .downitem-1, .downitem-2 {
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 890px) and (max-width: 1169px) {
+    .upitem-1, .upitem-2, .upitem-3 {
+        flex-basis: calc(100% / 3);
+       
+    }
+    .upitem-4, .downitem-1, .downitem-2 {
+        flex-basis: calc(100% / 3);
+        margin-top: 50px;
+    }
+    .downitem-3, .downitem-4, .downitem-5 {
+        flex-basis: calc(100% / 3);
+        margin-top: 50px;
+    }
+    .downitem-5 {
+        display: block;
+    }
+}
+
+@media (min-width: 1500px) and (max-width: 1800px) {
+
+    .upitem-1, .upitem-2, .upitem-3, .upitem-4, .downitem-1, .downitem-2, .downitem-3, .downitem-4, .downitem-5 {
+        flex-basis: calc(100% / 5);
+    }
+    .downitem-1 {
+        margin-top: 0;
+    }
+    .downitem-5 {
+        display: block;
+        margin-top: 50px;
+    }
+}
+
+@media (min-width: 1801px) and (max-width:2100px) {
+
+    .carousel-inner {
+        height: 570px;
+    }
+    .carousel img {
+        max-height: 650px;
+    }
+    .carousel-control img {
+        top: 230px;
+    }
+    .leftarrow {
+        left: -90px;
+    }
+    .rightarrow {
+        left: 90px;
+    }
+    .upitem-1, .upitem-2, .upitem-3, .upitem-4, .downitem-1, .downitem-2, .downitem-3, .downitem-4, .downitem-5 {
+        flex-basis: calc(100% / 6);
+    }
+    .downitem-1, .downitem-2 {
+        margin-top: 0;
+    }
+    .downitem-5 {
+        display: block;
+        margin-top: 50px;
+    }
+    .card-text {
+         height: 120px;
+         font-size:20px;
+         text-align:center;
+     }
+    .card-name {
+        font-size: 23px;
+        height: 80px;
+    }
+   
+}
+
+
+@media (min-width: 2101px) {
+    
+    .carousel-inner {
+        height: 700px;
+    }
+    .carousel img {
+       
+        max-height: 850px;
+    }
+    .carousel-control img {
+        top: 330px;
+    }
+    .leftarrow {
+        left: -120px;
+    }
+    .rightarrow {
+        left: 120px;
+    }
+    .carousel-caption {
+        top: 100px;
+        left: 200px;
+        padding-right: 100px;
+    }
+    .carousel-caption p {
+        font-size: 2.3em;
+    }
+    .textdiv a {
+        background-image: linear-gradient(#ffffff,#549ecb 40%,#ffffff);
+        height: 50px;
+        font-size:23px;
+    }
+    .upitem-1, .upitem-2, .upitem-3, .upitem-4, .downitem-1, .downitem-2, .downitem-3, .downitem-4, .downitem-5 {
+        flex-basis: calc(100% / 7);
+       
+    }
+    .downitem-1, .downitem-2, .downitem-3 {
+        margin-top: 0;
+    }
+    .downitem-5 {
+        display: block;
+        margin-top: 50px;
+    }
+    .card-text {
+        height: 120px;
+        font-size: 20px;
+        text-align: center;
+    }
+    .card-name {
+        font-size: 23px;
+        height: 80px;
+    }
+    .card-title {
+        font-size: 27px;
+        height:90px;
+    }
+   
+}
+
+@media(max-width: 361px) {
+    .carousel-control img {
+        width: 20px;
+    }
+
+    .textdivundercatalog {
+        margin-bottom:0;
+    }
+
+    .textdivundercatalog p {
+        font-size: 1.2em;
+        margin-bottom: 0;
+    }
+
+    .textdivundercatalog a {
+        font-size: 0.7em;
+        height:30px;
+        top:-20px;
+    }
+}
+/************************************Cards Media***************************************/
+
+

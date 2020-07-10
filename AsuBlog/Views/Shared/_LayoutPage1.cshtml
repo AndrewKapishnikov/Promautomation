@@ -1,0 +1,254 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <title>Bootstrap 4</title>
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    @*@Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")*@
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    @*<link rel="stylesheet" href="~/Content/Site.css" />*@
+    @Styles.Render("~/Content/css")
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!--  navbar-expand-md показывает при каком размере сжимается меню-->
+                <nav class="navbar  navbar-expand-md fixed-top navbar-dark bg-dark">
+
+                    <a class="navbar-brand fontBlog pl-sm-5 " id="name" href="#">"Блог о промышленной автоматизации...<img style="width:26px;" src="img/907e3830.png" />"</a>
+
+                    <button id="buttontoggle" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                        <!--ml-auto сдвигает всё меню вправо-->
+                        <!--     class="mr-auto" отодвинуть элементы в правый край
+                             class="ml-auto" отодвинуть элементы в левый край-->
+                        <ul class="navbar-nav ml-auto navmenu" id="navmenuid">
+
+                            <li id="lidrop" class="dropdown nav-item active ">
+                                <a id="sign1" href="#" class="nav-link dropdown-toggle signaa" data-toggle="dropdown">КИПиА <!--<span class="caret" style="float:left;"></span>--></a>
+                                <ul id="ulsubmenuid1" class="dropdown-menu drpdmenu ulsubmenu1" role="menu">
+                                    <li class="cl"><a class="signsub" href="#"><b>Датчики</b></a></li>
+                                    <li class="cl"><a class="signsub" href="#"><b>Клапаны</b></a></li>
+                                    <li class="cl"><a class="signsub" href="#"><b>Маркировка проводов</b></a></li>
+                                    <li class=""><a class="signsub" href="#"><b>Шкафы управления</b></a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item active dropdown">
+                                <a id="sign2" href="#" class="nav-link dropdown-toggle signaa " data-toggle="dropdown">АСУТП <span class="caret"></span></a>
+                                <ul id="ulsubmenuid2" class="dropdown-menu drpdmenu ulsubmenu2" role="menu">
+                                    <li class="cl"><a class="signsub" href="#"><b>ПЛК</b></a></li>
+                                    <li class="cl"><a class="signsub" href="#"><b>SCADA</b></a></li>
+                                    <li class=""><a class="signsub" href="#"><b>MES</b></a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item active">
+                                <a class="nav-link signaa sgnwithout1 sgnwithout2" href="#">Метрология</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link signaa sgnwithout1" href="#">C#</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link signaa sgnwithout1" href="#">Электротехника</a>
+                            </li>
+                        </ul>
+
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <input class="form-control searchform" type="search" placeholder="Поиск" />
+                                <button class="btn searchbutton form-control btn-outline-info" type="submit"> Поиск</button>
+                            </div>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="picauto" id="idpicauto">
+
+        <div class="container-fluid mainclass">
+            <div class="row">
+                <div class="col-md-2  text-justify asidefirst pt-sm-1">
+                    <p>
+                        Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                        Placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante.
+
+                    </p>
+                    <input type="checkbox" id="nav-toggle" hidden="hidden" />
+
+                    <div class="navdiv">
+                        <label for="nav-toggle" class="nav-toggle" id="labeltoggle"></label>
+                        <ul>
+                            <li><a href="#1">Communication with Siemens S7 Plc with C# and S7.Net plc driver   </a></li>
+                            <li><a href="#2">  <img src="img/redkie-zhivotnie-krasniy-volk.jpg" width="150" /> Modbus with C#: libraries, code, utilities and examples </a></li>
+                            <li><a href="#3">Три   tykryuyu rukryulsert </a></li>
+                            <li><a href="#4">Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod</a></li>
+                            <li><a href="#5">Пять  yjetyirykryul </a></li>
+                            <li><a href="#6"> <img src="img/zhivotnye-krasnoj-knigi-rossii-3.jpg" width="150" />Modbus configuration example for an Allen Bradley Micrologix 1400</a></li>
+                            <li><a href="#3">Три   tykryuyu rukryulsert </a></li>
+                            <li><a href="#4">How to write a Siemens S7 plc driver with C# and Sharp7</a></li>
+                            <li><a href="#5"> <img src="img/rys.jpg" width="150" />Пять  yjetyirykryul </a></li>
+                            <li><a href="#6">Шесть dfhrghetjety  ytjkyulk4tuk</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="col-md-8  text-justify  pt-sm-5  " id="maintext">
+                    <!-- id ="maintext"-->
+                    <p>
+                        <!-- <textarea id="textarea"></textarea>
+                          <input id="t" type="text"/>-->
+                        Lorem ipsim tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+
+                        c nulla vivamus faucibus felis nec dolor pretium eget pellentesque dolor suscipit maecenas vitae enim arcu, at tincidunt nunc pellentesque eleifend vulputate lacus, vel semper.5
+                        tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                        placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante.
+                        fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget.
+                        sem nulla eu ultricies orci praesent id augue nec lorem pretium congue sit amet ac nunc fusce iaculis lorem eu diam hendrerit at mattis purus dignissim vivamus mauris tellus, fringilla.
+                        vel dapibus a, blandit quis erat vivamus elementum aliquam luctus etiam fringilla pretium sem vitae sodales mauris id nulla est praesent laoreet, metus vel auctor aliquam, eros purus vulputate leo.
+                        eget consequat neque quam id tellus duis ultricies tempor tortor, vitae dignissim ligula mattis nec in hac habitasse platea dictumst ut arcu enim, dictum quis ultrices id, sagittis eget nulla.
+                        sed nunc mi, congue ut ultricies ac, varius a eros donec porttitor, libero fermentum fringilla laoreet, eros arcu sodales ante, ut dictum risus lectus vel quam integer ultricies, nunc eget.
+                        elementum euismod, orci enim vestibulum orci, nec suscipit urna odio et tellus suspendisse suscipit orci sit amet sem venenatis nec lobortis sem suscipit nullam nec imperdiet velit mauris eu nisi.
+                        a felis imperdiet porta at ac nulla vivamus faucibus felis nec dolor pretium eget pellentesque dolor suscipit maecenas vitae enim arcu, at tincidunt nunc pellentesque eleifend vulputate lacus, vel semper.
+                        tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                        placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante.
+                        fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget.
+                        sem nulla eu ultricies orci praesent id augue nec lorem pretium congue sit amet ac nunc fusce iaculis lorem eu diam hendrerit at mattis purus dignissim vivamus mauris tellus, fringilla.
+                        vel dapibus a, blandit quis erat vivamus elementum aliquam luctus etiam fringilla pretium sem vitae sodales mauris id nulla est praesent laoreet, metus vel auctor aliquam, eros purus vulputate leo.
+                        amet, consectetur adipiscing elit.lorem*4
+                        tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                        placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante.
+                        fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget.
+                        sem nulla eu ultricies orci praesent id augue nec lorem pretium congue sit amet ac nunc fusce iaculis lorem eu diam hendrerit at mattis purus dignissim vivamus mauris tellus, fringilla.
+                        tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                        placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante.
+                        fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget.
+                        sem nulla eu ultricies orci praesent id augue nec lorem pretium congue sit amet ac nunc fusce iaculis lorem eu diam hendrerit at mattis purus dignissim vivamus mauris tellus, fringilla.
+                        vel dapibus a, blandit quis erat vivamus elementum aliquam luctus etiam fringilla pretium sem vitae sodales mauris id nulla est praesent laoreet, metus vel auctor aliquam, eros purus vulputate leo.
+                        eget consequat neque quam id tellus duis ultricies tempor tortor, vitae dignissim ligula mattis nec in hac habitasse platea dictumst ut arcu enim, dictum quis ultrices id, sagittis eget nulla.
+                    </p>
+                </div>
+                <div class="col-md-2  text-left  pt-sm-5 " id="rightside">
+                    <p>
+                        <!-- Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                         Placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante.
+                         Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                         Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                         tricies orci praesent id augue nec lorem pretium congue sit amet ac nunc fusce iaculis lorem eu diam hendrerit at mattis purus dignissim vivamus mauris tellus, fringilla.-->
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="container blockcontent ">
+        <div class="row">
+            <div class="col-md text-justify ">
+                Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                Placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante.
+                Fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget.
+
+            </div>
+            <div class="col-md text-justify">
+                Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                Placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante.
+                Fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget.
+
+            </div>
+            <div class="col-md  text-justify">
+                Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                Placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante.
+                Fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget.
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer font-small  pt-4 ">
+
+
+        <!-- Call to action -->
+        <ul class="list-unstyled list-inline text-center py-2">
+            <li class="list-inline-item">
+                <h5 class="mb-1">Регистрация: </h5>
+            </li>
+            <li class="list-inline-item">
+                <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
+            </li>
+        </ul>
+        <!-- Call to action -->
+        <!-- Social buttons -->
+        <ul class="list-unstyled list-inline text-center solialbutton">
+            <li class="list-inline-item">
+                <a class="" href="#">
+                    <img class="solialicon" src="img/Whatsapp.png" />
+
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="" href="#">
+                    <img class="solialicon" src="img/Youtub.png" />
+
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="" href="#">
+                    <img class="solialicon" src="img/vk.png" />
+
+                </a>
+            </li>
+        </ul>
+
+        <!-- Social buttons -->
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3 copyright">
+            © 2018 Copyright:
+            <a href="https://www.yandex.ru"> MDBootstrap.com</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+    <!--Подключение Bootstrap без доступа к интернету-->
+    <!-- <script src="jss/bootstrap.bundle.js"></script>
+     <script src="jss/bootstrap.js"></script>
+     <script src="js/bootstrap.min.js"></script>
+     <script src="js/main.js"></script>-->
+    <!--Подключение Bootstrap без доступа к интернету-->
+    <!--    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>  <!--Эта библиотека позволяет работать кнопке toggle в главном меню-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
+
+
+
+    <script src="index.js"></script>
+
+
+
+</body>
+</html>
+
+
+@RenderBody()

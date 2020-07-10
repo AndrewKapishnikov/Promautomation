@@ -1,0 +1,61 @@
+﻿@model SelectList
+
+@using (Html.BeginForm("UploadImage", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Выберите картинку для загрузки с указанием требуемой статьи</legend>
+        <div class="editor-label">Название статьи</div>
+        <div class="editor-field">
+            @Html.DropDownList("postId", Model)
+        </div>
+        <div class="editor-label leftcheck">Является ли изображение главным для статьи?</div>
+        <div class="editor-field">
+            @Html.CheckBox("mainImage", false)
+        </div>
+        <div class="editor-label">Файл изображения</div>
+        <div class="editor-field">
+            <input type="file" name="uploadImage" />
+        </div>
+        <p>
+            <input type="submit" value="Отправить" />
+        </p>
+    </fieldset>
+}
+<br />
+<fieldset>
+    <legend>Все картинки, использующиеся в выбранной статье</legend>
+    <div>
+        @using (Ajax.BeginForm("LookImages", new AjaxOptions { UpdateTargetId = "results", LoadingElementId = "loading" }))
+        {
+            <div class="editor-label">Название статьи</div>
+            <div class="editor-field">
+                @Html.DropDownList("postId", Model)
+            </div>
+            <p>
+                <input type="submit" value="Посмотреть" />
+            </p>
+        }
+        <img id="loading" src="@Url.Content("~/Images/loader.gif")" style="display:none" />
+        <div id="results"></div>
+    </div>
+</fieldset>
+<br />
+@using (Html.BeginForm("DeleteImage", "Admin", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Выберите картинку, которую требуется удалить</legend>
+        <div class="editor-label">Название статьи</div>
+        <div class="editor-field">
+            @Html.DropDownList("postId", Model)
+        </div>
+        <div class="editor-label">Полное название картинки(напр. image1.png)</div>
+        <div class="editor-field">
+            <input type="text" name="image" />
+        </div>
+        <p>
+            <input type="submit" value="Удалить картинку" />
+        </p>
+    </fieldset>
+}
