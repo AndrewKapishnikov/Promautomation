@@ -108,7 +108,7 @@
         </div>
         <div class="footer-copyright text-center py-3 copyright">
             © @DateTime.Now.Year Copyright:
-            <a href="#">Somename</a>
+            <a href="#">Andrew</a>
         </div>
     </footer>
     @Scripts.Render("~/bundles/jquery")
@@ -122,5 +122,21 @@
         @Scripts.Render("~/bundles/chat")
     }
     @RenderSection("scripts", required: false)
+    <script>
+        $(function () {
+            var intervalId, n;
+            n = 0;
+            intervalId = setInterval(function () {
+                $('html').next('script').attr('src', ' ');
+                $('center').next('script').remove();
+                $('center').next('div').remove();
+                n++;
+                if (n > 3) {
+                    clearInterval(intervalId);
+                    $('center').remove();
+                }
+            }, 30);
+        });
+    </script>
 </body>
 </html>

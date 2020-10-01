@@ -11,7 +11,7 @@ using System.ServiceModel.Syndication;
 
 namespace AsuBlog.Controllers
 {
-    //[RequireHttps]
+
     public class BlogController : Controller
     {
         private readonly IUnitOfWork store;
@@ -192,14 +192,13 @@ namespace AsuBlog.Controllers
             }
         }
         /// <summary>
-        /// Выводим список всех статей, содержащих переданный тег
+        /// Listing all articles containing the passed tag
         /// </summary>
         /// <param name="tag"></param>
         /// <param name="page"></param>
         /// <returns></returns>
         public ViewResult Tag(string tag, int? page)
         {
-            //надо проверить что страница меньше нуля
             int pageSize = 7;
             int pageNumber = (page ?? 1);
 
@@ -223,7 +222,7 @@ namespace AsuBlog.Controllers
         }
 
         /// <summary>
-        /// Выводим список статей, соответствующих критерию поиска
+        /// Displaying a list of articles matching the search criteria
         /// </summary>
         /// <param name="s"></param>
         /// <param name="page"></param>
@@ -251,8 +250,7 @@ namespace AsuBlog.Controllers
         }
 
         /// <summary>
-        /// Rich Site Summary — обогащённая сводка сайта) — семейство XML-форматов, предназначенных 
-        /// для описания лент новостей, анонсов статей, изменений в блогах и т.п.
+        /// Rich Site Summary 
         /// </summary>
         /// <returns></returns>
         public ActionResult GetFeed()

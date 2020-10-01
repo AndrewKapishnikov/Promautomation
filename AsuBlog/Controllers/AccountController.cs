@@ -49,7 +49,7 @@ namespace AsuBlog.Controllers
 
 
         /// <summary>
-        /// Вызывается только один раз при первой инициализации базы данных
+        /// Called only once when the database is first initialized
         /// </summary>
         /// <returns></returns>
         public async Task SetInitialDataAsync()
@@ -160,7 +160,7 @@ namespace AsuBlog.Controllers
                     ApplicationUser user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
                     user.EmailConfirmed = true;
                     var resultUser = await UserService.UserManager.CreateAsync(user, model.Password);
-                    // добавляем роль
+                    // add Role
                     await UserService.UserManager.AddToRoleAsync(user.Id, "user");
                     await UserService.SaveAsync();
 
@@ -177,12 +177,12 @@ namespace AsuBlog.Controllers
 
                     //if (resultUser.Succeeded)
                     //{
-                    //    // генерируем токен для подтверждения регистрации
+                    //    // generate a token to confirm registration
                     //    var code = await UserService.UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    //    // создаем ссылку для подтверждения
+                    //    //create a link for confirmation
                     //    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code },
                     //               protocol: Request.Url.Scheme);
-                    //    // отправка письма
+                    //    // sending letter
                     //    //await UserService.UserManager.SendEmailAsync(user.Id, "Подтверждение электронной почты",
                     //    //           "Для завершения регистрации перейдите по ссылке:: <a href=\""
                     //    //                                           + callbackUrl + "\">завершить регистрацию</a>");

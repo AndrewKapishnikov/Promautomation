@@ -21,7 +21,13 @@ namespace AsuBlog.Hubs
         {
             store = new UnitOfWork("DefaultConnection");
         }
-        // Отправка сообщений
+
+        /// <summary>
+        /// Sending messages
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
         public async Task Send(string name, string message)
         {
             DateTime dateMessage = default(DateTime);
@@ -42,7 +48,10 @@ namespace AsuBlog.Hubs
         }
 
 
-        // Подключение нового пользователя
+        /// <summary>
+        /// Connect a new user
+        /// </summary>
+        /// <param name="userName"></param>
         public void Connect(string userName)
         {
             if (store.Chats.TotalItems() > 1100)
@@ -81,19 +90,23 @@ namespace AsuBlog.Hubs
             {
                 Users.Add(new User { ConnectionId = id, Name = userName });
 
-                // Посылаем сообщение текущему пользователю
+                // Send a message to the current user
                 Clients.Caller.onConnected(id, userName, Users, chatMessages);
 
                 if (metka == false && userName != null)
                 {
-                    // Посылаем сообщение всем пользователям, кроме текущего
+                    // Send a message to all users except the current one
                     Clients.AllExcept(id).onNewUserConnected(id, userName);
                 }
             }
         }
 
 
-        // Отключение пользователя
+        /// <summary>
+        ///  Disconnect the user
+        /// </summary>
+        /// <param name="stopCalled"></param>
+        /// <returns></returns>
         public override System.Threading.Tasks.Task OnDisconnected(bool stopCalled)
         {
             var item = Users.FirstOrDefault(x => x.ConnectionId == Context.ConnectionId);

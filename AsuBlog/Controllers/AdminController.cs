@@ -36,10 +36,10 @@ namespace AsuBlog.Controllers
         ///    records: total no.of records,
         ///    rows: records,
         ///    total: no.of records returned now  }
-        ///     $page = $_POST['page']; // текущая страница
+        ///     $page = $_POST['page'];  // текущая страница
         ///     $limit = $_POST['rows']; // количество строк отображаемое в гриде
-        ///     $sidx = $_POST['sidx']; // сортировка по полю грида
-        ///     $sord = $_POST['sord']; // get the direction
+        ///     $sidx = $_POST['sidx'];  // сортировка по полю грида
+        ///     $sord = $_POST['sord'];  // get the direction
         /// </summary>
         /// <param name="jqParams"></param>
         /// <returns></returns>
@@ -61,7 +61,7 @@ namespace AsuBlog.Controllers
 
 
         /// <summary>
-        /// Перейти к просмотру поста из панели управления
+        /// Go to post view from control panel
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -71,8 +71,8 @@ namespace AsuBlog.Controllers
             return RedirectToRoute(new { controller = "Blog", action = "Post", year = post.PostedOn.Year, month = post.PostedOn.Month, title = post.UrlSlug });
         }
 
-        //Обнаружено потенциально опасное значение Request.Form, полученное от 
-        //клиента (ShortDescription="<p>a</p>").' если не установлено ValidateInput(false)
+        // Potentially dangerous Request.Form value received from client(ShortDescription = "<p> a </p>") 
+        // was detected. ' if not set ValidateInput (false)
         [HttpPost, ValidateInput(false)]
         public ContentResult AddPost(Post post)
         {
@@ -173,7 +173,7 @@ namespace AsuBlog.Controllers
         }
 
         /// <summary>
-        /// Редактировать выбранный пост
+        /// Edit selected post
         /// </summary>
         /// <param name="post"></param>
         /// <returns></returns>
@@ -277,7 +277,7 @@ namespace AsuBlog.Controllers
         }
 
         /// <summary>
-        /// Удалить выбранный пост
+        /// Delete selected post
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -329,7 +329,7 @@ namespace AsuBlog.Controllers
         }
 
         /// <summary>
-        /// Создать новую категорию
+        /// Create a new category
         /// </summary>
         /// <param name="category"></param>
         /// <returns></returns>
@@ -377,7 +377,7 @@ namespace AsuBlog.Controllers
 
 
         /// <summary>
-        /// Редактировать выбранную категорию
+        /// Edit selected category
         /// </summary>
         /// <param name="category"></param>
         /// <returns></returns>
@@ -444,7 +444,7 @@ namespace AsuBlog.Controllers
         }
 
         /// <summary>
-        /// Удалить выбранную категорию
+        /// Delete selected category
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -524,7 +524,7 @@ namespace AsuBlog.Controllers
         }
 
         /// <summary>
-        /// Редактировать выбранный тег
+        /// Edit the selected tag
         /// </summary>
         /// <param name="tag"></param>
         /// <returns></return>
@@ -559,7 +559,7 @@ namespace AsuBlog.Controllers
         }
 
         /// <summary>
-        /// Удалить выбранную категорию
+        /// Delete selected category
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -665,9 +665,8 @@ namespace AsuBlog.Controllers
                 {
                     string pathForImage = Server.MapPath("~/Images/"+post.UrlSlug+"/");
 
-                    // получаем имя файла
                     string fileName = Path.GetFileName(uploadImage.FileName);
-                    // сохраняем файл в папку Image в проекте
+      
                     uploadImage.SaveAs(Path.Combine(pathForImage,fileName));
 
                     if (mainImage == "true")
@@ -743,10 +742,10 @@ namespace AsuBlog.Controllers
         ///    records: total no.of records,
         ///    rows: records,
         ///    total: no.of records returned now  }
-        ///     $page = $_POST['page']; // текущая страница
-        ///     $limit = $_POST['rows']; // количество строк отображаемое в гриде
-        ///     $sidx = $_POST['sidx']; // сортировка по полю грида
-        ///     $sord = $_POST['sord']; // get the direction
+        ///     $page = $_POST['page'];     // текущая страница
+        ///     $limit = $_POST['rows'];    // количество строк отображаемое в гриде
+        ///     $sidx = $_POST['sidx'];     // сортировка по полю грида
+        ///     $sord = $_POST['sord'];     // get the direction
         /// </summary>
         /// <param name="jqParams"></param>
         /// <returns></returns>
@@ -769,7 +768,7 @@ namespace AsuBlog.Controllers
 
 
         /// <summary>
-        /// Удалить выбранного пользователя
+        /// Delete selected user
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -832,7 +831,7 @@ namespace AsuBlog.Controllers
 
 
         /// <summary>
-        /// Удалить выбранное сообщение
+        /// Delete selected message
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>

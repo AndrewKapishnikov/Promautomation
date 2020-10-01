@@ -56,15 +56,12 @@
                 return false; 
             }
         });
-       // $("#btnLogin").click(function () {
+       // $("#btnLogin").click(function () {});
         var name = $("#txtUserName").val();
-            //if (name.length > 0) {
-        chat.server.connect(name);
-            // }
-            //else {
-            //   alert("Введите имя");
-            //}
-            //});
+        if (name.length > 0) {
+            chat.server.connect(name);
+         }
+            
     });
     $.connection.hub.disconnected(function () {
         setTimeout(function () {

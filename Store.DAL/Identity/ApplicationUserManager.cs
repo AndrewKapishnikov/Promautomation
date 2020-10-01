@@ -62,7 +62,6 @@ namespace Store.DAL.Identity
                                     .Skip(pageNo * pageSize)
                                     .Take(pageSize)
                                     .ToList();
-
                     break;
             }
 

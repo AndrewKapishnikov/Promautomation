@@ -21,8 +21,7 @@ namespace AsuBlog
 
         public override object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {
-            var post = (Post)base.BindModel(controllerContext, bindingContext);  //Обнаружено потенциально опасное значение Request.Form, полученное от 
-                                                                                 //клиента (ShortDescription="<p>a</p>").' если не установлено ValidateInput(false)
+            var post = (Post)base.BindModel(controllerContext, bindingContext);  
 
 
             using (var blogRepository = kernel.Get<IUnitOfWork>())

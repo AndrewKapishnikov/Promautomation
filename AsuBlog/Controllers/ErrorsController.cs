@@ -9,7 +9,7 @@ namespace AsuBlog.Controllers
     public class ErrorsController : Controller
     {
         /// <summary>
-        /// Return view for generic errors (for ex. Internal Server Error like 500).
+        /// Return view for generic errors
         /// </summary>
         /// <returns></returns>
         public ActionResult Index()

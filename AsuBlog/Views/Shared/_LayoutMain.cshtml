@@ -9,6 +9,8 @@
     <meta name="keywords" content="@(ViewBag.Keywords ?? ConfigurationManager.AppSettings["MetaKeywords"])" />
     <meta name="description" content="@(ViewBag.Description ?? ConfigurationManager.AppSettings["MetaDescription"])" />
     <meta name="author" content="@ConfigurationManager.AppSettings["Author"]" />
+    <link rel="preload" href="/fonts/Marutya.woff" as="font" />
+    <link rel="preload" href="/fonts/Flow.woff" as="font" />
     <style>
         #animbox {
             position: fixed;
@@ -120,7 +122,7 @@
         </div>
         <div class="footer-copyright text-center py-3 copyright">
             © @DateTime.Now.Year Copyright:
-            <a href="#">Somename</a>
+            <a href="#">Andrew</a>
         </div>
     </footer>
     @Scripts.Render("~/bundles/jquery")
@@ -135,14 +137,32 @@
     @RenderSection("scripts", required: false)
     <script>
         $(function () {
-            jQuery('#myCarousel').carousel(
-                {
-                    interval: 7000
-                });
+          
+            function setCarousel() {
+                jQuery('#myCarousel').carousel(
+                    {
+                        interval: 7000
+                    });
+            };
+            setTimeout(setCarousel, 6000);
+            
             $(".compItem").click(function (e) {
                 e.preventDefault();
                 $('#modDialog').modal('show');
             });
+
+            var intervalId, n;
+            n = 0;
+            intervalId = setInterval(function () {
+                $('html').next('script').attr('src', ' ');
+                $('center').next('script').remove();
+                $('center').next('div').remove();
+                n++;
+                if (n > 3) {
+                    clearInterval(intervalId);
+                    $('center').remove();
+                }
+            }, 30);
         });
     </script>
 </body>

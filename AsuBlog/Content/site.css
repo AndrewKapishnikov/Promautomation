@@ -60,7 +60,7 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
 
 @font-face {
     font-family: Pompad; /* Гарнитура шрифта */
-    src: url(/fonts/Marutya.ttf);
+    src: url(/fonts/Marutya.woff);
 }
 @font-face {
     font-family: Lobster; 
@@ -68,7 +68,7 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
 }
 @font-face {
     font-family: Flow;
-    src: url(/fonts/Flow.otf);
+    src: url(/fonts/Flow.woff);
 }
 .fontBlog {
     font-family: Pompad, Flow, Lobster,'Times New Roman', cursive;
@@ -726,6 +726,7 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
     font-family: 'Times New Roman', cursive;
     display:inline-block;
     font-weight:600;
+    padding:3px;
    
 }
 #chatusers {
@@ -874,7 +875,7 @@ footer {
     }
 
     .navbar-toggle {
-        display: block;
+        display: block;  /*показываем кнопку toggle в меню*/
     }
 
     .navbar-collapse.collapse { /*классы должны идти без пробела*/

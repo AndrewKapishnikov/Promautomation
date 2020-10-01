@@ -27,13 +27,13 @@ namespace AsuBlog
             NinjectModule databaseModule = new UnitOfWorkModule("DefaultConnection"); 
             var kernel = new StandardKernel(databaseModule);
             //System.InvalidOperationException: 'Validation type names in unobtrusive client validation rules must be unique. 
-            //The following validation type was seen more than once: required' - возникает исключение если убираю нижнюю строку...
+            //The following validation type was seen more than once: required' - an exception is raised if I remove the bottom line
             kernel.Unbind<ModelValidatorProvider>();
             NinjectDependencyResolver ninjDepend = new NinjectDependencyResolver(kernel);
 
             DependencyResolver.SetResolver(ninjDepend);
 
-            //Если убираем binding, то error Status: 'Internal Server Error'.Error code: 500
+            //If delete binding, then error Status: 'Internal Server Error'.Error code: 500
             ModelBinders.Binders.Add(typeof(Post), new PostModelBinder(kernel));
         }
 
@@ -90,7 +90,11 @@ namespace AsuBlog
             }
         }
 
-
+        protected void Application_BeginRequest()
+        {
+            if (!Context.Request.IsSecureConnection && !Context.Request.IsLocal)
+                Response.Redirect(Context.Request.Url.ToString().Replace("http:", "https:"));
+        }
 
 
     }
