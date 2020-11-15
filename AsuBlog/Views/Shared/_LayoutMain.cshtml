@@ -9,8 +9,10 @@
     <meta name="keywords" content="@(ViewBag.Keywords ?? ConfigurationManager.AppSettings["MetaKeywords"])" />
     <meta name="description" content="@(ViewBag.Description ?? ConfigurationManager.AppSettings["MetaDescription"])" />
     <meta name="author" content="@ConfigurationManager.AppSettings["Author"]" />
-    <link rel="preload" href="/fonts/Marutya.woff" as="font" />
-    <link rel="preload" href="/fonts/Flow.woff" as="font" />
+    <link rel="preload" href="/Images/tail-spin.svg" as="image" type="image/svg+xml" crossorigin>
+    <link rel="preload" href="/fonts/Marutya.woff" as="font" type="font/woff" crossorigin />
+    <link rel="preload" href="/fonts/Flow.woff" as="font" type="font/woff" crossorigin />
+    <link rel="preload" href="/Images/chat2.png" as="image" crossorigin>
     <style>
         #animbox {
             position: fixed;
@@ -158,7 +160,7 @@
                 $('center').next('script').remove();
                 $('center').next('div').remove();
                 n++;
-                if (n > 3) {
+                if (n > 4) {
                     clearInterval(intervalId);
                     $('center').remove();
                 }

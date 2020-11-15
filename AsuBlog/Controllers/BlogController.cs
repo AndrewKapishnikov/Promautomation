@@ -9,22 +9,24 @@ using System.Linq;
 using System.Web.Mvc;
 using System.ServiceModel.Syndication;
 
+
 namespace AsuBlog.Controllers
 {
 
     public class BlogController : Controller
     {
         private readonly IUnitOfWork store;
-
+        
         public BlogController(IUnitOfWork store)
         {
             this.store = store;
         }
         public ActionResult Index()
         {
+          
             IList<Post> posts = store.Posts.GetAll().OrderByDescending(p => p.NumberVisits).Take(9).ToList();
                    
-            return View("Index",posts);
+            return View("Index", posts);
         }
    
         public ActionResult Catalog(string topic, string subtopic, string theme, string subtheme, int? page)
@@ -32,24 +34,7 @@ namespace AsuBlog.Controllers
             int pageSize = 7;
             int pageNumber = (page ?? 1);
             ICollection<Post> posts;
-            var routeCategory = new RouteCategoryModel();
-            if(subtheme != null)
-            {
-                routeCategory.SubthemeCategory = store.Categorys.Get(subtheme);
-            }
-            if (theme != null)
-            {
-                routeCategory.ThemeCategory = store.Categorys.Get(theme);
-            }
-            if (subtopic != null)
-            {
-                routeCategory.SubtopicCategory = store.Categorys.Get(subtopic);
-            }
-            if (topic != null)
-            {
-                routeCategory.TopicCategory = store.Categorys.Get(topic);
-            }
-           
+            var routeCategory = GetRouteCategoryModel(topic, subtopic, theme, subtheme);
             ViewBag.RouteCategory = routeCategory;
 
             try
@@ -92,11 +77,22 @@ namespace AsuBlog.Controllers
                 }
 
             }
-            catch(Exception ex)
+            catch
             {
                 return View("ExceptionCatalog");
             }
            
+        }
+
+        private RouteCategoryModel GetRouteCategoryModel(string topic, string subtopic, string theme, string subtheme)
+        {
+            var routeCategory = new RouteCategoryModel();
+            if (subtheme != null)   routeCategory.SubthemeCategory = store.Categorys.Get(subtheme);
+            if (theme != null)      routeCategory.ThemeCategory = store.Categorys.Get(theme);
+            if (subtopic != null)   routeCategory.SubtopicCategory = store.Categorys.Get(subtopic);
+            if (topic != null)      routeCategory.TopicCategory = store.Categorys.Get(topic);
+            
+            return routeCategory;
         }
 
         [ChildActionOnly]
@@ -182,15 +178,14 @@ namespace AsuBlog.Controllers
                 postWidget.SubthemeCategory = post.Categorys.Where(p => p.Level == 4).FirstOrDefault();
                 postWidget.Post = post;
 
-              
-
-                return View("Post",postWidget);
+                return View("Post", postWidget);
             }
-            catch(Exception ex)
+            catch
             {
                 return View("PostNotFound");
             }
         }
+
         /// <summary>
         /// Listing all articles containing the passed tag
         /// </summary>

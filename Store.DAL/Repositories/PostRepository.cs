@@ -19,8 +19,8 @@ namespace Store.DAL.Repositories
         }
         public IEnumerable<Post> GetAll()
         {
-           //IQueryable<Post> posts = db.Posts; //Это будет отложенный запрос
-            return db.Posts; //Нужно посмотреть необходим ли здесь .ToList();
+            //IQueryable<Post> posts = db.Posts; //This will be a pending request
+            return db.Posts; 
         }
         public IList<Post> GetPublishedPosts()
         {

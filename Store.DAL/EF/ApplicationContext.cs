@@ -29,7 +29,7 @@ namespace Store.DAL.EF
               .MapRightKey("PostId")
               .ToTable("TagPost"));
 
-            //Не забыть вызвать базовый класс, чтобы заработала миграция
+            //Remember to call the base class for the migration to work
             base.OnModelCreating(modelBuilder);
 
         }
@@ -37,7 +37,7 @@ namespace Store.DAL.EF
     }
 
     /// <summary>
-    /// Фабрику необходимо добавить для того,чтобы заработала Миграция
+    ///The factory must be added in order for the Migration to work
     /// </summary>
     public class MigrationsContextFactory : IDbContextFactory<ApplicationContext>
     {
@@ -48,7 +48,7 @@ namespace Store.DAL.EF
     }
 
     /// <summary>
-    /// Инициализатор базы данных
+    /// Database initializer
     /// </summary>
     public class ApplicationDbInitializer: DropCreateDatabaseAlways<ApplicationContext>
     {

@@ -28,7 +28,7 @@
                         <a href="@string.Format("http://{0}.com{1}#disqus_thread", System.Configuration.ConfigurationManager.AppSettings["Domain"], item.Href(Url))"></a>
                     </div>
                     <div class="postedtime">
-                        @Html.DisplayFor(m => item.PostedOn)
+                        @Html.DisplayFor(m => item.PostedOn.ToConfigLocalTime())
                     </div>
                 </div>
                 <div style="clear:both;width:1px;"></div>

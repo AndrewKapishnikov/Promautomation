@@ -519,7 +519,7 @@ namespace AsuBlog.Controllers
                     message = "Возникла ошибка при сохранении категории."
                 });
             }
-
+            
             return Content(json, "application/json");
         }
 
@@ -731,7 +731,7 @@ namespace AsuBlog.Controllers
 
             }
 
-            return PartialView("LookImages", model);
+            return PartialView("_LookImages", model);
         }
 
         #endregion

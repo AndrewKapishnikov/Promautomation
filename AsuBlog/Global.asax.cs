@@ -10,6 +10,7 @@ using Store.DAL.Entities;
 using System;
 using System.Web;
 using AsuBlog.Controllers;
+using Elmah;
 
 namespace AsuBlog
 {
@@ -94,6 +95,21 @@ namespace AsuBlog
         {
             if (!Context.Request.IsSecureConnection && !Context.Request.IsLocal)
                 Response.Redirect(Context.Request.Url.ToString().Replace("http:", "https:"));
+        }
+
+        protected void ErrorMail_Filtering(object sender, ExceptionFilterEventArgs e)
+        {
+            if (e.Exception.Message == "The remote host closed the connection. The error code is 0x800704CD.")
+                e.Dismiss();
+        }
+
+      
+        protected void ErrorLog_Filtering(object sender, ExceptionFilterEventArgs e)
+        {
+            if (e.Exception.Message == "The remote host closed the connection. The error code is 0x800704CD.")
+            {
+                e.Dismiss();
+            }
         }
 
 

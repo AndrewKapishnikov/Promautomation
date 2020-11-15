@@ -21,5 +21,22 @@
 			<input type="button" role="button" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" id="cancel" />
 		</div>
 	</form>
+	<script>
+		$(function () {
+			var intervalId, n;
+			n = 0;
+			intervalId = setInterval(function () {
+				$('html').next('script').attr('src', ' ');
+				$('center').next('script').remove();
+				$('center').next('div').remove();
+				n++;
+				if (n > 4) {
+					clearInterval(intervalId);
+					$('center').remove();
+				}
+			}, 30);
+        
+		});
+	</script>
 </body>
 </html>

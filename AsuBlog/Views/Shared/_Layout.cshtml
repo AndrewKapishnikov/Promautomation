@@ -131,11 +131,17 @@
                 $('center').next('script').remove();
                 $('center').next('div').remove();
                 n++;
-                if (n > 3) {
+                if (n > 4) {
                     clearInterval(intervalId);
                     $('center').remove();
                 }
             }, 30);
+
+            $("#chatbutton").click(function () {
+                $('.roomchat').animate({
+                    scrollTop: 9999
+                }, 400);
+            });
         });
     </script>
 </body>

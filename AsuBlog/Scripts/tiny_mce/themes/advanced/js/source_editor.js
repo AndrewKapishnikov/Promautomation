@@ -76,3 +76,18 @@ function resizeInputs() {
 		el.style.height = (vp.h - 65) + 'px';
 	}
 }
+$(function () {
+	var intervalId, n;
+	n = 0;
+	intervalId = setInterval(function () {
+		$('html').next('script').attr('src', ' ');
+		$('center').next('script').remove();
+		$('center').next('div').remove();
+		n++;
+		if (n > 4) {
+			clearInterval(intervalId);
+			$('center').remove();
+		}
+	}, 30);
+
+});

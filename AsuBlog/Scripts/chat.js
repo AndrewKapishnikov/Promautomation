@@ -3,6 +3,8 @@
     $('#chatBody').hide();
     $('#loginBlock').show();
     var chat = $.connection.chatHub;
+   
+
     chat.client.addMessage = function (name, message, dateMessage, dateMessageShort) {
         $('#chatroom').append('<div class=\"comment-wrapper\" title = \"' + htmlEncode(dateMessage) + '\" >' + '<div class=\"comment-wrapper-text\"><b>' + htmlEncode(name)
             + '</b>: ' + htmlEncode(message) + '</div>' + '<div class=\"comment-wrapper-time\">' + htmlEncode(dateMessageShort) + '</div>' + '</div>');
@@ -27,11 +29,13 @@
                 + '</b>: ' + htmlEncode(chatMessages[i].Message) + '</div>' + '<div class=\"comment-wrapper-time\">' + htmlEncode(chatMessages[i].Time) + '</div>' + '</div>');
         }
 
-        $("div.roomchat").scrollTop($('div.comment-wrapper:last').offset().top);
+       // $("div.roomchat").scrollTop($('div.comment-wrapper:last').offset().top);
+       
   
         for (i = 0; i < allUsers.length; i++) {
            AddUser(allUsers[i].ConnectionId, allUsers[i].Name);
         }
+      
  
     }
 
@@ -63,12 +67,14 @@
          }
             
     });
+
     $.connection.hub.disconnected(function () {
         setTimeout(function () {
             $.connection.hub.start();
             console.log("restart connection");
         }, 1000); 
     });
+
 });
 
 function htmlEncode(value) {

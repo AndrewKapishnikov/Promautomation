@@ -1390,7 +1390,7 @@
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Views\Shared\_Chat.cshtml" />
     <Content Include="Views\Admin\SuccessDelete.cshtml" />
-    <Content Include="Views\Admin\LookImages.cshtml" />
+    <Content Include="Views\Admin\_LookImages.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\asutparticle3\" />
