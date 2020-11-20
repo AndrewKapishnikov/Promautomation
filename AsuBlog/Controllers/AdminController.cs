@@ -203,42 +203,19 @@ namespace AsuBlog.Controllers
                     postNew.ImagePath = postNew.ImagePath.Replace(postNew.UrlSlug, post.UrlSlug);
                     postNew.UrlSlug = post.UrlSlug;
                 }
-               
-                if(post.Title != postNew.Title)
-                    postNew.Title = post.Title;
-
-                if (post.PostedOn != postNew.PostedOn)
-                    postNew.PostedOn = post.PostedOn;
-
-                if (post.Published != postNew.Published)
-                    postNew.Published = post.Published;
-
-                if (post.ShortDescription != postNew.ShortDescription)
-                    postNew.ShortDescription = post.ShortDescription;
-
-                if (post.Description != postNew.Description)
-                    postNew.Description = post.Description;
-
-                if (post.Modified != postNew.Modified)
-                    postNew.Modified = post.Modified;
-
-                if (post.NumberVisits != postNew.NumberVisits)
-                    postNew.NumberVisits = post.NumberVisits;
-
-                if (post.Topic != postNew.Topic)
-                    postNew.Topic = post.Topic;
-
-                if (post.Subtopic != postNew.Subtopic)
-                    postNew.Subtopic = post.Subtopic;
-
-                if (post.Theme != postNew.Theme)
-                    postNew.Theme = post.Theme;
-
-                if (post.Subtheme != postNew.Subtheme)
-                    postNew.Subtheme = post.Subtheme;
-
-                if (post.Meta != postNew.Meta)
-                    postNew.Meta = post.Meta;
+                   
+                postNew.Title = post.Title;
+                postNew.PostedOn = post.PostedOn;
+                postNew.Published = post.Published;
+                postNew.ShortDescription = post.ShortDescription;
+                postNew.Description = post.Description;
+                postNew.Modified = post.Modified;
+                postNew.NumberVisits = post.NumberVisits;
+                postNew.Topic = post.Topic;
+                postNew.Subtopic = post.Subtopic;
+                postNew.Theme = post.Theme;
+                postNew.Subtheme = post.Subtheme;
+                postNew.Meta = post.Meta;
 
                 postNew.Tags.Clear();
                 postNew.Categorys.Clear();
