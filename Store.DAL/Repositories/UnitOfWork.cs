@@ -22,7 +22,6 @@ namespace Store.DAL.Repositories
         private PostRepository postRepository;
         private ChatRepository chatRepository;
 
-
         public IRepository<Category> Categorys
         {
             get
@@ -52,7 +51,7 @@ namespace Store.DAL.Repositories
             }
         }
 
-        public PostRepository Posts
+        public IRepository<Post> Posts
         {
             get
             {

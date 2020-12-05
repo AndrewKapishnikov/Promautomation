@@ -8,7 +8,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web.Mvc;
 using System.ServiceModel.Syndication;
-
+using Store.DAL.Repositories;
 
 namespace AsuBlog.Controllers
 {
@@ -23,9 +23,8 @@ namespace AsuBlog.Controllers
         }
         public ActionResult Index()
         {
-          
             IList<Post> posts = store.Posts.GetAll().OrderByDescending(p => p.NumberVisits).Take(9).ToList();
-                   
+                      
             return View("Index", posts);
         }
    
@@ -36,38 +35,39 @@ namespace AsuBlog.Controllers
             ICollection<Post> posts;
             var routeCategory = GetRouteCategoryModel(topic, subtopic, theme, subtheme);
             ViewBag.RouteCategory = routeCategory;
+            PostRepository postRepository = store.Posts as PostRepository;
 
             try
             {
                 if (routeCategory.SubthemeCategory != null && routeCategory.ThemeCategory != null &&
                      routeCategory.SubtopicCategory != null && routeCategory.TopicCategory != null)
                 {
-                    posts = store.Posts.GetPublishedPostsForCategory(subtheme);
+                    posts = postRepository.GetPublishedPostsForCategory(subtheme);
                     return View("Catalog", posts.ToPagedList(pageNumber, pageSize));
                 }
                 else if (routeCategory.TopicCategory != null && routeCategory.SubtopicCategory != null
                         && routeCategory.ThemeCategory != null && subtheme == null && routeCategory.ThemeCategory.Level == 3)
                 {
-                    posts = store.Posts.GetPublishedPostsForCategory(theme);
+                    posts = postRepository.GetPublishedPostsForCategory(theme);
                     return View("Catalog", posts.ToPagedList(pageNumber, pageSize));
                 }
                 else if (routeCategory.TopicCategory != null && routeCategory.SubtopicCategory != null
                          && theme == null && subtheme == null && routeCategory.SubtopicCategory.Level == 2)
                 {
-                    posts = store.Posts.GetPublishedPostsForCategory(subtopic);
+                    posts = postRepository.GetPublishedPostsForCategory(subtopic);
                     return View("Catalog", posts.ToPagedList(pageNumber, pageSize));
                 }
                 else if (routeCategory.TopicCategory != null && subtopic == null && theme == null 
                         && subtheme == null && routeCategory.TopicCategory.Level == 1 )
                 {
-                    posts = store.Posts.GetPublishedPostsForCategory(topic);
+                    posts = postRepository.GetPublishedPostsForCategory(topic);
                     return View("Catalog", posts.ToPagedList(pageNumber, pageSize));
                  }
                 else
                 {
                     if (topic == null && subtopic == null && theme == null && subtheme == null)
                     {
-                        posts = store.Posts.GetPublishedPosts();
+                        posts = postRepository.GetPublishedPosts();
                         return View("Catalog", posts.ToPagedList(pageNumber, pageSize));
                     }
                     else
@@ -144,8 +144,9 @@ namespace AsuBlog.Controllers
         [ChildActionOnly]
         public PartialViewResult ShowSidePanel()
         {
+            PostRepository postRepository = store.Posts as PostRepository;
             WidgetForSidePanel widget = new WidgetForSidePanel();
-            widget.LastPosts = store.Posts.GetPublishedPostsByPageNoPageSize(0, 5);
+            widget.LastPosts = postRepository.GetPublishedPostsByPageNoPageSize(0, 5);
             widget.Tags = store.Tags.GetAll().ToList<Tag>();
               
             return PartialView("_SidePanelView", widget);
@@ -160,7 +161,8 @@ namespace AsuBlog.Controllers
             }
             try
             {
-                Post post = store.Posts.GetPostByYearMonthTitleSlug((int)year, (int)month, title);
+                PostRepository postRepository = store.Posts as PostRepository;
+                Post post = postRepository.GetPostByYearMonthTitleSlug((int)year, (int)month, title);
              
                 if (post == null)
                     return View("PostNotFound");
@@ -229,7 +231,8 @@ namespace AsuBlog.Controllers
 
             if (page < 1) return View("Index");
 
-            ICollection<Post> posts = store.Posts.GetPublishedPostsForSearch(s);
+            PostRepository postRepository = store.Posts as PostRepository;
+            ICollection<Post> posts = postRepository.GetPublishedPostsForSearch(s);
             ViewBag.Title = String.Format(@"Статьи по запросу ""{0}""", s);
             ViewBag.s = s;
 
@@ -254,7 +257,8 @@ namespace AsuBlog.Controllers
             var blogDescription = ConfigurationManager.AppSettings["BlogDescription"];
             var blogUrl = ConfigurationManager.AppSettings["BlogUrl"];
 
-            var posts = store.Posts.GetPublishedPostsByPageNoPageSize(0,25).Select
+            PostRepository postRepository = store.Posts as PostRepository;
+            var posts = postRepository.GetPublishedPostsByPageNoPageSize(0,25).Select
             (
                 p => new SyndicationItem
                     (

@@ -11,6 +11,7 @@ using System.Text;
 using System.IO;
 using Microsoft.AspNet.Identity;
 using System.Threading.Tasks;
+using Store.DAL.Repositories;
 
 namespace AsuBlog.Controllers
 {
@@ -43,12 +44,13 @@ namespace AsuBlog.Controllers
         /// </summary>
         /// <param name="jqParams"></param>
         /// <returns></returns>
-        public ContentResult Posts(JqInViewModel jqParams)
+       public ContentResult Posts(JqInViewModel jqParams)
        {
-                var posts = store.Posts.GetPostsForAdminPanel(jqParams.page - 1, jqParams.rows,
+            PostRepository postRepository = store.Posts as PostRepository;
+            var posts = postRepository.GetPostsForAdminPanel(jqParams.page - 1, jqParams.rows,
                                                               jqParams.sidx, jqParams.sord == "asc");
             
-                var totalPosts = store.Posts.TotalItems();
+            var totalPosts = store.Posts.TotalItems();
 
             return Content(JsonConvert.SerializeObject(new
             {

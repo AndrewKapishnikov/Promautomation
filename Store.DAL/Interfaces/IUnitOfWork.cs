@@ -12,7 +12,7 @@ namespace Store.DAL.Interfaces
         ApplicationRoleManager RoleManager { get; }
         IRepository<Category> Categorys { get; }
         IRepository<Tag> Tags { get; }
-        PostRepository Posts { get; }
+        IRepository<Post> Posts { get; }
         IRepository<Chat> Chats { get; }
         Task SaveAsync();
         void Save();

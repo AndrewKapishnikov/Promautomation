@@ -76,7 +76,7 @@ namespace Store.DAL.Entities
         public string Subtopic { get; set; }
         public string Theme { get; set; }
         public string Subtheme { get; set; }
-
+    
         /// <summary>
         /// Collection of tags labelled over the post.
         /// </summary>
