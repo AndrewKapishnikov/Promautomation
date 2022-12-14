@@ -33,49 +33,48 @@ namespace AsuBlog.Controllers
             int pageSize = 7;
             int pageNumber = (page ?? 1);
             ICollection<Post> posts;
-            var routeCategory = GetRouteCategoryModel(topic, subtopic, theme, subtheme);
-            ViewBag.RouteCategory = routeCategory;
             PostRepository postRepository = store.Posts as PostRepository;
-
+            var routeCategory = new RouteCategoryModel();
             try
             {
+                if (topic == null && subtopic == null && theme == null && subtheme == null)
+                {
+                    ViewBag.RouteCategory = routeCategory;
+                    posts = postRepository.GetPublishedPosts();
+                    return View("Catalog", posts.ToPagedList(pageNumber, pageSize));
+                }
+
+                SetRouteCategoryModel(routeCategory, topic, subtopic, theme, subtheme);
+                ViewBag.RouteCategory = routeCategory;
+          
                 if (routeCategory.SubthemeCategory != null && routeCategory.ThemeCategory != null &&
-                     routeCategory.SubtopicCategory != null && routeCategory.TopicCategory != null)
+                    routeCategory.SubtopicCategory != null && routeCategory.TopicCategory != null)
                 {
                     posts = postRepository.GetPublishedPostsForCategory(subtheme);
                     return View("Catalog", posts.ToPagedList(pageNumber, pageSize));
                 }
-                else if (routeCategory.TopicCategory != null && routeCategory.SubtopicCategory != null
-                        && routeCategory.ThemeCategory != null && subtheme == null && routeCategory.ThemeCategory.Level == 3)
+                else if (routeCategory.TopicCategory != null && routeCategory.SubtopicCategory != null &&
+                        routeCategory.ThemeCategory != null && subtheme == null && routeCategory.ThemeCategory.Level == 3)
                 {
                     posts = postRepository.GetPublishedPostsForCategory(theme);
                     return View("Catalog", posts.ToPagedList(pageNumber, pageSize));
                 }
-                else if (routeCategory.TopicCategory != null && routeCategory.SubtopicCategory != null
-                         && theme == null && subtheme == null && routeCategory.SubtopicCategory.Level == 2)
+                else if (routeCategory.TopicCategory != null && routeCategory.SubtopicCategory != null &&
+                         theme == null && subtheme == null && routeCategory.SubtopicCategory.Level == 2)
                 {
                     posts = postRepository.GetPublishedPostsForCategory(subtopic);
                     return View("Catalog", posts.ToPagedList(pageNumber, pageSize));
                 }
-                else if (routeCategory.TopicCategory != null && subtopic == null && theme == null 
-                        && subtheme == null && routeCategory.TopicCategory.Level == 1 )
+                else if (routeCategory.TopicCategory != null && subtopic == null && theme == null &&
+                         subtheme == null && routeCategory.TopicCategory.Level == 1 )
                 {
                     posts = postRepository.GetPublishedPostsForCategory(topic);
                     return View("Catalog", posts.ToPagedList(pageNumber, pageSize));
-                 }
+                }
                 else
                 {
-                    if (topic == null && subtopic == null && theme == null && subtheme == null)
-                    {
-                        posts = postRepository.GetPublishedPosts();
-                        return View("Catalog", posts.ToPagedList(pageNumber, pageSize));
-                    }
-                    else
-                    {
-                        return View("UnexistingCatalog");
-                    }
+                     return View("UnexistingCatalog");
                 }
-
             }
             catch
             {
@@ -84,15 +83,12 @@ namespace AsuBlog.Controllers
            
         }
 
-        private RouteCategoryModel GetRouteCategoryModel(string topic, string subtopic, string theme, string subtheme)
+        private void SetRouteCategoryModel(RouteCategoryModel routeCategory, string topic, string subtopic, string theme, string subtheme)
         {
-            var routeCategory = new RouteCategoryModel();
             if (subtheme != null)   routeCategory.SubthemeCategory = store.Categorys.Get(subtheme);
             if (theme != null)      routeCategory.ThemeCategory = store.Categorys.Get(theme);
             if (subtopic != null)   routeCategory.SubtopicCategory = store.Categorys.Get(subtopic);
             if (topic != null)      routeCategory.TopicCategory = store.Categorys.Get(topic);
-            
-            return routeCategory;
         }
 
         [ChildActionOnly]

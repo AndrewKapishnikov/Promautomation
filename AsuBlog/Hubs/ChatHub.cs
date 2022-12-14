@@ -8,6 +8,7 @@ using Store.DAL.Interfaces;
 using Store.DAL.Repositories;
 using Store.DAL.Entities;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace AsuBlog.Hubs
 {
@@ -99,6 +100,7 @@ namespace AsuBlog.Hubs
                     Clients.AllExcept(id).onNewUserConnected(id, userName);
                 }
             }
+            //Debug.WriteLine("Connect Method");
         }
 
 
@@ -116,7 +118,7 @@ namespace AsuBlog.Hubs
                 var id = Context.ConnectionId;
                 Clients.All.onUserDisconnected(id, item.Name);
             }
-
+            //Debug.WriteLine("OnDisconnected Method");
             return base.OnDisconnected(stopCalled);
         }
 

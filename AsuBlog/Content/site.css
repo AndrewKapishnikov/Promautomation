@@ -35,16 +35,19 @@ body {
 
 li {
     list-style-type: none;
- }
+}
+
 ul {
     margin-top: 0;
     margin-bottom: 0;
     padding-left: 0;
     padding-top: 0;
 }
+
 a:hover {
     text-decoration: none;
 }
+
 .dl-horizontal dt {
     white-space: normal;
 }
@@ -53,23 +56,27 @@ input,
 select,
 textarea {
     max-width: 280px;
- }
-input[type~="text"], input[type~="password"], input[type~="select"], textarea, input[type~="search"] {
-    font-size: 15px;
 }
+
+    input[type~="text"], input[type~="password"], input[type~="select"], textarea, input[type~="search"] {
+        font-size: 15px;
+    }
 
 @font-face {
     font-family: Pompad; /* Гарнитура шрифта */
     src: url(/fonts/Marutya.woff);
 }
+
 @font-face {
-    font-family: Lobster; 
+    font-family: Lobster;
     src: url(/fonts/Lobster.ttf);
 }
+
 @font-face {
     font-family: Flow;
     src: url(/fonts/Flow.woff);
 }
+
 .fontBlog {
     font-family: Pompad, Flow, Lobster,'Times New Roman', cursive;
 }
@@ -79,20 +86,21 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
     top: 60px;
     max-width: 450px;
 }
-.modal-header{
-    padding-left:50px;
+
+.modal-header {
+    padding-left: 50px;
 }
+
 .modal-body .form-horizontal {
     max-width: 250px;
     margin: 0 auto;
 }
 
-.modal-body .form-horizontal input{
-    max-width: 250px;
- }
+    .modal-body .form-horizontal input {
+        max-width: 250px;
+    }
 
-@media (min-width:992px)
-{
+@media (min-width:992px) {
     .modal-body .form-horizontal {
         max-width: 350px;
     }
@@ -118,9 +126,9 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
     margin-left: 50px;
 }
 
-.navbar-header > a {
-    color: white;
-}
+    .navbar-header > a {
+        color: white;
+    }
 
 .navbar {
     max-width: 3000px;
@@ -152,9 +160,9 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
     border-radius: 4px;
 }
 
-.navbar-toggle:hover {
-    background-image: linear-gradient(#f3fafe,#56a3d2 40%,#d8eaf3);
-}
+    .navbar-toggle:hover {
+        background-image: linear-gradient(#f3fafe,#56a3d2 40%,#d8eaf3);
+    }
 
 /*Название сайта*/
 .namesite {
@@ -168,14 +176,15 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
 
 .buttonsearch {
     background-image: linear-gradient(#f3fafe,#56a3d2 40%,#d8eaf3);
-    color:white;
-}
-.buttonsearch:hover {
-    background-image: linear-gradient(#d8eaf3,#03507d 40%,#d8eaf3);
+    color: white;
 }
 
-.navbar-header >a >img{
-    width:26px;
+    .buttonsearch:hover {
+        background-image: linear-gradient(#d8eaf3,#03507d 40%,#d8eaf3);
+    }
+
+.navbar-header > a > img {
+    width: 26px;
 }
 /*------------------------------------------Header------------------------------------------------*/
 
@@ -200,26 +209,27 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
 }
 /*--------------------------------------MenuGeneral--------------------------------------------*/
 
- /*----------------------------------------BodySiteGeneral-----------------------------------------------------*/
+/*----------------------------------------BodySiteGeneral-----------------------------------------------------*/
 .generalcontainer {
     max-width: 3000px;
-    margin:0 auto;
+    margin: 0 auto;
 }
-.topdiv
-{
-    height:50px;
+
+.topdiv {
+    height: 50px;
 }
 
 /***************Login Register**************/
 .headname {
-    margin-left:100px;
-    padding-top:20px;
-    padding-bottom:20px;
+    margin-left: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .form-group {
     margin-bottom: 10px;
 }
+
 .buttonsubmit {
     background-image: linear-gradient(#f3fafe,#56a3d2 40%,#d8eaf3);
     color: white;
@@ -229,19 +239,19 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
     padding-top: 0;
     margin-bottom: 0;
 }
- /***************Login Register**************/
+/***************Login Register**************/
 
 /*----------------------------------------BodySiteGeneral--------------------------------------------------------*/
 
 
 
 /*----------------------------------------Боковая панел навигации------------------------------------------------*/
- /**
+/**
  * Переключаемая боковая панель навигации
  * выдвигающаяся по клику слева
  */
-    .navdiv {
-    /*  ширна произвольная, не стесняйтесь экспериментировать */
+.navdiv {
+    /*  ширина произвольная, не стесняйтесь экспериментировать */
     display: block;
     width: 350px;
     min-width: 200px;
@@ -252,7 +262,7 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
     bottom: 0;
     margin: 0;
     /* сдвигаем (прячем) панель относительно левого края страницы */
-    left: -390px;
+    left: -350px;
     /* внутренние отступы */
     padding: 15px 0;
     padding-left: 5px;
@@ -278,13 +288,13 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
     /* абсолютно позиционируем */
     position: absolute;
     /* относительно левого края панели */
-    left: 390px;
+    left: 350px;
     /* отступ от верхнего края панели */
-    top: 1em;
+    /*top: 1em;*/
     /* внутренние отступы */
     padding: 0.5em;
     /* определяем цвет фона переключателя
-     * чаще вчего в соответствии с цветом фона панели
+     * чаще всего в соответствии с цветом фона панели
     */
     background: rgba(24, 120, 175, 0.3);
     /*background: #55f3fd;*/
@@ -302,18 +312,18 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
     transition: color .65s ease-in-out;
 }
 
-/* определяем текст кнопки 
+    /* определяем текст кнопки 
  * символ Unicode
 */
- .nav-toggle:after {
-     content: '\27A4';
-     text-decoration: none;
-}
- /* цвет текста при наведении */
-.nav-toggle:hover {
-     color: #55f3fd;
-     background: #000053;
- }
+    .nav-toggle:after {
+        content: '\27A4';
+        text-decoration: none;
+    }
+    /* цвет текста при наведении */
+    .nav-toggle:hover {
+        color: #55f3fd;
+        background: #000053;
+    }
 /**
  * Скрытый чекбокс (флажок)
  * невидим и недоступен :)
@@ -323,54 +333,56 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
     position: absolute;
     display: none;
 }
-[id='nav-toggle']:checked ~ .navdiv > .nav-toggle {
-    position: fixed;
-    left: 303px;
-    width: 28px;
-    /*right: 2px;*/
-    top: 65px;
-    background-color:transparent;
-    color:white;
-}
-[id='nav-toggle']:checked ~ .navdiv > .nav-toggle:hover {
-    color: #55f3fd;
-}
-/**
+
+    [id='nav-toggle']:checked ~ .navdiv > .nav-toggle {
+        /*position: fixed;*/
+        left: 298px;
+        /*width: 28px;*/
+        /*right: 2px;*/
+        top: 9px;
+        background-color: transparent;
+        color: white;
+    }
+
+        [id='nav-toggle']:checked ~ .navdiv > .nav-toggle:hover {
+            color: #55f3fd;
+        }
+    /**
  * Когда флажок установлен, открывается панель
  * используем псевдокласс:checked
  */
-[id='nav-toggle']:checked ~ .navdiv {
-    left: 0;
-    -moz-box-shadow: 10px 10px 25px 0 rgba(0,0,0, 0.5);
-    -webkit-box-shadow: 10px 10px 25px 0 rgba(0,0,0, 0.5);
-    box-shadow: 10px 10px 25px 0 rgba(0,0,0, 0.5);
-    overflow-y: auto;
-    -webkit-transition: left 0.4s;
-    -moz-transition: left 0.4s;
-    -o-transition: left 0.4s;
-    transition: left 0.4s;
-}
-/*
+    [id='nav-toggle']:checked ~ .navdiv {
+        left: 0;
+        -moz-box-shadow: 10px 10px 25px 0 rgba(0,0,0, 0.5);
+        -webkit-box-shadow: 10px 10px 25px 0 rgba(0,0,0, 0.5);
+        box-shadow: 10px 10px 25px 0 rgba(0,0,0, 0.5);
+        overflow-y: auto;
+        -webkit-transition: left 0.4s;
+        -moz-transition: left 0.4s;
+        -o-transition: left 0.4s;
+        transition: left 0.4s;
+    }
+        /*
  * изменение символа переключателя,
  * привычный крестик (MULTIPLICATION X), 
  * вы можете испльзовать любой другой значок
 */
-/*content: '\003C''=';*/
-[id='nav-toggle']:checked ~ .navdiv > .nav-toggle:after {
-    /*content: '\02C2';*/
-    content: '\2717';
-    font-size: 1.3em;
-    top: 10px;
-}
+        /*content: '\003C''=';*/
+        [id='nav-toggle']:checked ~ .navdiv > .nav-toggle:after {
+            /*content: '\02C2';*/
+            content: '\2717';
+            font-size: 1.3em;
+            top: 10px;
+        }
 
 /**
  * формируем непосредственно само меню
  * используем неупорядоченный список для пунктов меню
  * прикрутим трансфомации и плавные переходы
  */
-.navdiv  ul > li {
-     opacity: 0;
-     -webkit-transform: translateX(-50%);
+.navdiv ul > li {
+    opacity: 0;
+    -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     -o-transform: translateX(-50%);
@@ -381,6 +393,7 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
     -o-transition: opacity 2.5s .1s, transform 1.3s .1s;
     transition: opacity 2.5s .1s, transform 1.3s .1s;
 }
+
 [id='nav-toggle']:checked ~ .navdiv ul > li {
     opacity: 1;
     -webkit-transform: translateX(0);
@@ -393,10 +406,9 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
     overflow: hidden;
     white-space: nowrap;
     color: white;
-   
 }
 
- /*определяем интервалы появления пунктов меню*/
+/*определяем интервалы появления пунктов меню*/
 
 /*[id='nav-toggle']:checked ~ .navdiv ul > li:nth-child(2) {
     -webkit-transition: opacity .5s .2s, -webkit-transform .5s .9s;
@@ -500,11 +512,12 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
 
 /*--------------------------------------Tree View----------------------------------------*/
 /*стиль для кнопки скрыть*/
-.treeview{
-    min-width:400px; 
+.treeview {
+    min-width: 400px;
 }
+
 .collapseTree {
-    width: 47px; 
+    width: 47px;
     height: 30px;
     background-image: url('/Images/close_folder_yellow.png');
     background-repeat: no-repeat;
@@ -513,7 +526,7 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
     cursor: pointer;
     background-size: contain;
 }
- /*стиль для кнопки раскрыть*/
+/*стиль для кнопки раскрыть*/
 .expand {
     width: 47px;
     height: 30px;
@@ -524,38 +537,42 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
     cursor: pointer;
     background-size: contain;
 }
- /*Стиль для значка Файл*/
- .docfile {
-     width: 40px;
-     height: 30px;
-     background-image: url('/Images/doc_icon2.png');
-     background-repeat: no-repeat;
-     background-position: 6px -2px;
-     display: inline-block;
-     background-size: contain;
- }
-  .treeview ul {
-     font: 19px Arial, Sans-Serif;
-     margin: 0px;
-     padding-left: 15px;
-     list-style: none;
- }
+/*Стиль для значка Файл*/
+.docfile {
+    width: 40px;
+    height: 30px;
+    background-image: url('/Images/doc_icon2.png');
+    background-repeat: no-repeat;
+    background-position: 6px -2px;
+    display: inline-block;
+    background-size: contain;
+}
+
+.treeview ul {
+    font: 19px Arial, Sans-Serif;
+    margin: 0px;
+    padding-left: 15px;
+    list-style: none;
+}
+
 .treeview > ul {
     padding-left: 0;
 }
+
 .treeview > li > a {
     font-weight: bold;
-    color:white;
+    color: white;
 }
+
 .treeview li a {
-    padding-top:0;
-    padding-bottom:0;
+    padding-top: 0;
+    padding-bottom: 0;
     font-size: 17px;
     text-decoration: none;
     width: auto;
     color: white;
 }
- 
+
 /*--------------------------------------Tree View----------------------------------------*/
 
 /*-----------------------------------------ScrollBar-----------------------------------------------------*/
@@ -582,9 +599,9 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
     background-color: #55f3fd;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background-color: #0d4465
-}
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #0d4465
+    }
 
 ::-webkit-resizer {
     background-image: url('');
@@ -605,14 +622,16 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
     bottom: 0;
     right: 0;
     z-index: 1000;
-    visibility:hidden;
+    visibility: hidden;
 }
+
 #buttonbox {
     visibility: hidden;
     position: fixed;
     right: 40px;
     bottom: 20px;
 }
+
 .chatbutton {
     position: fixed;
     border: 2px solid #1878af;
@@ -627,12 +646,14 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
     background-color: #1878af;
     animation: radial-pulse 1s 7;
 }
-.chatbutton img {
-    width: 60px;
-    position: relative;
-    left: 5px;
-    top: 5px;
-}
+
+    .chatbutton img {
+        width: 60px;
+        position: relative;
+        left: 5px;
+        top: 5px;
+    }
+
 .modalchat {
     width: 0;
     height: 0;
@@ -641,79 +662,94 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
     transition: 0.7s all ease;
     position: relative;
 }
-.modalchat > .closechat {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    top: 15px;
-    right: 10px;
-    cursor: pointer;
-    opacity: 0;
-    z-index:100;
-}
-.modalchat > .closechat:before, .closechat:after {
-    position: absolute;
-    content: '';
-    width: 3px;
-    height: 25px;
-    background: #165980;
-}
-.modalchat > .closechat:before {
-    transform: rotate(45deg);
-}
-.modalchat >.closechat:after {
-    transform: rotate(-45deg);
-}
+
+    .modalchat > .closechat {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 15px;
+        right: 10px;
+        cursor: pointer;
+        opacity: 0;
+        z-index: 100;
+    }
+
+        .modalchat > .closechat:before, .closechat:after {
+            position: absolute;
+            content: '';
+            width: 3px;
+            height: 25px;
+            background: #165980;
+        }
+
+        .modalchat > .closechat:before {
+            transform: rotate(45deg);
+        }
+
+        .modalchat > .closechat:after {
+            transform: rotate(-45deg);
+        }
+
 #buttonbox:checked ~ .chatbutton {
     background: #1878af;
     transition: 0.5s all ease;
     transform: scale(1);
 }
+
 #buttonbox:checked ~ .wrapperchat {
-    visibility:visible;
+    visibility: visible;
 }
-#buttonbox:checked ~ .wrapperchat >.modalchat {
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-    transition: 0.3s width ease, 0.3s height ease, 0.3s border-radius ease;
+
+    #buttonbox:checked ~ .wrapperchat > .modalchat {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        transition: 0.3s width ease, 0.3s height ease, 0.3s border-radius ease;
+    }
+
+        #buttonbox:checked ~ .wrapperchat > .modalchat .closechat {
+            opacity: 1;
+            transition: 0.5s all ease 1.4s;
+        }
+
+        #buttonbox:checked ~ .wrapperchat > .modalchat > .mainchat {
+            display: block;
+        }
+
+.mainchat {
+    margin-top: 10px;
+    display: none;
 }
-#buttonbox:checked ~ .wrapperchat >.modalchat .closechat {
-    opacity: 1;
-    transition: 0.5s all ease 1.4s;
-}
-#buttonbox:checked ~ .wrapperchat > .modalchat > .mainchat {
-    display: block;
-}
-.mainchat{
-    margin-top:10px;
-    display:none;
-}
+
 @keyframes radial-pulse {
     0% {
         box-shadow: 0 0 0 0px rgba(3, 80, 125, 0.51);
     }
+
     100% {
         box-shadow: 0 0 0 40px rgba(0, 0, 0, 0);
     }
 }
-#chatBody{
-    background-color:white;
-    margin-top:0;
-    margin-left:10px;
-    margin-right:10px;
-    margin-bottom:10px;
+
+#chatBody {
+    background-color: white;
+    margin-top: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
+
 #chatroom {
- 
     overflow-y: auto;
     overflow-x: hidden;
 }
+
 .roomchat {
-    height:290px;
+    height: 290px;
     overflow-y: auto;
     overflow-x: hidden;
 }
+
 .chatnamelogin {
     font-size: 1.3em;
     text-align: center;
@@ -721,14 +757,16 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
     padding-top: 3px;
     font-weight: 600;
 }
+
 .username {
     font-size: 1.1em;
     font-family: 'Times New Roman', cursive;
-    display:inline-block;
-    font-weight:600;
-    padding:3px;
-   
+    display: inline-block;
+    font-weight: 600;
+    padding: 3px;
+    margin-right: 10px;
 }
+
 #chatusers {
     height: 85px;
     overflow-y: auto;
@@ -736,28 +774,33 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
     background-image: linear-gradient(#1878af, #b8e2fa 60%, #fff);
     border-bottom: 1px solid #1878af;
     border-top: 1px solid #0d4465;
-    margin-top:5px;
-    margin-bottom:5px;
-    padding-left:10px;
-    padding-right:10px;
-    padding-top:5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
 }
-#chatusers p > b {
-    color:white;
+
+    #chatusers p > b {
+        color: white;
+    }
+
+#inputForm {
+    margin-top: 5px;
 }
-#inputForm{
-    margin-top:5px;
+
+.comment-wrapper {
+    padding: 1px 7px;
+    color: black;
+    font-size: 1.1em;
 }
-.comment-wrapper{
-    padding:1px 7px;
-    color:black;
-    font-size:1.1em;
-}
+
 #message {
     width: 264px;
     width: 70%;
     height: 30px;
 }
+
 #sendmessage {
     /*background-image: linear-gradient(#000053, #000053 60%, #fff);*/
     background-color: #03517e;
@@ -765,61 +808,68 @@ input[type~="text"], input[type~="password"], input[type~="select"], textarea, i
     height: 30px;
     width: 28%;
 }
+
 .comment-wrapper-text {
     width: 91%;
     display: inline-block;
 }
-.comment-wrapper-time{
-    width:9%;
-    font-size:0.9em;
-    display:inline-block;
-    text-align:right;
+
+.comment-wrapper-time {
+    width: 9%;
+    font-size: 0.9em;
+    display: inline-block;
+    text-align: right;
 }
-.mainchat-inner{
-    background-color:white;
-    height:450px;
-    margin-left:10px;
-    margin-right:10px;
-    margin-top:10px;
-    position:relative;
+
+.mainchat-inner {
+    background-color: white;
+    height: 450px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    position: relative;
 }
 
 .mainchat-inner-name {
     font-family: 'Times New Roman', cursive;
-    font-size:1.9em;
-    text-align:center;
-    padding:10px;
+    font-size: 1.9em;
+    text-align: center;
+    padding: 10px;
 }
+
 .mainchat-inner a {
     box-shadow: 3px 3px 7px black;
     font-family: cursive,'Times New Roman';
     font-weight: 800;
     background-image: linear-gradient(#ffffff,#549ecb 40%,#ffffff);
     height: 37px;
-    margin-left:20px;
-    position:absolute;
-    top:70px;
-    left:20px;
-    font-size:1.1em;
+    margin-left: 20px;
+    position: absolute;
+    top: 70px;
+    left: 20px;
+    font-size: 1.1em;
 }
-.mainchat-inner img{
-    width:180px;
-    left:90px;
-    position:absolute;
-    top:200px;
-    left:100px;
+
+.mainchat-inner img {
+    width: 180px;
+    left: 90px;
+    position: absolute;
+    top: 200px;
+    left: 100px;
 }
+
 .mainchat-inner a:hover {
     background-image: linear-gradient(#d8eaf3,#03507d 40%,#d8eaf3);
 }
-@media screen and (max-width: 380px){
+
+@media screen and (max-width: 380px) {
     .wrapperchat {
         width: 330px;
-     }
+    }
 
     .mainchat-inner img {
         left: 70px;
-     }
+    }
 }
 /*----------------------------------Chat--------------------------------------*/
 
@@ -836,9 +886,10 @@ footer {
     padding-bottom: 20px;
     box-sizing: padding-box;
 }
+
 .solialbuttoncontainer {
-    padding-top:20px;
-    padding-bottom:80px;
+    padding-top: 20px;
+    padding-bottom: 80px;
     box-sizing: padding-box;
     background-color: #0d4465;
 }
@@ -857,8 +908,8 @@ footer {
     width: 35px;
 }
 
-.footer-copyright a:hover{
-    color:white;
+.footer-copyright a:hover {
+    color: white;
 }
 /*---------------------------------------------Footer------------------------------------------------------------*/
 
@@ -875,7 +926,7 @@ footer {
     }
 
     .navbar-toggle {
-        display: block;  /*показываем кнопку toggle в меню*/
+        display: block; /*показываем кнопку toggle в меню*/
     }
 
     .navbar-collapse.collapse { /*классы должны идти без пробела*/
@@ -905,12 +956,12 @@ footer {
         font-size: 18px;
         padding: 10px 30px;
     }
-    
-    .lisubmenu > a:hover {
-        background-color: #000053;
-        color: white;
-    }
-    
+
+        .lisubmenu > a:hover {
+            background-color: #000053;
+            color: white;
+        }
+
     .submenu {
         background-image: -webkit-linear-gradient(#f3fafe,#56a3d2 40%,#d8eaf3);
         border-radius: 5px;
@@ -930,10 +981,10 @@ footer {
         font-size: 19px;
     }
 
-    .limenu_div:hover {
-        background-color: #000053;
-        padding-left: 30px;
-    }
+        .limenu_div:hover {
+            background-color: #000053;
+            padding-left: 30px;
+        }
 
     .searchform {
         max-width: 1600px;
@@ -951,29 +1002,31 @@ footer {
         font-size: 21px;
     }
 
-    .contentgrid form{
-        margin-left:30px;
+    .contentgrid form {
+        margin-left: 30px;
     }
- /*-----------------Меню выпадает в вертикальный ряд------------------*/
+    /*-----------------Меню выпадает в вертикальный ряд------------------*/
 
-/*-----------------------------Tree View------------------------------*/
+    /*-----------------------------Tree View------------------------------*/
     .navdiv {
         padding-left: 0;
         height: 95%;
-        width:300px;
+        width: 300px;
+        left: -300px;
     }
 
     .nav-toggle {
         font-size: 1.4em;
+        left: 300px;
     }
 
     [id='nav-toggle']:checked ~ .navdiv ul > li {
-       padding: 4px;
+        padding: 4px;
     }
 
     [id='nav-toggle']:checked ~ .navdiv > .nav-toggle {
-         left: 250px;
-         top: 65px;
+        left: 242px;
+        top: 8px;
     }
 
     .nav-toggle:hover {
@@ -987,32 +1040,31 @@ footer {
 
     .collapseTree {
         width: 53px;
-      
     }
     /*стиль для кнопки раскрыть*/
     .expand {
         width: 53px;
     }
-       
+
     [id='nav-toggle']:checked ~ .navdiv > .nav-toggle:hover {
         color: white;
     }
 
     .treeview li a {
-          font-size: 18px;
-     }
- 
-/*-----------------------------Tree View------------------------------*/
+        font-size: 18px;
+    }
 
-    .registerhead{
-        margin-left:20px;
+    /*-----------------------------Tree View------------------------------*/
+
+    .registerhead {
+        margin-left: 20px;
     }
 }
 
 
 @media (min-width: 781px) {
 
-/*-------------------Меню выпадает в горизонтальный ряд---------------------*/
+    /*-------------------Меню выпадает в горизонтальный ряд---------------------*/
     .limenu_div {
         display: none;
     }
@@ -1035,45 +1087,45 @@ footer {
     }
 
     .formline {
-       display: flex;
+        display: flex;
     }
 
     .formline_inner {
         margin: auto;
     }
 
- /*-----------------------MainMenu--------------------------*/
+    /*-----------------------MainMenu--------------------------*/
     .limenu {
         display: inline-block;
         position: relative;
         background-color: transparent;
     }
 
-    .limenu:hover {
-        background-image: -webkit-linear-gradient(#f3fafe,#56a3d2 40%,#d8eaf3);
-        color: white;
-    }
-    
-    .limenu > a:hover {
-        background-color: #000053;
-    }
-    
-    .limenu > a {
-        display: block;
-        padding: 10px;
-        color: white;
-        font-size: 18px;
-    }
+        .limenu:hover {
+            background-image: -webkit-linear-gradient(#f3fafe,#56a3d2 40%,#d8eaf3);
+            color: white;
+        }
 
- /*-----------------------MainMenu--------------------------*/
+        .limenu > a:hover {
+            background-color: #000053;
+        }
 
- /*-------------------Меню выпадает в горизонтальный ряд---------------------*/
- 
+        .limenu > a {
+            display: block;
+            padding: 10px;
+            color: white;
+            font-size: 18px;
+        }
+
+    /*-----------------------MainMenu--------------------------*/
+
+    /*-------------------Меню выпадает в горизонтальный ряд---------------------*/
+
 }
 
 @media screen and (min-width: 1121px) {
 
- /*----------------------При наведении мышкой выпадают пункты меню-----------------*/
+    /*----------------------При наведении мышкой выпадают пункты меню-----------------*/
     .submenu {
         display: block;
         position: absolute;
@@ -1104,12 +1156,12 @@ footer {
 
     .lisubmenu:hover {
         background-color: #000053;
-        
     }
-    .lisubmenu:hover > a {
-        color: white;
-    }
-/*----------------------При наведении мышкой выпадают пункты меню-----------------*/
+
+        .lisubmenu:hover > a {
+            color: white;
+        }
+    /*----------------------При наведении мышкой выпадают пункты меню-----------------*/
 }
 
 /***************************Меняем имя сайта***************************/
@@ -1118,17 +1170,19 @@ footer {
         display: block;
         font-size: 19px;
         float: left;
-        padding-top:7px;
+        padding-top: 7px;
     }
-    .navbar-header > a >img{
-        width:21px;
+
+    .navbar-header > a > img {
+        width: 21px;
     }
 
     .namesitelong {
         display: none;
     }
-    .carousel-control img{
-        width:15px;
+
+    .carousel-control img {
+        width: 15px;
     }
 }
 
@@ -1144,12 +1198,12 @@ footer {
     }
 }
 
-@media  (min-width: 409px) and (max-width: 634px) {
+@media (min-width: 409px) and (max-width: 634px) {
     .namesiteshort {
         display: block;
         float: left;
-        
     }
+
     .namesitelong {
         display: none;
     }
@@ -1160,6 +1214,7 @@ footer {
     .namesiteshort {
         display: none;
     }
+
     .namesitelong {
         display: block;
         float: left;
@@ -1171,6 +1226,7 @@ footer {
         display: block;
         float: left;
     }
+
     .namesitelong {
         display: none;
     }
@@ -1180,6 +1236,7 @@ footer {
     .namesiteshort {
         display: none;
     }
+
     .namesitelong {
         display: block;
     }
@@ -1264,9 +1321,9 @@ footer {
         font-size: 22px;
     }
 
-    .limenu > a {
-        font-size: 23px;
-    }
+        .limenu > a {
+            font-size: 23px;
+        }
 
     .submenu {
         top: 50px;
@@ -1334,9 +1391,9 @@ footer {
         font-size: 23px;
     }
 
-    .limenu > a {
-        font-size: 25px;
-    }
+        .limenu > a {
+            font-size: 25px;
+        }
 
     .submenu {
         top: 53px;
@@ -1378,16 +1435,18 @@ footer {
 
     .mainchat-inner img {
         left: 200px;
-        top:450px;
-        width:250px;
+        top: 450px;
+        width: 250px;
     }
+
     .mainchat-inner a {
-        top:100px;
-        font-size:1.8em;
-        height:55px;
+        top: 100px;
+        font-size: 1.8em;
+        height: 55px;
     }
-    .mainchat-inner-name{
-        font-size:2.6em;
+
+    .mainchat-inner-name {
+        font-size: 2.6em;
     }
 
     .roomchat {
@@ -1410,16 +1469,17 @@ footer {
     #inputForm input {
         max-width: 700px;
     }
+
     input[type~="text"], input[type~="password"], input[type~="select"], textarea, input[type~="search"] {
-            font-size: 25px;
+        font-size: 25px;
     }
 
     #input-form {
         margin-top: 0;
     }
 
-    .mainchat-inner{
-        height:750px;
+    .mainchat-inner {
+        height: 750px;
     }
 }
- /*--------------------------------------Different Media----------------------------------------------*/
+/*--------------------------------------Different Media----------------------------------------------*/

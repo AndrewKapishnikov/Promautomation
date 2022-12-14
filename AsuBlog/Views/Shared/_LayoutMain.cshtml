@@ -13,6 +13,14 @@
     <link rel="preload" href="/fonts/Marutya.woff" as="font" type="font/woff" crossorigin />
     <link rel="preload" href="/fonts/Flow.woff" as="font" type="font/woff" crossorigin />
     <link rel="preload" href="/Images/chat2.png" as="image" crossorigin>
+    <link rel="preload" href="/Images/1.jpg" as="image">
+    <link rel="preload" href="/Images/vk.png" as="image">
+    <link rel="preload" href="/Images/Whatsapp.png" as="image">
+    <link rel="preload" href="/Images/Youtub.png" as="image">
+    <link rel="preload" href="/Images/open_folder_yellow.png" as="image">
+    <link rel="preload" href="/Images/close_folder_yellow.png" as="image">
+    <link rel="preload" href="/Images/doc_icon2.png" as="image">
+    <link rel="prefetch" href="/Images/marcom.jpg" as="image">
     <style>
         #animbox {
             position: fixed;
@@ -99,7 +107,7 @@
                     <li class="list-inline-item">
                         <a><h4> @User.Identity.Name  </h4></a>
                     </li>
-                    <li class="list-inline-item">@Html.ActionLink("Выход", "logout", "Account", null, new { @class = "btn btn-danger" })</li>
+                    <li id="accountExit" class="list-inline-item">@Html.ActionLink("Выход", "logout", "Account", null, new { @class = "btn btn-danger" })</li>
                 }
             </ul>
         </div>
@@ -127,7 +135,8 @@
             <a href="#">Andrew</a>
         </div>
     </footer>
-    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/jquery")*@
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/general")
     @if (User.Identity.IsAuthenticated)

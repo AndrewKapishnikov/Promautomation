@@ -1,14 +1,18 @@
-﻿$(window).on('load', function () {
-    var $preloader = $('#animbox'),
-        $svg_anm = $preloader.find('.svg_anm');
-    $svg_anm.fadeOut();
-    $preloader.delay(500).fadeOut('slow');
-});
+﻿////$(window).on('load', function () {
+////    var $preloader = $('#animbox'),
+////        $svg_anm = $preloader.find('.svg_anm');
+////    $svg_anm.fadeOut();
+////    $preloader.delay(500).fadeOut('slow');
+////});
 
 
 //Collapse TreeView
 $(document).ready(function () {
- 
+    var $preloader = $('#animbox'),
+        $svg_anm = $preloader.find('.svg_anm');
+    $svg_anm.fadeOut();
+    $preloader.delay(500).fadeOut('slow');
+
     //$(".navbar-collapse").collapse('hide');
     $(".treeview li>ul>li>ul").css('display', 'none'); // Hide all 2-level ul 
     $(".collapsibleTree").click(function (e) {
@@ -26,8 +30,8 @@ $(document).ready(function () {
         $(this).next('.submenu').removeClass('flag-up');
     });
 
-    $(window).resize(function () { // задаем функцию при срабатывании события "resize" на объекте window
-        var width = $(window).width();// ширина области просмотра браузера
+    $(window).resize(function () {      // задаем функцию при срабатывании события "resize" на объекте window
+        var width = $(window).width();  // ширина области просмотра браузера
         if (width >= 768 && width <= 1120)
         {
             $('.submenu').css('display', 'none');
