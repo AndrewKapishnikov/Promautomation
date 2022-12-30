@@ -1,19 +1,23 @@
 ﻿@model AsuBlog.Models.WidgetForSubCatalog
- @if (Model.TopicUrlSlug != null && Model.SubTopicUrlSlug != null && Model.ThemeUrlSlug != null )
+@{  bool topicUrlSlugIsNull = Model.TopicUrlSlug is null;
+    bool subTopicUrlSlugIsNull = Model.SubTopicUrlSlug is null;
+    bool themeUrlSlugIsNull = Model.ThemeUrlSlug is null;
+ }
+ @if (!topicUrlSlugIsNull && !subTopicUrlSlugIsNull && !themeUrlSlugIsNull)
  {
      foreach (var item in Model.Categories)
      {
          @Html.ActionLink(item.Name, "catalog", "Blog", new {topic = Model.TopicUrlSlug, subtopic = Model.SubTopicUrlSlug, theme = Model.ThemeUrlSlug, subtheme = item.UrlSlug }, new { @class = "subCatalogActionLink" }) 
      }
  }
- else if (Model.TopicUrlSlug != null && Model.SubTopicUrlSlug != null)
+ else if (!topicUrlSlugIsNull && !subTopicUrlSlugIsNull)
  {
      foreach (var item in Model.Categories)
      {
          @Html.ActionLink(item.Name, "catalog", "Blog", new  { topic = Model.TopicUrlSlug, subtopic = Model.SubTopicUrlSlug, theme = item.UrlSlug}, new { @class = "subCatalogActionLink" }) 
      }
  }
- else if (Model.TopicUrlSlug != null)
+ else if (!topicUrlSlugIsNull)
  {
      foreach (var item in Model.Categories)
      {

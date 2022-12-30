@@ -37,36 +37,39 @@ namespace AsuBlog.Controllers
             var routeCategory = new RouteCategoryModel();
             try
             {
-                if (topic == null && subtopic == null && theme == null && subtheme == null)
+                bool topicIsNull = topic is null;
+                bool subtopicIsNull = subtopic is null;
+                bool themeIsNull = theme is null;
+                bool subthemeIsNull = subtheme is null;
+                ViewBag.RouteCategory = routeCategory;
+                if (topicIsNull && subtopicIsNull && themeIsNull && subthemeIsNull)
                 {
-                    ViewBag.RouteCategory = routeCategory;
                     posts = postRepository.GetPublishedPosts();
                     return View("Catalog", posts.ToPagedList(pageNumber, pageSize));
                 }
 
-                SetRouteCategoryModel(routeCategory, topic, subtopic, theme, subtheme);
-                ViewBag.RouteCategory = routeCategory;
-          
-                if (routeCategory.SubthemeCategory != null && routeCategory.ThemeCategory != null &&
-                    routeCategory.SubtopicCategory != null && routeCategory.TopicCategory != null)
+                SetRouteCategoryModel(routeCategory, (topicIsNull, topic), (subtopicIsNull, subtopic), (themeIsNull, theme), (subthemeIsNull, subtheme),
+                                                      out bool topicCategoryIsNull, 
+                                                      out bool subtopicCategoryIsNull,
+                                                      out bool themeCategoryIsNull,
+                                                      out bool subthemeCategoryIsNull);
+
+                if (!subthemeCategoryIsNull && !themeCategoryIsNull && !subtopicCategoryIsNull && !topicCategoryIsNull)
                 {
                     posts = postRepository.GetPublishedPostsForCategory(subtheme);
                     return View("Catalog", posts.ToPagedList(pageNumber, pageSize));
                 }
-                else if (routeCategory.TopicCategory != null && routeCategory.SubtopicCategory != null &&
-                        routeCategory.ThemeCategory != null && subtheme == null && routeCategory.ThemeCategory.Level == 3)
+                else if (!topicCategoryIsNull && !subtopicCategoryIsNull && !themeCategoryIsNull && subthemeIsNull && routeCategory.ThemeCategory.Level == 3)
                 {
                     posts = postRepository.GetPublishedPostsForCategory(theme);
                     return View("Catalog", posts.ToPagedList(pageNumber, pageSize));
                 }
-                else if (routeCategory.TopicCategory != null && routeCategory.SubtopicCategory != null &&
-                         theme == null && subtheme == null && routeCategory.SubtopicCategory.Level == 2)
+                else if (!topicCategoryIsNull && !subtopicCategoryIsNull && themeIsNull && subthemeIsNull && routeCategory.SubtopicCategory.Level == 2)
                 {
                     posts = postRepository.GetPublishedPostsForCategory(subtopic);
                     return View("Catalog", posts.ToPagedList(pageNumber, pageSize));
                 }
-                else if (routeCategory.TopicCategory != null && subtopic == null && theme == null &&
-                         subtheme == null && routeCategory.TopicCategory.Level == 1 )
+                else if (!topicCategoryIsNull && subtopicIsNull && themeIsNull && subthemeIsNull && routeCategory.TopicCategory.Level == 1 )
                 {
                     posts = postRepository.GetPublishedPostsForCategory(topic);
                     return View("Catalog", posts.ToPagedList(pageNumber, pageSize));
@@ -83,34 +86,50 @@ namespace AsuBlog.Controllers
            
         }
 
-        private void SetRouteCategoryModel(RouteCategoryModel routeCategory, string topic, string subtopic, string theme, string subtheme)
+
+        private void SetRouteCategoryModel(RouteCategoryModel routeCategory, (bool topicIsNull, string topicName) topic, 
+                                                                             (bool subtopicIsNull, string subtopicName) subtopic, 
+                                                                             (bool themeIsNulll, string themeName) theme, 
+                                                                             (bool subthemeIsNull, string subthemeName) subtheme,
+                                                                              out bool topicCategoryIsNull, out bool subtopicCategoryIsNull, 
+                                                                              out bool themeCategoryIsNull, out bool subthemeCategoryIsNull)
         {
-            if (subtheme != null)   routeCategory.SubthemeCategory = store.Categorys.Get(subtheme);
-            if (theme != null)      routeCategory.ThemeCategory = store.Categorys.Get(theme);
-            if (subtopic != null)   routeCategory.SubtopicCategory = store.Categorys.Get(subtopic);
-            if (topic != null)      routeCategory.TopicCategory = store.Categorys.Get(topic);
+            if (!subtheme.subthemeIsNull) routeCategory.SubthemeCategory = store.Categorys.Get(subtheme.subthemeName);
+            subthemeCategoryIsNull = routeCategory.SubthemeCategory is null;
+            
+            if (!theme.themeIsNulll) routeCategory.ThemeCategory = store.Categorys.Get(theme.themeName);
+            themeCategoryIsNull = routeCategory.ThemeCategory is null;
+    
+            if (!subtopic.subtopicIsNull) routeCategory.SubtopicCategory = store.Categorys.Get(subtopic.subtopicName);
+            subtopicCategoryIsNull = routeCategory.SubtopicCategory is null;
+       
+            if (!topic.topicIsNull) routeCategory.TopicCategory = store.Categorys.Get(topic.topicName);
+            topicCategoryIsNull = routeCategory.TopicCategory is null;
+          
         }
 
         [ChildActionOnly]
         public PartialViewResult SubCatalog(Category topicCategory, Category subtopicCategory, Category themeCategory)
         {
             WidgetForSubCatalog subCatalog = new WidgetForSubCatalog();
-           
+            bool topicCategoryIsNull = topicCategory is null;
+            bool subtopicCategoryIsNull = subtopicCategory is null;
+            bool themeCategoryIsNull = themeCategory is null;
 
-            if (topicCategory != null && subtopicCategory != null && themeCategory != null )
+            if (!topicCategoryIsNull && !subtopicCategoryIsNull && !themeCategoryIsNull)
             {
                subCatalog.Categories = store.Categorys.GetAll().Where<Category>(p => p.ParentId == themeCategory.Id && p.BoolArticle == false ).ToList();
                subCatalog.TopicUrlSlug = topicCategory.UrlSlug;
                subCatalog.SubTopicUrlSlug = subtopicCategory.UrlSlug;
                subCatalog.ThemeUrlSlug = themeCategory.UrlSlug;
             }
-            else if (topicCategory != null && subtopicCategory != null)
+            else if (!topicCategoryIsNull && !subtopicCategoryIsNull)
             {
                subCatalog.Categories = store.Categorys.GetAll().Where<Category>(p => p.ParentId == subtopicCategory.Id && p.BoolArticle == false).ToList();
                subCatalog.TopicUrlSlug = topicCategory.UrlSlug;
                subCatalog.SubTopicUrlSlug = subtopicCategory.UrlSlug;
             }
-            else if (topicCategory != null)
+            else if (!topicCategoryIsNull)
             {
                subCatalog.Categories = store.Categorys.GetAll().Where<Category>(p => p.ParentId == topicCategory.Id && p.BoolArticle == false).ToList();
                subCatalog.TopicUrlSlug = topicCategory.UrlSlug;
@@ -151,7 +170,7 @@ namespace AsuBlog.Controllers
 
         public ActionResult Post(int? year, int? month, string title)
         {
-            if(year == null || month == null || title == null)
+            if(year is null || month is null || title is null)
             {
                 return View("PostNotFound");
             }
@@ -160,7 +179,7 @@ namespace AsuBlog.Controllers
                 PostRepository postRepository = store.Posts as PostRepository;
                 Post post = postRepository.GetPostByYearMonthTitleSlug((int)year, (int)month, title);
              
-                if (post == null)
+                if (post is null)
                     return View("PostNotFound");
 
                 if (post.Published == false && User.Identity.Name != "Andrew")
@@ -199,7 +218,7 @@ namespace AsuBlog.Controllers
             
             Tag foundtag = store.Tags.Get(tag);
 
-            if (foundtag == null)
+            if (foundtag is null)
                 return View("UnexistingTag");
 
             ViewBag.Title = String.Format(@"Статьи, связанные с тегом ""{0}""", foundtag.Name);

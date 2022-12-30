@@ -513,7 +513,7 @@ textarea {
 /*--------------------------------------Tree View----------------------------------------*/
 /*стиль для кнопки скрыть*/
 .treeview {
-    min-width: 400px;
+    /*min-width: 400px;*/
 }
 
 .collapseTree {
@@ -1035,7 +1035,7 @@ footer {
     }
 
     .treeview {
-        min-width: 390px;
+       /* min-width: 390px;*/
     }
 
     .collapseTree {
@@ -1309,7 +1309,7 @@ footer {
     }
 
     [id='nav-toggle']:checked ~ .navdiv > .nav-toggle {
-        top: 75px;
+       /* top: 75px;*/
         left: 450px;
     }
 
@@ -1378,7 +1378,7 @@ footer {
     }
 
     [id='nav-toggle']:checked ~ .navdiv > .nav-toggle {
-        top: 90px;
+       /* top: 90px;*/
         left: 450px;
     }
 

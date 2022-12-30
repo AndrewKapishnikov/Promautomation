@@ -1,5 +1,6 @@
 ﻿using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.Google;
 using Owin;
 using Microsoft.AspNet.Identity;
 using Store.DAL.Interfaces;
@@ -24,6 +25,7 @@ namespace AsuBlog.App_Start
                 LoginPath = new PathString("/Account/Login"),
             });
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
+          
             app.MapSignalR();
         }
 

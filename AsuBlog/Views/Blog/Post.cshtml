@@ -4,25 +4,30 @@
     ViewBag.Title = Model.Post.Title;
     ViewBag.Keywords = string.Join(" ",Model.Post.Tags.Select(t => t.Name).ToArray());
     ViewBag.Description = Model.Post.Meta;
+
+    bool subthemeCategoryIsNull = Model.SubthemeCategory is null;
+    bool themeCategoryIsNull = Model.ThemeCategory is null;
+    bool subtopicCategoryIsNull = Model.SubtopicCategory is null;
+    bool topicCategoryIsNull = Model.TopicCategory is null;
 }
 
 <div class="postbreadcrumbs">
     <span>
         @Html.ActionLink("Главная", "Index", "Blog") &raquo;
     </span>
-    @if (Model.TopicCategory != null)
+    @if (!topicCategoryIsNull)
     {
         <span>@Html.ActionLink(Model.TopicCategory.Name, "Catalog", "Blog", new { topic = Model.TopicCategory.UrlSlug }, null) &raquo; </span>
     }
-    @if (Model.TopicCategory != null && Model.SubtopicCategory != null && Model.SubtopicCategory.BoolArticle == false)
+    @if (!topicCategoryIsNull && !subtopicCategoryIsNull && Model.SubtopicCategory.BoolArticle == false)
     {
         <span>@Html.ActionLink(Model.SubtopicCategory.Name, "Catalog", "Blog", new { topic = Model.TopicCategory.UrlSlug, subtopic = Model.SubtopicCategory.UrlSlug }, null) &raquo; </span>
     }
-    @if (Model.TopicCategory != null && Model.SubtopicCategory != null && Model.ThemeCategory != null && Model.ThemeCategory.BoolArticle == false)
+    @if (!topicCategoryIsNull && !subtopicCategoryIsNull && !themeCategoryIsNull && Model.ThemeCategory.BoolArticle == false)
     {
         <span>@Html.ActionLink(Model.ThemeCategory.Name, "Catalog", "Blog", new { topic = Model.TopicCategory.UrlSlug, subtopic = Model.SubtopicCategory.UrlSlug, theme = Model.ThemeCategory.UrlSlug }, null) &raquo; </span>
     }
-    @if (Model.TopicCategory != null && Model.SubtopicCategory != null && Model.ThemeCategory != null && Model.SubthemeCategory != null && Model.SubthemeCategory.BoolArticle == false)
+    @if (!topicCategoryIsNull && !subtopicCategoryIsNull && !themeCategoryIsNull && !subthemeCategoryIsNull && Model.SubthemeCategory.BoolArticle == false)
     {
         <span>@Html.ActionLink(Model.SubthemeCategory.Name, "Catalog", "Blog", new { topic = Model.TopicCategory.UrlSlug, subtopic = Model.SubtopicCategory.UrlSlug, theme = Model.ThemeCategory.UrlSlug, subtheme = Model.SubthemeCategory.UrlSlug }, null) &raquo; </span>
     }

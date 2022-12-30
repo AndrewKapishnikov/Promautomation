@@ -11,7 +11,7 @@
             <img src="~/Images/1.jpg" alt="">
             <div class="container">
                 <div class="carousel-caption">
-                    <div class="textdiv">
+                    <div class="textdiv" >
                         <p class="lead">
                             Сайт содержит статьи о автоматизации техпроцессов, заметки о системах управления, автоматике,
                             механике и электронике ...
@@ -34,7 +34,7 @@
     <a class="carousel-control left" href="#myCarousel" data-slide="prev"><img src="~/Images/left.png" class="leftarrow" alt="Alternate Text" /></a>
     <a class="carousel-control right" href="#myCarousel" data-slide="next"><img src="~/Images/right.png" class="rightarrow" alt="Alternate Text" /></a>
 </div>
-<div class="textdivundercatalog">
+<div class="textdivundercatalog" >
     <p class="lead">
         " Сайт содержит статьи о автоматизации техпроцессов, заметки о системах управления, автоматике,
         механике и электронике... "
@@ -66,7 +66,7 @@
         }
         @for (int i = 0; i < postsDown.Count; i++)
         {
-            <div class="downitem-@(i + 1)">
+            <div class="downitem-@(i + 1)"  >
                 <div class="card">
                     <a href="@Url.Action("Post", "Blog",new { year = postsDown[i].PostedOn.Year, month = postsDown[i].PostedOn.Month, title = postsDown[i].UrlSlug })">
                         <div class="scaledown">
@@ -81,5 +81,5 @@
                     </div>
                 </div>
             </div>
-        }
+         }
   </div>

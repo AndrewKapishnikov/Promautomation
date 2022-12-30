@@ -22,20 +22,25 @@ else
 {
     if (Model.Count > 0)
     {
+        bool subthemeCategoryIsNull = ViewBag.RouteCategory.SubthemeCategory is null;
+        bool themeCategoryIsNull = ViewBag.RouteCategory.ThemeCategory is null;
+        bool subtopicCategoryIsNull = ViewBag.RouteCategory.SubtopicCategory is null;
+        bool topicCategoryIsNull = ViewBag.RouteCategory.TopicCategory is null;
+
         <div class="catalogname">
-            @if (ViewBag.RouteCategory.SubthemeCategory != null && ViewBag.RouteCategory.ThemeCategory != null && ViewBag.RouteCategory.SubtopicCategory != null && ViewBag.RouteCategory.TopicCategory != null)
+            @if (!subthemeCategoryIsNull && !themeCategoryIsNull && !subtopicCategoryIsNull && !topicCategoryIsNull)
             {
                 <h2>@ViewBag.RouteCategory.SubthemeCategory.Name</h2>
             }
-            else if (ViewBag.RouteCategory.ThemeCategory != null && ViewBag.RouteCategory.SubtopicCategory != null && ViewBag.RouteCategory.TopicCategory != null)
+            else if (!themeCategoryIsNull && !subtopicCategoryIsNull && !topicCategoryIsNull)
             {
                 <h2>@ViewBag.RouteCategory.ThemeCategory.Name</h2>
             }
-            else if (ViewBag.RouteCategory.SubtopicCategory != null && ViewBag.RouteCategory.TopicCategory != null)
+            else if (!subtopicCategoryIsNull && !topicCategoryIsNull)
             {
                 <h2>@ViewBag.RouteCategory.SubtopicCategory.Name</h2>
             }
-            else if (ViewBag.RouteCategory.TopicCategory != null)
+            else if (!topicCategoryIsNull)
             {
                 <h2>@ViewBag.RouteCategory.TopicCategory.Name</h2>
             }

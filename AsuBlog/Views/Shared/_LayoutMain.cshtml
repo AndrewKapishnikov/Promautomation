@@ -148,7 +148,7 @@
     @RenderSection("scripts", required: false)
     <script>
         $(function () {
-          
+
             function setCarousel() {
                 jQuery('#myCarousel').carousel(
                     {
@@ -156,7 +156,7 @@
                     });
             };
             setTimeout(setCarousel, 6000);
-            
+
             $(".compItem").click(function (e) {
                 e.preventDefault();
                 $('#modDialog').modal('show');
