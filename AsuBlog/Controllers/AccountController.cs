@@ -139,7 +139,7 @@ namespace AsuBlog.Controllers
         public async Task<ActionResult> Register(RegisterModel model)
         {
             var response = Request["g-recaptcha-response"];
-            string secretKey = "6Ldb9wAVAAAAAA9bCBbSWPe2XNaiKvE3JZQTwKO_";
+            string secretKey = "*******";
             var client = new WebClient();
             var result = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secretKey, response));
             var obj = JObject.Parse(result);

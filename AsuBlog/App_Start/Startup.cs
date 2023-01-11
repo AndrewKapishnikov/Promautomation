@@ -17,7 +17,7 @@ namespace AsuBlog.App_Start
         IUnitOfWorkCreator serviceCreator = new InitOfWorkCreator();
         public void Configuration(IAppBuilder app)
         {
-            app.CreatePerOwinContext<IUnitOfWork>(CreateUserService);
+            app.CreatePerOwinContext(CreateUserService);
             //app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
@@ -25,7 +25,7 @@ namespace AsuBlog.App_Start
                 LoginPath = new PathString("/Account/Login"),
             });
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
-          
+     
             app.MapSignalR();
         }
 

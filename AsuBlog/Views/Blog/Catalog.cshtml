@@ -1,4 +1,5 @@
 ﻿@model PagedList.IPagedList<Store.DAL.Entities.Post>
+
 @{
     ViewBag.Title = "Каталог";
 }
@@ -8,8 +9,7 @@
 @if (ViewBag.RouteCategory.SubthemeCategory == null)
 {
     <div class="subcatalog">
-        @Html.Action("SubCatalog", "Blog", new { topicCategory = ViewBag.RouteCategory.TopicCategory, subtopicCategory = ViewBag.RouteCategory.SubtopicCategory,
-                                        themeCategory = ViewBag.RouteCategory.ThemeCategory})
+        @Html.Action("SubCatalog", "Blog", new { ViewBag.RouteCategory })
     </div>
 }
 @if (Model.PageNumber > Model.PageCount && Model.PageNumber > 1)
@@ -74,10 +74,10 @@ else
                         <div class="numbervisits">
                             @if (item.NumberVisits % 10 == 1)
                             {<span>@item.NumberVisits просмотр</span> }
-                            else if ((item.NumberVisits % 10 > 1 && item.NumberVisits % 10 <= 4) && (item.NumberVisits!=11 && item.NumberVisits != 12 && item.NumberVisits != 13 && item.NumberVisits != 14))
-                            {<span>@item.NumberVisits просмотра</span>}
-                            else
-                            {<span>@item.NumberVisits просмотров</span>}
+                        else if ((item.NumberVisits % 10 > 1 && item.NumberVisits % 10 <= 4) && (item.NumberVisits != 11 && item.NumberVisits != 12 && item.NumberVisits != 13 && item.NumberVisits != 14))
+                        {<span>@item.NumberVisits просмотра</span>}
+                    else
+                    {<span>@item.NumberVisits просмотров</span>}
                         </div>
                         <div class="postedtime">
                             @item.PostedOn.ToConfigLocalTime()
@@ -104,5 +104,5 @@ else
     }
 }
 @section scripts {
-        <script id="dsq-count-scr" src="//promautomation-somee-com.disqus.com/count.js" async></script>
+    <script id="dsq-count-scr" src="//promautomation-somee-com.disqus.com/count.js" async></script>
 }

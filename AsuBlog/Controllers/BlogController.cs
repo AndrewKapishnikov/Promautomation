@@ -24,19 +24,18 @@ namespace AsuBlog.Controllers
         public ActionResult Index()
         {
             IList<Post> posts = store.Posts.GetAll().OrderByDescending(p => p.NumberVisits).Take(9).ToList();
-                      
             return View("Index", posts);
         }
    
         public ActionResult Catalog(string topic, string subtopic, string theme, string subtheme, int? page)
-        {                    
-            int pageSize = 7;
-            int pageNumber = (page ?? 1);
-            ICollection<Post> posts;
-            PostRepository postRepository = store.Posts as PostRepository;
-            var routeCategory = new RouteCategoryModel();
+        {
             try
             {
+                int pageSize = 7;
+                int pageNumber = (page ?? 1);
+                PostRepository postRepository = store.Posts as PostRepository;
+                var routeCategory = new RouteCategoryModel();
+           
                 bool topicIsNull = topic is null;
                 bool subtopicIsNull = subtopic is null;
                 bool themeIsNull = theme is null;
@@ -44,40 +43,32 @@ namespace AsuBlog.Controllers
                 ViewBag.RouteCategory = routeCategory;
                 if (topicIsNull && subtopicIsNull && themeIsNull && subthemeIsNull)
                 {
-                    posts = postRepository.GetPublishedPosts();
+                    var posts = postRepository.GetPublishedPosts();
                     return View("Catalog", posts.ToPagedList(pageNumber, pageSize));
                 }
+               
+                if (!subthemeIsNull) routeCategory.SubthemeCategory = store.Categorys.Get(subtheme);
+                bool subthemeCategoryIsNull = routeCategory.SubthemeCategory is null;
 
-                SetRouteCategoryModel(routeCategory, (topicIsNull, topic), (subtopicIsNull, subtopic), (themeIsNull, theme), (subthemeIsNull, subtheme),
-                                                      out bool topicCategoryIsNull, 
-                                                      out bool subtopicCategoryIsNull,
-                                                      out bool themeCategoryIsNull,
-                                                      out bool subthemeCategoryIsNull);
+                if (!themeIsNull) routeCategory.ThemeCategory = store.Categorys.Get(theme);
+                bool themeCategoryIsNull = routeCategory.ThemeCategory is null;
 
-                if (!subthemeCategoryIsNull && !themeCategoryIsNull && !subtopicCategoryIsNull && !topicCategoryIsNull)
-                {
-                    posts = postRepository.GetPublishedPostsForCategory(subtheme);
-                    return View("Catalog", posts.ToPagedList(pageNumber, pageSize));
-                }
+                if (!subtopicIsNull) routeCategory.SubtopicCategory = store.Categorys.Get(subtopic);
+                bool subtopicCategoryIsNull = routeCategory.SubtopicCategory is null;
+
+                if (!topicIsNull) routeCategory.TopicCategory = store.Categorys.Get(topic);
+                bool topicCategoryIsNull = routeCategory.TopicCategory is null;
+
+                if (!topicCategoryIsNull && !subtopicCategoryIsNull && !themeCategoryIsNull && !subthemeCategoryIsNull)
+                    return GetActionResultForCatalogView(postRepository, subtheme, pageNumber, pageSize);
                 else if (!topicCategoryIsNull && !subtopicCategoryIsNull && !themeCategoryIsNull && subthemeIsNull && routeCategory.ThemeCategory.Level == 3)
-                {
-                    posts = postRepository.GetPublishedPostsForCategory(theme);
-                    return View("Catalog", posts.ToPagedList(pageNumber, pageSize));
-                }
+                    return GetActionResultForCatalogView(postRepository, theme, pageNumber, pageSize);
                 else if (!topicCategoryIsNull && !subtopicCategoryIsNull && themeIsNull && subthemeIsNull && routeCategory.SubtopicCategory.Level == 2)
-                {
-                    posts = postRepository.GetPublishedPostsForCategory(subtopic);
-                    return View("Catalog", posts.ToPagedList(pageNumber, pageSize));
-                }
-                else if (!topicCategoryIsNull && subtopicIsNull && themeIsNull && subthemeIsNull && routeCategory.TopicCategory.Level == 1 )
-                {
-                    posts = postRepository.GetPublishedPostsForCategory(topic);
-                    return View("Catalog", posts.ToPagedList(pageNumber, pageSize));
-                }
+                    return GetActionResultForCatalogView(postRepository, subtopic, pageNumber, pageSize);
+                else if (!topicCategoryIsNull && subtopicIsNull && themeIsNull && subthemeIsNull && routeCategory.TopicCategory.Level == 1)
+                    return GetActionResultForCatalogView(postRepository, topic, pageNumber, pageSize);
                 else
-                {
-                     return View("UnexistingCatalog");
-                }
+                    return View("UnexistingCatalog");
             }
             catch
             {
@@ -86,59 +77,33 @@ namespace AsuBlog.Controllers
            
         }
 
-
-        private void SetRouteCategoryModel(RouteCategoryModel routeCategory, (bool topicIsNull, string topicName) topic, 
-                                                                             (bool subtopicIsNull, string subtopicName) subtopic, 
-                                                                             (bool themeIsNulll, string themeName) theme, 
-                                                                             (bool subthemeIsNull, string subthemeName) subtheme,
-                                                                              out bool topicCategoryIsNull, out bool subtopicCategoryIsNull, 
-                                                                              out bool themeCategoryIsNull, out bool subthemeCategoryIsNull)
+        private ActionResult GetActionResultForCatalogView(PostRepository postRepository, string catalog, int pageNumber, int pageSize)
         {
-            if (!subtheme.subthemeIsNull) routeCategory.SubthemeCategory = store.Categorys.Get(subtheme.subthemeName);
-            subthemeCategoryIsNull = routeCategory.SubthemeCategory is null;
-            
-            if (!theme.themeIsNulll) routeCategory.ThemeCategory = store.Categorys.Get(theme.themeName);
-            themeCategoryIsNull = routeCategory.ThemeCategory is null;
-    
-            if (!subtopic.subtopicIsNull) routeCategory.SubtopicCategory = store.Categorys.Get(subtopic.subtopicName);
-            subtopicCategoryIsNull = routeCategory.SubtopicCategory is null;
-       
-            if (!topic.topicIsNull) routeCategory.TopicCategory = store.Categorys.Get(topic.topicName);
-            topicCategoryIsNull = routeCategory.TopicCategory is null;
-          
+            ICollection<Post> posts = postRepository.GetPublishedPostsForCategory(catalog);
+            return View("Catalog", posts.ToPagedList(pageNumber, pageSize));
         }
 
         [ChildActionOnly]
-        public PartialViewResult SubCatalog(Category topicCategory, Category subtopicCategory, Category themeCategory)
+        public PartialViewResult SubCatalog(RouteCategoryModel routeCategory)
         {
             WidgetForSubCatalog subCatalog = new WidgetForSubCatalog();
-            bool topicCategoryIsNull = topicCategory is null;
-            bool subtopicCategoryIsNull = subtopicCategory is null;
-            bool themeCategoryIsNull = themeCategory is null;
+            bool topicCategoryIsNull = routeCategory.TopicCategory is null;
+            bool subtopicCategoryIsNull = routeCategory.SubtopicCategory is null;
+            bool themeCategoryIsNull = routeCategory.ThemeCategory is null;
+
+            subCatalog.TopicUrlSlug = routeCategory.TopicCategory?.UrlSlug;
+            subCatalog.SubTopicUrlSlug = routeCategory.SubtopicCategory?.UrlSlug;
+            subCatalog.ThemeUrlSlug = routeCategory.ThemeCategory?.UrlSlug;
 
             if (!topicCategoryIsNull && !subtopicCategoryIsNull && !themeCategoryIsNull)
-            {
-               subCatalog.Categories = store.Categorys.GetAll().Where<Category>(p => p.ParentId == themeCategory.Id && p.BoolArticle == false ).ToList();
-               subCatalog.TopicUrlSlug = topicCategory.UrlSlug;
-               subCatalog.SubTopicUrlSlug = subtopicCategory.UrlSlug;
-               subCatalog.ThemeUrlSlug = themeCategory.UrlSlug;
-            }
+                subCatalog.Categories = store.Categorys.GetAll().Where(p => p.ParentId == routeCategory.ThemeCategory.Id && p.BoolArticle == false ).ToList();
             else if (!topicCategoryIsNull && !subtopicCategoryIsNull)
-            {
-               subCatalog.Categories = store.Categorys.GetAll().Where<Category>(p => p.ParentId == subtopicCategory.Id && p.BoolArticle == false).ToList();
-               subCatalog.TopicUrlSlug = topicCategory.UrlSlug;
-               subCatalog.SubTopicUrlSlug = subtopicCategory.UrlSlug;
-            }
+                subCatalog.Categories = store.Categorys.GetAll().Where(p => p.ParentId == routeCategory.SubtopicCategory.Id && p.BoolArticle == false).ToList();
             else if (!topicCategoryIsNull)
-            {
-               subCatalog.Categories = store.Categorys.GetAll().Where<Category>(p => p.ParentId == topicCategory.Id && p.BoolArticle == false).ToList();
-               subCatalog.TopicUrlSlug = topicCategory.UrlSlug;
-            }
+                subCatalog.Categories = store.Categorys.GetAll().Where(p => p.ParentId == routeCategory.TopicCategory.Id && p.BoolArticle == false).ToList();
             else
-            {
-               subCatalog.Categories = store.Categorys.GetAll().Where(p => p.ParentId == null).ToList();
-            }
-
+                subCatalog.Categories = store.Categorys.GetAll().Where(p => p.ParentId is null).ToList();
+  
             return PartialView("_SubCatalog", subCatalog);
         }
 

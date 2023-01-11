@@ -15,7 +15,7 @@ namespace Store.DAL.Repositories
 
         public PostRepository(ApplicationContext context)
         {
-            this.db = context;
+            db = context;
         }
         public IEnumerable<Post> GetAll()
         {

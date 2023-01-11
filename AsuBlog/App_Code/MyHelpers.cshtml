@@ -4,67 +4,76 @@
 @using System.Web.Routing
 @using PagedList.Mvc;
 
-@helper BreadCrumbsHelper(WebViewPage page, RouteCategoryModel categorys)
+@helper BreadCrumbsHelper(WebViewPage page, RouteCategoryModel categories)
 {
-
- if (categorys.SubthemeCategory != null && categorys.ThemeCategory != null && categorys.SubtopicCategory != null && categorys.TopicCategory != null)
- {
-      <p>
-          @page.Html.ActionLink("Главная", "Index", "Blog") &raquo;
-          <a href="@UrlHelper.GenerateUrl("Catalog4", "catalog", "Blog", new RouteValueDictionary(new { topic = categorys.TopicCategory.UrlSlug }),
-                                            page.Url.RouteCollection, new RequestContext(page.Html.ViewContext.HttpContext, new RouteData()), false)">@categorys.TopicCategory.Name</a>  &raquo;
-          <a href="@UrlHelper.GenerateUrl("Catalog3", "catalog", "Blog", new RouteValueDictionary(new { topic = categorys.TopicCategory.UrlSlug, subtopic = categorys.SubtopicCategory.UrlSlug }),
-                                            page.Url.RouteCollection, new RequestContext(page.Html.ViewContext.HttpContext, new RouteData()), false)">@categorys.SubtopicCategory.Name</a>  &raquo;
-          <a href="@UrlHelper.GenerateUrl("Catalog2", "catalog", "Blog", new RouteValueDictionary(new { topic = categorys.TopicCategory.UrlSlug, subtopic = categorys.SubtopicCategory.UrlSlug, theme = categorys.ThemeCategory.UrlSlug }),
-                                            page.Url.RouteCollection, new RequestContext(page.Html.ViewContext.HttpContext, new RouteData()), false)">@categorys.ThemeCategory.Name</a>  &raquo;
-          @categorys.SubthemeCategory.Name
-      </p>
- }
- else if (categorys.ThemeCategory != null && categorys.SubtopicCategory != null && categorys.TopicCategory != null)
- {
-     <p>
-         @page.Html.ActionLink("Главная", "Index", "Blog") &raquo;
-         <a href="@UrlHelper.GenerateUrl("Catalog4", "catalog", "Blog", new RouteValueDictionary(new { topic = categorys.TopicCategory.UrlSlug }),
-                                        page.Url.RouteCollection, new RequestContext(page.Html.ViewContext.HttpContext, new RouteData()), false)">@categorys.TopicCategory.Name</a>  &raquo;
-         <a href="@UrlHelper.GenerateUrl("Catalog3", "catalog", "Blog", new RouteValueDictionary(new { topic = categorys.TopicCategory.UrlSlug, subtopic = categorys.SubtopicCategory.UrlSlug }),
-                                        page.Url.RouteCollection, new RequestContext(page.Html.ViewContext.HttpContext, new RouteData()), false)">@categorys.SubtopicCategory.Name</a>  &raquo;
-         @categorys.ThemeCategory.Name
-     </p>
- }
- else if (categorys.SubtopicCategory != null && categorys.TopicCategory != null)
- {
-     <p>
-         @page.Html.ActionLink("Главная", "Index", "Blog") &raquo;
-         <a href="@UrlHelper.GenerateUrl("Catalog4", "catalog", "Blog", new RouteValueDictionary(new { topic = categorys.TopicCategory.UrlSlug }),
-                                        page.Url.RouteCollection, new RequestContext(page.Html.ViewContext.HttpContext, new RouteData()), false)">@categorys.TopicCategory.Name</a>  &raquo;
-         @categorys.SubtopicCategory.Name
-    </p>
- }
- else if (categorys.TopicCategory != null)
- {
-     <p>
-         @page.Html.ActionLink("Главная", "Index", "Blog") &raquo;
-         @categorys.TopicCategory.Name
-     </p>
- }
- else
- {
-     <p>
-         @page.Html.ActionLink("Главная", "Index", "Blog")
-     </p>
- }
+  
+    CheckCategoryModel(categories, out bool subthemeCategoryIsNull, 
+                                   out bool themeCategoryIsNull, 
+                                   out bool subtopicCategoryIsNull, 
+                                   out bool topicCategoryIsNull);
+ 
+    if (!subthemeCategoryIsNull && !themeCategoryIsNull && !subtopicCategoryIsNull && !topicCategoryIsNull)
+    {
+        <p>
+            @page.Html.ActionLink("Главная", "Index", "Blog") &raquo;
+            <a href="@UrlHelper.GenerateUrl("Catalog4", "catalog", "Blog", new RouteValueDictionary(new { topic = categories.TopicCategory.UrlSlug }),
+            page.Url.RouteCollection, new RequestContext(page.Html.ViewContext.HttpContext, new RouteData()), false)">@categories.TopicCategory.Name</a>  &raquo;
+            <a href="@UrlHelper.GenerateUrl("Catalog3", "catalog", "Blog", new RouteValueDictionary(new { topic = categories.TopicCategory.UrlSlug, subtopic = categories.SubtopicCategory.UrlSlug }),
+            page.Url.RouteCollection, new RequestContext(page.Html.ViewContext.HttpContext, new RouteData()), false)">@categories.SubtopicCategory.Name</a>  &raquo;
+            <a href="@UrlHelper.GenerateUrl("Catalog2", "catalog", "Blog", new RouteValueDictionary(new { topic = categories.TopicCategory.UrlSlug, subtopic = categories.SubtopicCategory.UrlSlug, theme = categories.ThemeCategory.UrlSlug }),
+            page.Url.RouteCollection, new RequestContext(page.Html.ViewContext.HttpContext, new RouteData()), false)">@categories.ThemeCategory.Name</a>  &raquo;
+            @categories.SubthemeCategory.Name
+         </p>
+    }
+    else if (!themeCategoryIsNull && !subtopicCategoryIsNull && !topicCategoryIsNull)
+    {
+         <p>
+            @page.Html.ActionLink("Главная", "Index", "Blog") &raquo;
+            <a href="@UrlHelper.GenerateUrl("Catalog4", "catalog", "Blog", new RouteValueDictionary(new { topic = categories.TopicCategory.UrlSlug }),
+            page.Url.RouteCollection, new RequestContext(page.Html.ViewContext.HttpContext, new RouteData()), false)">@categories.TopicCategory.Name</a>  &raquo;
+            <a href="@UrlHelper.GenerateUrl("Catalog3", "catalog", "Blog", new RouteValueDictionary(new { topic = categories.TopicCategory.UrlSlug, subtopic = categories.SubtopicCategory.UrlSlug }),
+            page.Url.RouteCollection, new RequestContext(page.Html.ViewContext.HttpContext, new RouteData()), false)">@categories.SubtopicCategory.Name</a>  &raquo;
+            @categories.ThemeCategory.Name
+         </p>
+    }
+    else if (!subtopicCategoryIsNull && !topicCategoryIsNull)
+    {
+         <p>
+            @page.Html.ActionLink("Главная", "Index", "Blog") &raquo;
+            <a href="@UrlHelper.GenerateUrl("Catalog4", "catalog", "Blog", new RouteValueDictionary(new { topic = categories.TopicCategory.UrlSlug }),
+            page.Url.RouteCollection, new RequestContext(page.Html.ViewContext.HttpContext, new RouteData()), false)">@categories.TopicCategory.Name</a>  &raquo;
+            @categories.SubtopicCategory.Name
+         </p>
+    }
+    else if (!topicCategoryIsNull)
+    {
+         <p>
+            @page.Html.ActionLink("Главная", "Index", "Blog") &raquo;
+            @categories.TopicCategory.Name
+         </p>
+    }
+    else
+    {
+         <p>
+            @page.Html.ActionLink("Главная", "Index", "Blog")
+         </p>
+    }
 
 }
 
 @helper PaginationHelperForCatalog(WebViewPage pageMain, PagedList.IPagedList<Store.DAL.Entities.Post> model,
                                     RouteCategoryModel categorys)
 {
-    
+
     <span>Страница @(model.PageCount < model.PageNumber ? 0 : model.PageNumber) из @model.PageCount </span>
     var pageOption = new PagedListRenderOptions();
     pageOption.MaximumPageNumbersToDisplay = 9;
+    CheckCategoryModel(categorys, out bool subthemeCategoryIsNull, 
+                                  out bool themeCategoryIsNull, 
+                                  out bool subtopicCategoryIsNull, 
+                                  out bool topicCategoryIsNull);
 
-    if (categorys.SubtopicCategory != null && categorys.TopicCategory != null && categorys.ThemeCategory != null && categorys.SubthemeCategory != null)
+    if (!subtopicCategoryIsNull && !topicCategoryIsNull && !themeCategoryIsNull && !subthemeCategoryIsNull)
     {
         @pageMain.Html.PagedListPager(model, page => pageMain.Url.Action("catalog",
            new
@@ -76,7 +85,7 @@
                page
            }), pageOption);
     }
-    else if (categorys.SubtopicCategory != null && categorys.TopicCategory != null && categorys.ThemeCategory != null)
+    else if (!subtopicCategoryIsNull && !topicCategoryIsNull && !themeCategoryIsNull)
     {
         @pageMain.Html.PagedListPager(model, page => pageMain.Url.Action("catalog",
             new
@@ -87,11 +96,11 @@
                 page
             }), pageOption);
     }
-    else if (categorys.SubtopicCategory != null && categorys.TopicCategory != null)
+    else if (!subtopicCategoryIsNull && !topicCategoryIsNull)
     {
         @pageMain.Html.PagedListPager(model, page => pageMain.Url.Action("catalog", new { topic = categorys.TopicCategory.UrlSlug, subtopic = categorys.SubtopicCategory.UrlSlug, page }), pageOption);
     }
-    else if (categorys.TopicCategory != null)
+    else if (!topicCategoryIsNull)
     {
         @pageMain.Html.PagedListPager(model, page => pageMain.Url.Action("catalog", new { topic = categorys.TopicCategory.UrlSlug, page }), pageOption);
     }
@@ -100,4 +109,18 @@
         @pageMain.Html.PagedListPager(model, page => pageMain.Url.Action("catalog", new { page }));
     }
 
- }
+}
+
+@functions
+{   
+    static void CheckCategoryModel(RouteCategoryModel categories, out bool subthemeCategoryIsNull, 
+                                                                  out bool themeCategoryIsNull, 
+                                                                  out bool subtopicCategoryIsNull,
+                                                                  out bool topicCategoryIsNull)
+    {
+        subthemeCategoryIsNull = categories.SubthemeCategory is null;
+        themeCategoryIsNull = categories.ThemeCategory is null;
+        subtopicCategoryIsNull = categories.SubtopicCategory is null;
+        topicCategoryIsNull = categories.TopicCategory is null;
+    }
+}

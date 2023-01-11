@@ -14,7 +14,7 @@ namespace Store.DAL.Repositories
 
         public CategoryRepository(ApplicationContext context)
         {
-            this.db = context;
+            db = context;
         }
         public IEnumerable<Category> GetAll()
         {
