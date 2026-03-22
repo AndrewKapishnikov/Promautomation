@@ -4,14 +4,32 @@
 ////    $svg_anm.fadeOut();
 ////    $preloader.delay(500).fadeOut('slow');
 ////});
+const preloadMethod = function () {
+    let $preloader = $('#animbox');
+    let session = sessionStorage.getItem("preloader");
+    if (session === "exist") 
+       $preloader.remove();
+}
 
+preloadMethod();
+const preloader = function () {
+    let $preloader = $('#animbox');
+    let session = sessionStorage.getItem("preloader");
+    if (session === "exist") {
+        //$preloader.hide();
+        //$preloader.remove();
+        //$preloader.css('display', 'none');
+        return;
+    }
+    sessionStorage.setItem("preloader", "exist");
+    $svg_anm = $preloader.find('.svg_anm');
+    $svg_anm.fadeOut();
+    $preloader.delay(500).fadeOut('slow');
+}
 
 //Collapse TreeView
 $(document).ready(function () {
-    var $preloader = $('#animbox'),
-        $svg_anm = $preloader.find('.svg_anm');
-    $svg_anm.fadeOut();
-    $preloader.delay(500).fadeOut('slow');
+    preloader();
 
     //$(".navbar-collapse").collapse('hide');
     $(".treeview li>ul>li>ul").css('display', 'none'); // Hide all 2-level ul 
@@ -120,3 +138,4 @@ $(document).ready(function () {
   
 
 });
+

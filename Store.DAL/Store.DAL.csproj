@@ -132,15 +132,19 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202004291654051_AddPostTagCategory.resx">
       <DependentUpon>202004291654051_AddPostTagCategory.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005281821233_AddImagePathtoPost.resx">
       <DependentUpon>202005281821233_AddImagePathtoPost.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006021306457_AddVisits.resx">
       <DependentUpon>202006021306457_AddVisits.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006141826015_AddChats.resx">
       <DependentUpon>202006141826015_AddChats.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
